@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>东南亚热点新闻监控 - 2026年4月29日</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+        }
+        header h1 { font-size: 2.5rem; text-align: center; margin-bottom: 10px; }
+        header .subtitle { text-align: center; font-size: 1.1rem; opacity: 0.9; }
+        .filter-section {
+            background: #1e293b; padding: 20px; border-radius: 12px; margin-bottom: 20px;
+            border: 1px solid #334155;
+        }
+        .filter-row {
+            display: flex; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; align-items: center;
+        }
+        .filter-row:last-child { margin-bottom: 0; }
+        .filter-label { font-weight: 600; min-width: 80px; color: #94a3b8; }
+        .filter-btn {
+            padding: 8px 16px; border: 2px solid #475569; background: #1e293b; color: #e2e8f0;
+            border-radius: 8px; cursor: pointer; font-size: 0.9rem; transition: all 0.3s; white-space: nowrap;
+        }
+        .filter-btn:hover { border-color: #667eea; background: #334155; }
+        .filter-btn.active { background: #667eea; border-color: #667eea; color: white; }
+        .filter-btn.category-btn[data-cat="gaming"] { border-color: #8b5cf6; }
+        .filter-btn.category-btn[data-cat="gaming"].active { background: #8b5cf6; border-color: #8b5cf6; }
+        .filter-btn.category-btn[data-cat="entertainment"] { border-color: #10b981; }
+        .filter-btn.category-btn[data-cat="entertainment"].active { background: #10b981; border-color: #10b981; }
+        .filter-btn.category-btn[data-cat="social-challenge"] { border-color: #3b82f6; }
+        .filter-btn.category-btn[data-cat="social-challenge"].active { background: #3b82f6; border-color: #3b82f6; }
+        .filter-btn.category-btn[data-cat="horror"] { border-color: #ef4444; }
+        .filter-btn.category-btn[data-cat="horror"].active { background: #ef4444; border-color: #ef4444; }
+        .filter-btn.category-btn[data-cat="light-horror"] { border-color: #f97316; }
+        .filter-btn.category-btn[data-cat="light-horror"].active { background: #f97316; border-color: #f97316; }
+        .filter-btn.category-btn[data-cat="meme"] { border-color: #f59e0b; }
+        .filter-btn.category-btn[data-cat="meme"].active { background: #f59e0b; border-color: #f59e0b; }
+        .filter-btn.category-btn[data-cat="music-meme"] { border-color: #ec4899; }
+        .filter-btn.category-btn[data-cat="music-meme"].active { background: #ec4899; border-color: #ec4899; }
+        .filter-btn.category-btn[data-cat="movie"] { border-color: #6366f1; }
+        .filter-btn.category-btn[data-cat="movie"].active { background: #6366f1; border-color: #6366f1; }
+        .filter-btn.category-btn[data-cat="animation"] { border-color: #14b8a6; }
+        .filter-btn.category-btn[data-cat="animation"].active { background: #14b8a6; border-color: #14b8a6; }
+        .filter-btn.category-btn[data-cat="other"] { border-color: #64748b; }
+        .filter-btn.category-btn[data-cat="other"].active { background: #64748b; border-color: #64748b; }
+        .results-info {
+            background: #334155; padding: 12px 16px; border-radius: 8px; margin-bottom: 20px;
+            display: flex; align-items: center; gap: 12px; font-size: 0.9rem;
+        }
+        .results-info .count { color: #60a5fa; font-weight: 600; }
+        .results-info .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+        .results-info .tag {
+            padding: 4px 10px; border-radius: 12px; font-size: 0.8rem;
+            background: #475569; color: #e2e8f0;
+        }
+        .grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 20px; margin-bottom: 30px;
+        }
+        .card {
+            background: #1e293b; border-radius: 12px; padding: 20px; border: 1px solid #334155;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); }
+        .card-header {
+            display: flex; align-items: center; gap: 12px; margin-bottom: 15px;
+            padding-bottom: 12px; border-bottom: 2px solid #334155;
+        }
+        .platform-icon {
+            width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center;
+            justify-content: center; font-size: 1.3rem; font-weight: bold;
+        }
+        .google { background: #4285F4; }
+        .tiktok { background: #000; border: 1px solid #25F4EE; }
+        .twitter { background: #1DA1F2; }
+        .facebook { background: #1877F2; }
+        .news { background: #ef4444; }
+        .card-title { font-size: 1.2rem; font-weight: 600; }
+        .card-country {
+            font-size: 0.85rem; padding: 4px 10px; background: #334155;
+            border-radius: 15px; margin-left: auto;
+        }
+        .card-category {
+            font-size: 0.75rem; padding: 3px 8px; border-radius: 10px;
+            margin-left: 8px;
+        }
+        .card-category.gaming { background: #8b5cf6; color: white; }
+        .card-category.entertainment { background: #10b981; color: white; }
+        .card-category.social-challenge { background: #3b82f6; color: white; }
+        .card-category.horror { background: #ef4444; color: white; }
+        .card-category.light-horror { background: #f97316; color: white; }
+        .card-category.meme { background: #f59e0b; color: white; }
+        .card-category.music-meme { background: #ec4899; color: white; }
+        .card-category.movie { background: #6366f1; color: white; }
+        .card-category.animation { background: #14b8a6; color: white; }
+        .card-category.other { background: #64748b; color: white; }
+        .topic-list { list-style: none; }
+        .topic-item {
+            padding: 12px 15px; margin-bottom: 8px; background: #0f172a; border-radius: 8px;
+            display: flex; align-items: center; gap: 10px; transition: background 0.2s;
+        }
+        .topic-item:hover { background: #1e3a5f; }
+        .rank {
+            font-size: 0.9rem; font-weight: bold; color: #64748b; min-width: 25px; text-align: center;
+        }
+        .topic-content { flex: 1; min-width: 0; }
+        .topic-original {
+            font-size: 0.95rem; color: #e2e8f0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .topic-translation {
+            font-size: 0.8rem; color: #94a3b8; margin-top: 2px;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .topic-description {
+            font-size: 0.8rem; color: #60a5fa; margin-top: 4px;
+            line-height: 1.4;
+        }
+        .topic-link {
+            display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px;
+            background: #334155; color: #60a5fa; border-radius: 6px; text-decoration: none;
+            font-size: 0.75rem; white-space: nowrap; transition: all 0.2s; flex-shrink: 0;
+        }
+        .topic-link:hover { background: #475569; color: #93c5fd; }
+        .topic-link svg { width: 12px; height: 12px; }
+        .volume {
+            font-size: 0.8rem; padding: 3px 8px; background: #10b981; color: white;
+            border-radius: 12px; white-space: nowrap; flex-shrink: 0;
+        }
+        .volume.high { background: #ef4444; }
+        .volume.medium { background: #f59e0b; }
+        .footer {
+            text-align: center; padding: 20px; color: #64748b; font-size: 0.85rem;
+            margin-top: 40px; border-top: 1px solid #334155;
+        }
+        .hidden { display: none; }
+        .no-results {
+            text-align: center; padding: 60px 20px; color: #64748b;
+        }
+        .no-results svg { width: 80px; height: 80px; margin-bottom: 20px; opacity: 0.5; }
+        .no-results h3 { font-size: 1.3rem; margin-bottom: 10px; color: #94a3b8; }
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8rem; }
+            .filter-row { flex-direction: column; align-items: flex-start; }
+            .topic-item { flex-wrap: wrap; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>东南亚热点新闻监控</h1>
+        <p class="subtitle">印尼 · 泰国 · 菲律宾 · 全部 | TikTok · X · Facebook · Google | 2026年4月29日</p>
+    </header>
+    
+    <div class="container">
+        <div class="filter-section">
+            <div class="filter-row">
+                <span class="filter-label">平台筛选：</span>
+                <button class="filter-btn active" onclick="filterPlatform('all')">全部</button>
+                <button class="filter-btn" onclick="filterPlatform('google')">Google</button>
+                <button class="filter-btn" onclick="filterPlatform('tiktok')">TikTok</button>
+                <button class="filter-btn" onclick="filterPlatform('twitter')">X</button>
+                <button class="filter-btn" onclick="filterPlatform('facebook')">Facebook</button>
+            </div>
+            <div class="filter-row">
+                <span class="filter-label">国家：</span>
+                <button class="filter-btn active" onclick="filterCountry('all')">全部</button>
+                <button class="filter-btn" onclick="filterCountry('id')">印尼</button>
+                <button class="filter-btn" onclick="filterCountry('th')">泰国</button>
+                <button class="filter-btn" onclick="filterCountry('ph')">菲律宾</button>
+            </div>
+            <div class="filter-row">
+                <span class="filter-label">内容类型：</span>
+                <button class="filter-btn category-btn active" data-cat="all" onclick="filterCategory('all')">全部</button>
+                <button class="filter-btn category-btn" data-cat="gaming" onclick="filterCategory('gaming')">游戏</button>
+                <button class="filter-btn category-btn" data-cat="entertainment" onclick="filterCategory('entertainment')">轻娱乐</button>
+                <button class="filter-btn category-btn" data-cat="social-challenge" onclick="filterCategory('social-challenge')">社交挑战</button>
+                <button class="filter-btn category-btn" data-cat="horror" onclick="filterCategory('horror')">恐怖</button>
+                <button class="filter-btn category-btn" data-cat="light-horror" onclick="filterCategory('light-horror')">泛恐怖</button>
+                <button class="filter-btn category-btn" data-cat="meme" onclick="filterCategory('meme')">剧情梗</button>
+                <button class="filter-btn category-btn" data-cat="music-meme" onclick="filterCategory('music-meme')">音乐梗</button>
+                <button class="filter-btn category-btn" data-cat="movie" onclick="filterCategory('movie')">影视</button>
+                <button class="filter-btn category-btn" data-cat="animation" onclick="filterCategory('animation')">动画</button>
+                <button class="filter-btn category-btn" data-cat="other" onclick="filterCategory('other')">其他</button>
+            </div>
+        </div>
+
+        <div class="results-info" id="results-info">
+            <span>显示 <span class="count" id="result-count">0</span> 个结果</span>
+            <div class="tags" id="active-tags"></div>
+        </div>
+
+        <div class="grid" id="cards-container">
+        </div>
+
+        <div class="no-results hidden" id="no-results">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <h3>未找到匹配的结果</h3>
+            <p>请尝试调整筛选条件</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>数据来源: Google Trends · trends24.in · getdaytrends · tokchart.com · 各大新闻平台</p>
+        <p>更新时间: 2026年4月29日 08:00 (UTC+8) | 数据仅供参考</p>
+    </div>
+
+    <script>
+        const allData = [
+            // Google - 印尼
+            {
+                platform: 'google', country: 'id', countryName: '印尼',
+                title: 'Google Trends - 印尼',
+                category: 'gaming', categoryName: '游戏',
+                topics: [
+                    { rank: 1, original: 'Mobile Legends M8 World Championship', translation: '（MLBB M8世界锦标赛 东南亚电竞盛事）', description: '东南亚规模最大的移动端MOBA职业电竞赛事，汇聚各国顶尖战队', volume: '热门', link: 'https://www.google.com/search?q=Mobile+Legends+M8+World+Championship+2026' },
+                    { rank: 2, original: 'Dreadout 3', translation: '（印尼恐怖游戏续作 2026年发售）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.google.com/search?q=Dreadout+3+Indonesia+game+2026' },
+                    { rank: 3, original: 'PUBG Mobile Challengers League SEA 2026', translation: '（PUBG Mobile挑战者联赛东南亚2026春季）', description: '热门战术竞技手游PUBG Mobile相关赛事更新或玩法内容', volume: '热门', link: 'https://www.google.com/search?q=PUBG+Mobile+Challengers+League+SEA+2026' },
+                    { rank: 4, original: 'Esports Championships Asia 2026', translation: '（亚洲电竞锦标赛2026 7国6项目）', description: '东南亚地区的电子竞技赛事活动或行业动态信息', volume: '500+', link: 'https://www.google.com/search?q=Esports+Championships+Asia+2026' },
+                    { rank: 5, original: 'Indonesia Gaming Industry 2026', translation: '（印尼游戏产业2026 创意经济部支持）', description: '东南亚游戏产业的市场规模、发展趋势或政策动态', volume: '200+', link: 'https://www.google.com/search?q=Indonesia+gaming+industry+2026' },
+                ]
+            },
+            {
+                platform: 'google', country: 'id', countryName: '印尼',
+                title: 'Google Trends - 印尼',
+                category: 'entertainment', categoryName: '轻娱乐',
+                topics: [
+                    { rank: 1, original: 'No Na Girl Group Viral', translation: '（印尼新晋女团 viral社交媒体）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.google.com/search?q=No+Na+Indonesian+girl+group+viral' },
+                    { rank: 2, original: 'Mobile Apps Entertainment Indonesia', translation: '（移动应用重塑印尼娱乐生活2026）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.google.com/search?q=Mobile+apps+entertainment+Indonesia+2026' },
+                    { rank: 3, original: 'Social Media Ban Impact Children', translation: '（社交媒体禁令影响儿童学习娱乐）', description: '开放世界冒险游戏原神的版本更新或角色活动内容', volume: '500+', link: 'https://www.google.com/search?q=Indonesia+social+media+ban+children+2026' },
+                    { rank: 4, original: 'YouTube Reprimand Indonesia', translation: '（印尼警告YouTube内容违规）', description: '监管机构对网络平台内容管理的执法行动或政策动态', volume: '200+', link: 'https://www.google.com/search?q=Indonesia+YouTube+reprimand+2026' },
+                ]
+            },
+            {
+                platform: 'google', country: 'id', countryName: '印尼',
+                title: 'Google Trends - 印尼',
+                category: 'horror', categoryName: '恐怖',
+                topics: [
+                    { rank: 1, original: 'Ghost in the Cell', translation: '（Joko Anwar恐怖喜剧 6天破100万观众）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.google.com/search?q=Ghost+in+the+Cell+Joko+Anwar+2026' },
+                    { rank: 2, original: 'They Will Kill You Film', translation: '（2026印尼恐怖电影）', description: '当地制作的恐怖题材电影作品及其上映信息和观众评价', volume: '200+', link: 'https://www.google.com/search?q=They+Will+Kill+You+horror+movie+Indonesia+2026' },
+                    { rank: 3, original: 'Film Horror Indonesia 2026', translation: '（2026印尼恐怖片）', description: '当地制作的恐怖题材电影作品及其上映信息和观众评价', volume: '100+', link: 'https://www.google.com/search?q=Indonesian+horror+films+2026' },
+                    { rank: 4, original: 'Pontianak Legend', translation: '（印尼吸血鬼传说）', description: '印尼民间传说中的吸血女鬼形象，以恐怖故事形式广泛传播', volume: '100+', link: 'https://www.google.com/search?q=Pontianak+Indonesian+vampire+legend' },
+                ]
+            },
+            {
+                platform: 'google', country: 'id', countryName: '印尼',
+                title: 'Google Trends - 印尼',
+                category: 'light-horror', categoryName: '泛恐怖',
+                topics: [
+                    { rank: 1, original: 'Ghost in the Cell', translation: '（Joko Anwar恐怖喜剧 轻恐怖风）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.google.com/search?q=Ghost+in+the+Cell+Joko+Anwar+light+horror' },
+                    { rank: 2, original: 'Indonesian Urban Legends', translation: '（印尼都市传说）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '200+', link: 'https://www.google.com/search?q=Indonesian+urban+legends+2026' },
+                ]
+            },
+            {
+                platform: 'google', country: 'id', countryName: '印尼',
+                title: 'Google Trends - 印尼',
+                category: 'animation', categoryName: '动画',
+                topics: [
+                    { rank: 1, original: 'Jumbo Film Animasi', translation: '（印尼动画电影Jumbo 票房最高）', description: '印尼本土制作的动画电影Jumbo，讲述大象冒险故事，创下印尼动画电影票房纪录', volume: '热门', link: 'https://www.google.com/search?q=Jumbo+Indonesian+animated+film+2026' },
+                    { rank: 2, original: 'Anime Indonesia 2026', translation: '（印尼动漫趋势）', description: '印尼动漫迷讨论的热门作品，当前以《Re:从零开始》《实力至上教室》《尖帽子魔法工坊》春季新番为主流', volume: '500+', link: 'https://www.google.com/search?q=Indonesian+anime+2026' },
+                ]
+            },
+            {
+                platform: 'google', country: 'id', countryName: '印尼',
+                title: 'Google Trends - 印尼',
+                category: 'social-challenge', categoryName: '社交挑战',
+                topics: [
+                    { rank: 1, original: 'TikTok Dance Challenge Indonesia', translation: '（印尼TikTok舞蹈挑战）', description: '当地TikTok用户广泛参与的 viral 舞蹈挑战，当前以巴西桑巴舞步和热门K-pop翻跳为主导', volume: '500+', link: 'https://www.google.com/search?q=TikTok+dance+challenge+Indonesia+2026' },
+                    { rank: 2, original: 'Viral Challenge Indonesia 2026', translation: '（2026印尼病毒式挑战）', description: '社交媒体平台上用户广泛参与的创意互动挑战活动', volume: '200+', link: 'https://www.google.com/search?q=Viral+challenge+Indonesia+2026' },
+                ]
+            },
+            {
+                platform: 'google', country: 'id', countryName: '印尼',
+                title: 'Google Trends - 印尼',
+                category: 'meme', categoryName: '剧情梗',
+                topics: [
+                    { rank: 1, original: 'Meme Indonesia Viral 2026', translation: '（2026印尼病毒梗）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '200+', link: 'https://www.google.com/search?q=Meme+Indonesia+viral+2026' },
+                    { rank: 2, original: 'Komika Indonesia Trending', translation: '（印尼喜剧演员趋势）', description: '当地喜剧演员的单口相声表演或搞笑短视频内容', volume: '100+', link: 'https://www.google.com/search?q=Komika+Indonesia+trending' },
+                ]
+            },
+            {
+                platform: 'google', country: 'id', countryName: '印尼',
+                title: 'Google Trends - 印尼',
+                category: 'music-meme', categoryName: '音乐梗',
+                topics: [
+                    { rank: 1, original: 'Lagu Viral TikTok Indonesia', translation: '（印尼TikTok病毒歌曲）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '500+', link: 'https://www.google.com/search?q=Lagu+viral+TikTok+Indonesia+2026' },
+                    { rank: 2, original: 'Dangdut Remix 2026', translation: '（2026 Dangdut混音）', description: '印尼传统音乐Dangdut与现代电子音乐融合的混音作品', volume: '200+', link: 'https://www.google.com/search?q=Dangdut+remix+2026' },
+                ]
+            },
+            {
+                platform: 'google', country: 'id', countryName: '印尼',
+                title: 'Google Trends - 印尼',
+                category: 'movie', categoryName: '影视',
+                topics: [
+                    { rank: 1, original: 'Ghost in the Cell', translation: '（Joko Anwar新作 发行86国）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.google.com/search?q=Ghost+in+the+Cell+Joko+Anwar+2026' },
+                    { rank: 2, original: 'Film Indonesia 2026', translation: '（2026印尼电影）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '500+', link: 'https://www.google.com/search?q=Film+Indonesia+2026' },
+                    { rank: 3, original: 'Jumbo Animated Film', translation: '（Jumbo动画电影 票房冠军）', description: '印尼本土制作的动画电影Jumbo，讲述大象冒险故事，创下印尼动画电影票房纪录', volume: '200+', link: 'https://www.google.com/search?q=Jumbo+Indonesian+animated+film+2026' },
+                ]
+            },
+            {
+                platform: 'google', country: 'id', countryName: '印尼',
+                title: 'Google Trends - 印尼',
+                category: 'other', categoryName: '其他',
+                topics: [
+                    { rank: 1, original: 'Berita Hari Ini Indonesia', translation: '（印尼今日新闻）', description: '当地主流媒体的每日头条新闻和重大事件报道', volume: '1000+', link: 'https://www.google.com/search?q=Berita+hari+ini+Indonesia' },
+                    { rank: 2, original: 'Cuaca Jakarta Hari Ini', translation: '（雅加达今日天气）', description: '当地居民关注的实时天气预报和气象预警信息', volume: '500+', link: 'https://www.google.com/search?q=Cuaca+Jakarta+hari+ini' },
+                ]
+            },
+            // Google - 泰国
+            {
+                platform: 'google', country: 'th', countryName: '泰国',
+                title: 'Google Trends - 泰国',
+                category: 'gaming', categoryName: '游戏',
+                topics: [
+                    { rank: 1, original: 'ROV Pro League 2026', translation: '（传说对决职业联赛）', description: '泰国及东南亚地区热门的MOBA手游传说对决相关内容', volume: '1000+', link: 'https://www.google.com/search?q=ROV+Pro+League+2026+Thailand' },
+                    { rank: 2, original: 'Free Fire MAX Update', translation: '（Free Fire MAX更新）', description: '东南亚地区热门的移动端战术竞技游戏相关内容', volume: '500+', link: 'https://www.google.com/search?q=Free+Fire+MAX+Thailand+2026' },
+                    { rank: 3, original: 'Valorant Thailand', translation: '（瓦罗兰特泰国）', description: '拳头游戏出品的战术射击游戏在当地的赛事和社区动态', volume: '200+', link: 'https://www.google.com/search?q=Valorant+Thailand+2026' },
+                ]
+            },
+            {
+                platform: 'google', country: 'th', countryName: '泰国',
+                title: 'Google Trends - 泰国',
+                category: 'entertainment', categoryName: '轻娱乐',
+                topics: [
+                    { rank: 1, original: 'ราคาทอง 1 บาท วันนี้2569', translation: '（今日金价）', description: '与投资和生活成本相关的贵金属实时价格信息查询热点', volume: '1000+', link: 'https://www.google.com/search?q=ราคาทอง+วันนี้' },
+                    { rank: 2, original: 'เอเชียนบีชเกมส์ 2026', translation: '（2026亚洲海滩运动会）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '1000+', link: 'https://www.google.com/search?q=Asian+Beach+Games+2026' },
+                    { rank: 3, original: 'ละครใหม่ 2026', translation: '（2026新泰剧）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '500+', link: 'https://www.google.com/search?q=Thai+drama+2026+new' },
+                    { rank: 4, original: 'concert Bangkok April', translation: '（曼谷演唱会）', description: '热门旅游目的地的打卡攻略、景点推荐或旅行体验分享', volume: '200+', link: 'https://www.google.com/search?q=Bangkok+concert+April+2026' },
+                ]
+            },
+            {
+                platform: 'google', country: 'th', countryName: '泰国',
+                title: 'Google Trends - 泰国',
+                category: 'movie', categoryName: '影视',
+                topics: [
+                    { rank: 1, original: 'Netflix Thailand Delusion', translation: '（Netflix泰国 Delusion惊悚剧）', description: 'Netflix平台在泰国上线的原创剧集或电影片单', volume: '热门', link: 'https://www.google.com/search?q=Netflix+Thailand+Delusion+2026' },
+                    { rank: 2, original: 'นทีร้อยเล่ห์ ตอนที่6', translation: '（泰剧第6集 热议）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '1000+', link: 'https://www.google.com/search?q=นทีร้อยเล่ห์+ตอนที่6' },
+                    { rank: 3, original: 'ภาพยนตร์ไทย 2026', translation: '（2026泰国电影）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '500+', link: 'https://www.google.com/search?q=Thai+movie+2026' },
+                ]
+            },
+            {
+                platform: 'google', country: 'th', countryName: '泰国',
+                title: 'Google Trends - 泰国',
+                category: 'horror', categoryName: '恐怖',
+                topics: [
+                    { rank: 1, original: 'ผีมาลี Phee Malee', translation: '（泰国美丽女鬼 预告片 viral）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.google.com/search?q=ผีมาลี+Phee+Malee+Thailand+2026' },
+                    { rank: 2, original: 'Thai Horror Films 2026', translation: '（2026泰国恐怖电影 6部霸榜作品）', description: '当地制作的恐怖题材电影作品及其上映信息和观众评价', volume: '1000+', link: 'https://www.google.com/search?q=Thai+horror+films+2026' },
+                    { rank: 3, original: 'The Medium 2026 Thailand', translation: '（萨满/灵媒 泰国恐怖电影）', description: '以泰国民间信仰和萨满文化为背景的恐怖电影作品', volume: '500+', link: 'https://www.google.com/search?q=The+Medium+Thai+horror+2026' },
+                    { rank: 4, original: 'Death Whisperer 3', translation: '（死亡低语者3 动作恐怖）', description: '以真实民间传说为基础的泰国恐怖电影系列续作', volume: '500+', link: 'https://www.google.com/search?q=Death+Whisperer+3+2026+Thai' },
+                ]
+            },
+            {
+                platform: 'google', country: 'th', countryName: '泰国',
+                title: 'Google Trends - 泰国',
+                category: 'light-horror', categoryName: '泛恐怖',
+                topics: [
+                    { rank: 1, original: 'ผีมาลี Ghost Malee', translation: '（美丽女鬼 trending泰国社交媒体）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.google.com/search?q=ผีมาลี+Ghost+Malee+Thailand' },
+                    { rank: 2, original: 'Rakhi The Stain 2026', translation: '（污渍2026 美丽鬼魂恐怖电影）', description: '泰国恐怖电影重制版，以美丽女鬼形象为特色的惊悚作品', volume: '500+', link: 'https://www.google.com/search?q=Rakhi+The+Stain+2026+Thai' },
+                    { rank: 3, original: 'Kidan Piece of Darkness', translation: '（黑暗片段 日本恐怖电影泰国上映）', description: '日本恐怖电影在泰国院线的上映信息和观众讨论', volume: '200+', link: 'https://www.google.com/search?q=Kidan+Piece+of+Darkness+Thailand' },
+                ]
+            },
+            {
+                platform: 'google', country: 'th', countryName: '泰国',
+                title: 'Google Trends - 泰国',
+                category: 'social-challenge', categoryName: '社交挑战',
+                topics: [
+                    { rank: 1, original: 'Thai TikTok Dance Challenge', translation: '（泰国TikTok舞蹈挑战）', description: 'TikTok平台上用户跟随热门音乐编排创意舞蹈动作并上传视频参与的热门挑战，当前主流为巴西舞趋势', volume: '500+', link: 'https://www.google.com/search?q=Thai+TikTok+dance+challenge+2026' },
+                    { rank: 2, original: 'Viral Challenge Thailand', translation: '（泰国病毒挑战）', description: '社交媒体平台上用户广泛参与的创意互动挑战活动', volume: '200+', link: 'https://www.google.com/search?q=Viral+challenge+Thailand+2026' },
+                ]
+            },
+            {
+                platform: 'google', country: 'th', countryName: '泰国',
+                title: 'Google Trends - 泰国',
+                category: 'meme', categoryName: '剧情梗',
+                topics: [
+                    { rank: 1, original: 'มีมไทย ไวรัล 2026', translation: '（2026泰国病毒梗）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '200+', link: 'https://www.google.com/search?q=มีม+ไทย+ไวรัล+2026' },
+                    { rank: 2, original: 'ละครดังกระแสโซเชียล', translation: '（社交网络热议泰剧）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '500+', link: 'https://www.google.com/search?q=Thai+drama+social+viral' },
+                ]
+            },
+            {
+                platform: 'google', country: 'th', countryName: '泰国',
+                title: 'Google Trends - 泰国',
+                category: 'music-meme', categoryName: '音乐梗',
+                topics: [
+                    { rank: 1, original: 'เพลงไทย ไวรัล TikTok', translation: '（泰国TikTok病毒歌曲）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '500+', link: 'https://www.google.com/search?q=เพลง+ไทย+viral+TikTok' },
+                    { rank: 2, original: 'T-Pop Trending 2026', translation: '（2026 T-Pop趋势）', description: '泰国本土流行音乐产业的最新作品和歌手动态', volume: '200+', link: 'https://www.google.com/search?q=T-Pop+trending+2026' },
+                ]
+            },
+            {
+                platform: 'google', country: 'th', countryName: '泰国',
+                title: 'Google Trends - 泰国',
+                category: 'animation', categoryName: '动画',
+                topics: [
+                    { rank: 1, original: 'อนิเมะ มาแรง 2026', translation: '（2026热门动漫）', description: '日本动漫作品相关的热门讨论、同人创作或角色话题', volume: '500+', link: 'https://www.google.com/search?q=อนิเมะ+มาแรง+2026' },
+                    { rank: 2, original: 'การ์ตูนไทย 2026', translation: '（2026泰国动画）', description: '日本动漫作品相关的热门讨论、同人创作或角色话题', volume: '200+', link: 'https://www.google.com/search?q=Thai+animation+2026' },
+                ]
+            },
+            {
+                platform: 'google', country: 'th', countryName: '泰国',
+                title: 'Google Trends - 泰国',
+                category: 'other', categoryName: '其他',
+                topics: [
+                    { rank: 1, original: 'ข่าววันนี้ ไทย', translation: '（泰国今日新闻）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '1000+', link: 'https://www.google.com/search?q=ข่าววันนี้+ไทย' },
+                    { rank: 2, original: 'สภาพอากาศ กรุงเทพ', translation: '（曼谷天气）', description: '当地居民关注的实时天气预报和气象预警信息', volume: '500+', link: 'https://www.google.com/search?q=สภาพอากาศ+กรุงเทพ' },
+                ]
+            },
+            // Google - 菲律宾
+            {
+                platform: 'google', country: 'ph', countryName: '菲律宾',
+                title: 'Google Trends - 菲律宾',
+                category: 'gaming', categoryName: '游戏',
+                topics: [
+                    { rank: 1, original: 'Mobile Legends Philippines', translation: '（Mobile Legends菲律宾 MPL S17）', description: '东南亚规模最大的移动端MOBA职业电竞赛事，汇聚各国顶尖战队', volume: '2000+', link: 'https://www.google.com/search?q=Mobile+Legends+Philippines+MPL+S17+2026' },
+                    { rank: 2, original: 'PUBG Mobile PH Server', translation: '（PUBG Mobile菲律宾服务器）', description: '热门战术竞技手游PUBG Mobile相关赛事更新或玩法内容', volume: '1000+', link: 'https://www.google.com/search?q=PUBG+Mobile+Philippines+2026' },
+                    { rank: 3, original: 'Valorant PH Esports', translation: '（瓦罗兰特菲律宾电竞）', description: '拳头游戏出品的战术射击游戏在当地的赛事和社区动态', volume: '500+', link: 'https://www.google.com/search?q=Valorant+Philippines+esports+2026' },
+                ]
+            },
+            {
+                platform: 'google', country: 'ph', countryName: '菲律宾',
+                title: 'Google Trends - 菲律宾',
+                category: 'entertainment', categoryName: '轻娱乐',
+                topics: [
+                    { rank: 1, original: 'BINI Coachella Historic Debut', translation: '（BINI创造历史 首个菲律宾科切拉演出）', description: '菲律宾流行音乐团体BINI或SB19的最新动态和粉丝互动', volume: '热门', link: 'https://www.google.com/search?q=BINI+Coachella+historic+debut+2026' },
+                    { rank: 2, original: 'cebu pacific seat sale', translation: '（宿务太平洋航空促销）', description: '菲律宾廉价航空公司的机票促销活动或旅行优惠信息', volume: '2000+', link: 'https://www.google.com/search?q=Cebu+Pacific+seat+sale+2026' },
+                    { rank: 3, original: 'P-Pop Concert 2026', translation: '（P-Pop演唱会）', description: '菲律宾流行音乐产业的发展趋势和代表团体的最新作品', volume: '500+', link: 'https://www.google.com/search?q=P-Pop+concert+Philippines+2026' },
+                    { rank: 4, original: 'Summer Festival PH', translation: '（菲律宾夏日祭）', description: '当地季节性节日活动或夏日生活方式的相关分享', volume: '200+', link: 'https://www.google.com/search?q=Summer+Festival+Philippines+2026' },
+                ]
+            },
+            {
+                platform: 'google', country: 'ph', countryName: '菲律宾',
+                title: 'Google Trends - 菲律宾',
+                category: 'music-meme', categoryName: '音乐梗',
+                topics: [
+                    { rank: 1, original: 'BINI Coachella 2026', translation: '（BINI科切拉首秀 首个菲律宾艺人）', description: '菲律宾流行音乐团体BINI或SB19的最新动态和粉丝互动', volume: '热门', link: 'https://www.google.com/search?q=BINI+Coachella+2026+Philippines' },
+                    { rank: 2, original: 'P-Pop Global Moment', translation: '（P-Pop全球热潮 BINI引领）', description: '菲律宾流行音乐产业的发展趋势和代表团体的最新作品', volume: '热门', link: 'https://www.google.com/search?q=P-Pop+Global+Moment+BINI+2026' },
+                    { rank: 3, original: 'Song of the Summer PH', translation: '（菲律宾夏日之歌）', description: '当地季节性节日活动或夏日生活方式的相关分享', volume: '500+', link: 'https://www.google.com/search?q=Song+of+the+Summer+Philippines+2026' },
+                ]
+            },
+            {
+                platform: 'google', country: 'ph', countryName: '菲律宾',
+                title: 'Google Trends - 菲律宾',
+                category: 'movie', categoryName: '影视',
+                topics: [
+                    { rank: 1, original: 'Filipino Horror Movie 2026', translation: '（2026菲律宾恐怖电影）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '500+', link: 'https://www.google.com/search?q=Filipino+horror+movie+2026' },
+                    { rank: 2, original: 'Metro Manila Film Festival', translation: '（马尼拉大都会电影节）', description: '当地季节性节日活动或夏日生活方式的相关分享', volume: '200+', link: 'https://www.google.com/search?q=Metro+Manila+Film+Festival+2026' },
+                ]
+            },
+            {
+                platform: 'google', country: 'ph', countryName: '菲律宾',
+                title: 'Google Trends - 菲律宾',
+                category: 'horror', categoryName: '恐怖',
+                topics: [
+                    { rank: 1, original: 'Filipino Horror Stories', translation: '（菲律宾恐怖故事）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '200+', link: 'https://www.google.com/search?q=Filipino+horror+stories+2026' },
+                    { rank: 2, original: 'Aswang Legend Philippines', translation: '（菲律宾Aswang传说）', description: '菲律宾传统神话中的超自然生物形象及其现代演绎', volume: '100+', link: 'https://www.google.com/search?q=Aswang+legend+Philippines' },
+                ]
+            },
+            {
+                platform: 'google', country: 'ph', countryName: '菲律宾',
+                title: 'Google Trends - 菲律宾',
+                category: 'light-horror', categoryName: '泛恐怖',
+                topics: [
+                    { rank: 1, original: 'Philippine Haunted Places', translation: '（菲律宾闹鬼地点）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '200+', link: 'https://www.google.com/search?q=Philippine+haunted+places+2026' },
+                    { rank: 2, original: 'Kapre Filipino Mythology', translation: '（菲律宾Kapre神话）', description: '菲律宾传统神话中的超自然生物形象及其现代演绎', volume: '100+', link: 'https://www.google.com/search?q=Kapre+Filipino+mythology' },
+                ]
+            },
+            {
+                platform: 'google', country: 'ph', countryName: '菲律宾',
+                title: 'Google Trends - 菲律宾',
+                category: 'social-challenge', categoryName: '社交挑战',
+                topics: [
+                    { rank: 1, original: 'TikTok Dance Challenge Philippines', translation: '（菲律宾TikTok舞蹈挑战）', description: '当地TikTok用户广泛参与的 viral 舞蹈挑战，当前以巴西桑巴舞步和热门K-pop翻跳为主导', volume: '500+', link: 'https://www.google.com/search?q=TikTok+dance+challenge+Philippines+2026' },
+                    { rank: 2, original: 'Viral Challenge PH 2026', translation: '（2026菲律宾病毒挑战）', description: '社交媒体平台上用户广泛参与的创意互动挑战活动', volume: '200+', link: 'https://www.google.com/search?q=Viral+challenge+Philippines+2026' },
+                ]
+            },
+            {
+                platform: 'google', country: 'ph', countryName: '菲律宾',
+                title: 'Google Trends - 菲律宾',
+                category: 'meme', categoryName: '剧情梗',
+                topics: [
+                    { rank: 1, original: 'Pinoy Meme Viral 2026', translation: '（2026菲律宾病毒梗）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '200+', link: 'https://www.google.com/search?q=Pinoy+meme+viral+2026' },
+                    { rank: 2, original: 'Filipino Comedy Trends', translation: '（菲律宾喜剧趋势）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '100+', link: 'https://www.google.com/search?q=Filipino+comedy+trends+2026' },
+                ]
+            },
+            {
+                platform: 'google', country: 'ph', countryName: '菲律宾',
+                title: 'Google Trends - 菲律宾',
+                category: 'animation', categoryName: '动画',
+                topics: [
+                    { rank: 1, original: 'Anime Philippines 2026', translation: '（2026菲律宾动漫）', description: '菲律宾动漫迷社区讨论焦点，当前以《海贼王》《咒术回战》《Re:从零开始S4》等作品热度最高', volume: '500+', link: 'https://www.google.com/search?q=Anime+Philippines+2026' },
+                    { rank: 2, original: 'Filipino Animation Studio', translation: '（菲律宾动画工作室）', description: '日本动漫作品相关的热门讨论、同人创作或角色话题', volume: '100+', link: 'https://www.google.com/search?q=Filipino+animation+studio+2026' },
+                ]
+            },
+            {
+                platform: 'google', country: 'ph', countryName: '菲律宾',
+                title: 'Google Trends - 菲律宾',
+                category: 'other', categoryName: '其他',
+                topics: [
+                    { rank: 1, original: 'Philippine News Today', translation: '（菲律宾今日新闻）', description: '当地主流媒体的每日头条新闻和重大事件报道', volume: '1000+', link: 'https://www.google.com/search?q=Philippine+news+today' },
+                    { rank: 2, original: 'Manila Weather', translation: '（马尼拉天气）', description: '当地居民关注的实时天气预报和气象预警信息', volume: '500+', link: 'https://www.google.com/search?q=Manila+weather+today' },
+                ]
+            },
+            // TikTok - 印尼
+            {
+                platform: 'tiktok', country: 'id', countryName: '印尼',
+                title: 'TikTok 热门 - 印尼',
+                category: 'gaming', categoryName: '游戏',
+                topics: [
+                    { rank: 1, original: '#anime', translation: '（动漫 1.54亿视频 游戏/二次元）', description: 'TikTok动漫话题总榜，涵盖《海贼王》《咒术回战》《Re:从零开始S4》《实力至上教室IV》《尖帽子魔法工坊》等热门作品讨论', volume: '1.54亿', link: 'https://www.tiktok.com/tag/anime' },
+                    { rank: 2, original: '#mobilelegends', translation: '（Mobile Legends）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '8900万', link: 'https://www.tiktok.com/tag/mobilelegends' },
+                    { rank: 3, original: 'Dreadout 3', translation: '（印尼恐怖游戏续作 2026）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.tiktok.com/search?q=Dreadout+3+Indonesia' },
+                    { rank: 4, original: '#pubgmobile', translation: '（PUBG Mobile）', description: '热门战术竞技手游PUBG Mobile相关赛事更新或玩法内容', volume: '5600万', link: 'https://www.tiktok.com/tag/pubgmobile' },
+                    { rank: 5, original: '#genshinimpact', translation: '（原神）', description: '开放世界冒险游戏原神的版本更新或角色活动内容', volume: '4200万', link: 'https://www.tiktok.com/tag/genshinimpact' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'id', countryName: '印尼',
+                title: 'TikTok 热门 - 印尼',
+                category: 'social-challenge', categoryName: '社交挑战',
+                topics: [
+                    { rank: 1, original: '#dance2026', translation: '（2026舞蹈趋势 3850万帖子）', description: '2026年度 viral 舞蹈话题合集，当前以巴西桑巴风格舞步和足球庆祝动作为主流趋势', volume: '3850万', link: 'https://www.tiktok.com/tag/dance2026' },
+                    { rank: 2, original: 'Trending Dances April 2026', translation: '（4月热门舞蹈挑战）', description: '用户跟随热门音乐编排创意舞蹈动作并上传视频参与的热门挑战', volume: '38.5M', link: 'https://www.tiktok.com/content/trending-dances-april-2026' },
+                    { rank: 3, original: '#longervideos', translation: '（长视频挑战）', description: 'TikTok平台鼓励用户创作更长时长视频的内容趋势', volume: '750万', link: 'https://www.tiktok.com/tag/longervideos' },
+                    { rank: 4, original: '#challengeindonesia', translation: '（印尼挑战）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '1800万', link: 'https://www.tiktok.com/tag/challengeindonesia' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'id', countryName: '印尼',
+                title: 'TikTok 热门 - 印尼',
+                category: 'entertainment', categoryName: '轻娱乐',
+                topics: [
+                    { rank: 1, original: 'No Na Girl Group', translation: '（印尼新晋女团 viral东南亚）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.tiktok.com/search?q=No+Na+Indonesian+girl+group' },
+                    { rank: 2, original: '#kulinerindonesia', translation: '（印尼美食）', description: '当地特色美食的探店推荐、家庭做法或街头小吃体验', volume: '450万', link: 'https://www.tiktok.com/tag/kulinerindonesia' },
+                    { rank: 3, original: '#holi', translation: '（胡里节/色彩节 266万视频）', description: '当地季节性节日活动或夏日生活方式的相关分享', volume: '266万', link: 'https://www.tiktok.com/tag/holi' },
+                    { rank: 4, original: '#backintheday', translation: '（回忆往昔 27.2万视频）', description: '用户分享童年回忆、老照片或过去生活方式的怀旧内容', volume: '27.2万', link: 'https://www.tiktok.com/tag/backintheday' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'id', countryName: '印尼',
+                title: 'TikTok 热门 - 印尼',
+                category: 'horror', categoryName: '恐怖',
+                topics: [
+                    { rank: 1, original: 'Ghost in the Cell', translation: '（Joko Anwar恐怖电影 TikTok热议）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.tiktok.com/discover/ghost-in-the-cell-joko-anwar' },
+                    { rank: 2, original: 'Pontianak Ghost Story', translation: '（印尼最危险鬼怪 庞蒂亚娜克）', description: '印尼民间传说中的吸血女鬼形象，以恐怖故事形式广泛传播', volume: '890万', link: 'https://www.tiktok.com/@sasheemeen/video/7630067254134082836' },
+                    { rank: 3, original: '#horrorindonesia', translation: '（印尼恐怖故事）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '890万', link: 'https://www.tiktok.com/tag/horrorindonesia' },
+                    { rank: 4, original: 'Kubur Kassim Grave Challenge', translation: '（新加坡Kassim墓地勇气测试）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '380万', link: 'https://www.tiktok.com/@tokyathraa/video/7627545907415813396' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'id', countryName: '印尼',
+                title: 'TikTok 热门 - 印尼',
+                category: 'light-horror', categoryName: '泛恐怖',
+                topics: [
+                    { rank: 1, original: '#filmtok', translation: '（电影解说 含恐怖 218万视频）', description: '用户在TikTok上分享的影视解说、推荐或影评内容', volume: '218万', link: 'https://www.tiktok.com/tag/filmtok' },
+                    { rank: 2, original: 'SYED WILSON Deadtime Stories', translation: '（恐怖故事创作者 诡异童谣系列）', description: '恐怖故事创作者分享的诡异童谣和都市传说系列内容', volume: '150万', link: 'https://www.tiktok.com/@syedwilson/video/7630957645213519124' },
+                    { rank: 3, original: 'Creepy Lullaby', translation: '（诡异摇篮曲 恐怖音乐）', description: '以恐怖氛围为特色的诡异摇篮曲音乐在短视频平台的传播', volume: '98万', link: 'https://www.google.com/search?q=Creepy+Lullaby+Rafael+Krux+TikTok' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'id', countryName: '印尼',
+                title: 'TikTok 热门 - 印尼',
+                category: 'music-meme', categoryName: '音乐梗',
+                topics: [
+                    { rank: 1, original: '#materialgirl', translation: '（物质女孩 音乐梗 38.2万视频）', description: '基于热门歌曲Material Girl的音乐舞蹈挑战和二次创作', volume: '38.2万', link: 'https://www.tiktok.com/tag/materialgirl' },
+                    { rank: 2, original: '#DangdutRemix', translation: '（印尼Dangdut混音）', description: '印尼传统音乐Dangdut与现代电子音乐融合的混音作品', volume: '1200万', link: 'https://www.tiktok.com/tag/dangdutremix' },
+                    { rank: 3, original: '#ViralSongID', translation: '（印尼病毒歌曲）', description: '在当地社交媒体平台快速传播的热门歌曲或音乐片段', volume: '890万', link: 'https://www.tiktok.com/tag/viralsongid' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'id', countryName: '印尼',
+                title: 'TikTok 热门 - 印尼',
+                category: 'meme', categoryName: '剧情梗',
+                topics: [
+                    { rank: 1, original: '#MemeIndonesia', translation: '（印尼梗 搞笑视频）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '560万', link: 'https://www.tiktok.com/tag/memeindonesia' },
+                    { rank: 2, original: '#KomediIndonesia', translation: '（印尼喜剧）', description: '当地喜剧演员的单口相声表演或搞笑短视频内容', volume: '320万', link: 'https://www.tiktok.com/tag/komediindonesia' },
+                    { rank: 3, original: 'TikTok Drama Trends 2026', translation: '（2026TikTok剧趋势 1140万帖子）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '1140万', link: 'https://www.tiktok.com/discover/tiktok-drama-trends-2026' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'id', countryName: '印尼',
+                title: 'TikTok 热门 - 印尼',
+                category: 'movie', categoryName: '影视',
+                topics: [
+                    { rank: 1, original: 'Ghost in the Cell', translation: '（Joko Anwar恐怖电影 TikTok热议）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.tiktok.com/discover/ghost-in-the-cell-joko-anwar' },
+                    { rank: 2, original: '#FilmIndonesia', translation: '（印尼电影）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '890万', link: 'https://www.tiktok.com/tag/filmindonesia' },
+                    { rank: 3, original: 'Jumbo Animated Film', translation: '（Jumbo动画电影 印尼票房冠军）', description: '印尼本土制作的动画电影Jumbo，讲述大象冒险故事，创下印尼动画电影票房纪录', volume: '450万', link: 'https://www.tiktok.com/discover/jumbo-indonesian-film' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'id', countryName: '印尼',
+                title: 'TikTok 热门 - 印尼',
+                category: 'animation', categoryName: '动画',
+                topics: [
+                    { rank: 1, original: '#AnimeIndonesia', translation: '（印尼动漫）', description: '印尼动漫迷讨论的热门作品，当前以《Re:从零开始》《实力至上教室》《尖帽子魔法工坊》春季新番为主流', volume: '1800万', link: 'https://www.tiktok.com/tag/animeindonesia' },
+                    { rank: 2, original: '#AnimasiIndonesia', translation: '（印尼动画）', description: '印尼本土动画创作动态，包括Jumbo等国产动画电影的票房表现和观众反响', volume: '560万', link: 'https://www.tiktok.com/tag/animasiindonesia' },
+                    { rank: 3, original: 'Jumbo Film Animation', translation: '（Jumbo动画电影 TikTok热议）', description: '印尼本土制作的动画电影Jumbo，讲述大象冒险故事，创下印尼动画电影票房纪录', volume: '320万', link: 'https://www.tiktok.com/discover/jumbo-animation' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'id', countryName: '印尼',
+                title: 'TikTok 热门 - 印尼',
+                category: 'other', categoryName: '其他',
+                topics: [
+                    { rank: 1, original: '#KulinerIndonesia', translation: '（印尼美食）', description: '当地特色美食的探店推荐、家庭做法或街头小吃体验', volume: '4500万', link: 'https://www.tiktok.com/tag/kulinerindonesia' },
+                    { rank: 2, original: '#TravelIndonesia', translation: '（印尼旅行）', description: '热门旅游目的地的打卡攻略、景点推荐或旅行体验分享', volume: '2800万', link: 'https://www.tiktok.com/tag/travelindonesia' },
+                    { rank: 3, original: '#EdukasiIndonesia', translation: '（印尼教育）', description: '教育领域的知识分享、学习方法或考试相关信息', volume: '1200万', link: 'https://www.tiktok.com/tag/edukasiindonesia' },
+                ]
+            },
+            // TikTok - 泰国
+            {
+                platform: 'tiktok', country: 'th', countryName: '泰国',
+                title: 'TikTok 热门 - 泰国',
+                category: 'gaming', categoryName: '游戏',
+                topics: [
+                    { rank: 1, original: '#powerranger', translation: '（恐龙战队/超级战队 游戏IP）', description: '经典特摄IP恐龙战队相关内容在当地的二次创作和怀旧讨论', volume: '热门', link: 'https://www.tiktok.com/tag/powerranger' },
+                    { rank: 2, original: '#rovthailand', translation: '（传说对决泰国）', description: '泰国及东南亚地区热门的MOBA手游传说对决相关内容', volume: '6800万', link: 'https://www.tiktok.com/tag/rovthailand' },
+                    { rank: 3, original: '#freefireth', translation: '（Free Fire泰国）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '4500万', link: 'https://www.tiktok.com/tag/freefireth' },
+                    { rank: 4, original: '#genshinth', translation: '（原神泰国）', description: '开放世界冒险游戏原神的版本更新或角色活动内容', volume: '3200万', link: 'https://www.tiktok.com/tag/genshinth' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'th', countryName: '泰国',
+                title: 'TikTok 热门 - 泰国',
+                category: 'social-challenge', categoryName: '社交挑战',
+                topics: [
+                    { rank: 1, original: '#dance2026', translation: '（2026舞蹈趋势）', description: '2026年度 viral 舞蹈话题合集，当前以巴西桑巴风格舞步和足球庆祝动作为主流趋势', volume: '热门', link: 'https://www.tiktok.com/tag/dance2026' },
+                    { rank: 2, original: '#newdancetrend', translation: '（新舞蹈趋势）', description: 'TikTok最新流行的舞蹈挑战，近期以巴西放克节奏舞步和混音串烧形式快速传播', volume: '热门', link: 'https://www.tiktok.com/tag/newdancetrend' },
+                    { rank: 3, original: '#challengethailand', translation: '（泰国挑战）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '2800万', link: 'https://www.tiktok.com/tag/challengethailand' },
+                    { rank: 4, original: '#thaiviral', translation: '（泰国病毒式传播）', description: '在泰国社交媒体平台快速传播的热门视频内容', volume: '1500万', link: 'https://www.tiktok.com/tag/thaiviral' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'th', countryName: '泰国',
+                title: 'TikTok 热门 - 泰国',
+                category: 'entertainment', categoryName: '轻娱乐',
+                topics: [
+                    { rank: 1, original: '#thaifood', translation: '（泰国美食）', description: '泰国各地特色美食的探店视频、制作方法或品尝体验分享', volume: '热门', link: 'https://www.tiktok.com/tag/thaifood' },
+                    { rank: 2, original: '#bangkok', translation: '（曼谷旅行/生活内容）', description: '热门旅游目的地的打卡攻略、景点推荐或旅行体验分享', volume: '热门', link: 'https://www.tiktok.com/tag/bangkok' },
+                    { rank: 3, original: '#thaidrama', translation: '（泰剧）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '1800万', link: 'https://www.tiktok.com/tag/thaidrama' },
+                    { rank: 4, original: '#travelthailand', translation: '（泰国旅行）', description: '热门旅游目的地的打卡攻略、景点推荐或旅行体验分享', volume: '980万', link: 'https://www.tiktok.com/tag/travelthailand' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'th', countryName: '泰国',
+                title: 'TikTok 热门 - 泰国',
+                category: 'movie', categoryName: '影视',
+                topics: [
+                    { rank: 1, original: 'Netflix Thailand Delusion', translation: '（Netflix泰国 Delusion惊悚剧）', description: 'Netflix平台在泰国上线的原创剧集或电影片单', volume: '热门', link: 'https://www.tiktok.com/search?q=Netflix+Thailand+Delusion+2026' },
+                    { rank: 2, original: '#thaidrama', translation: '（泰剧 第6集热议）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '1800万', link: 'https://www.tiktok.com/tag/thaidrama' },
+                    { rank: 3, original: '#thaifilm', translation: '（泰国电影）', description: '泰国电影产业的最新作品上映信息或票房成绩', volume: '850万', link: 'https://www.tiktok.com/tag/thaifilm' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'th', countryName: '泰国',
+                title: 'TikTok 热门 - 泰国',
+                category: 'meme', categoryName: '剧情梗',
+                topics: [
+                    { rank: 1, original: '#BokBear', translation: '（泰国CP话题 BL粉圈梗）', description: '泰国热门BL剧集或综艺中角色组合引发的粉丝讨论', volume: '热门', link: 'https://www.tiktok.com/tag/bokbear' },
+                    { rank: 2, original: '#BamBam', translation: '（GOT7 BamBam K-pop梗）', description: '泰国籍K-pop艺人BamBam的最新活动或合作项目', volume: '热门', link: 'https://www.tiktok.com/tag/bambam' },
+                    { rank: 3, original: '#นทีร้อยเล่ห์', translation: '（泰剧梗/讨论）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.tiktok.com/search?q=นทีร้อยเล่ห์' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'th', countryName: '泰国',
+                title: 'TikTok 热门 - 泰国',
+                category: 'music-meme', categoryName: '音乐梗',
+                topics: [
+                    { rank: 1, original: '#T-Pop', translation: '（泰国流行音乐）', description: '泰国本土流行音乐产业的最新作品和歌手动态', volume: '5600万', link: 'https://www.tiktok.com/tag/tpop' },
+                    { rank: 2, original: '#ThaiRemix', translation: '（泰国混音）', description: '印尼传统音乐Dangdut与现代电子音乐融合的混音作品', volume: '2800万', link: 'https://www.tiktok.com/tag/thairemix' },
+                    { rank: 3, original: '#ViralSongTH', translation: '（泰国病毒歌曲）', description: '在当地社交媒体平台快速传播的热门歌曲或音乐片段', volume: '1500万', link: 'https://www.tiktok.com/tag/viralsongth' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'th', countryName: '泰国',
+                title: 'TikTok 热门 - 泰国',
+                category: 'horror', categoryName: '恐怖',
+                topics: [
+                    { rank: 1, original: 'ผีมาลี Phee Malee', translation: '（泰国美丽女鬼 viral TikTok）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.tiktok.com/search?q=ผีมาลี+Phee+Malee' },
+                    { rank: 2, original: '#thailandhorrorstory', translation: '（泰国恐怖故事 Mae Nak传说）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.tiktok.com/tag/thailandhorrorstory' },
+                    { rank: 3, original: 'Thai Horror Movie 2026', translation: '（2026泰国恐怖电影 TEE YOD 3真实故事）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.tiktok.com/discover/horror-movie-thai-2026' },
+                    { rank: 4, original: 'Thailand Horror Ghost', translation: '（泰国恐怖鬼怪视频合集）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.tiktok.com/discover/thailand-horror-ghost' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'th', countryName: '泰国',
+                title: 'TikTok 热门 - 泰国',
+                category: 'light-horror', categoryName: '泛恐怖',
+                topics: [
+                    { rank: 1, original: 'ผีมาลี Ghost Malee', translation: '（泰国美丽女鬼 viral社交媒体）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.tiktok.com/search?q=ผีมาลี+Phee+Malee' },
+                    { rank: 2, original: 'Mae Nak Ghost Legend', translation: '（泰国传奇鬼怪Mae Nak haunting tale）', description: '泰国最著名的女鬼传说，在影视作品和社交媒体中广泛流传', volume: '热门', link: 'https://www.tiktok.com/tag/thailandhorrorstory' },
+                    { rank: 3, original: 'Thai Ghost Encounter Solo Travel', translation: '（泰国独自旅行遇鬼经历）', description: '热门旅游目的地的打卡攻略、景点推荐或旅行体验分享', volume: '热门', link: 'https://www.tiktok.com/@yitinggoyt/video/7564382423849520404' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'th', countryName: '泰国',
+                title: 'TikTok 热门 - 泰国',
+                category: 'animation', categoryName: '动画',
+                topics: [
+                    { rank: 1, original: '#AnimeThailand', translation: '（泰国动漫）', description: '泰国动漫圈当前最火的话题，包括《Re:从零开始S4》《实力至上教室IV》等春季霸权番讨论', volume: '1200万', link: 'https://www.tiktok.com/tag/animethailand' },
+                    { rank: 2, original: '#การ์ตูนไทย', translation: '（泰国动画）', description: '日本动漫作品相关的热门讨论、同人创作或角色话题', volume: '890万', link: 'https://www.tiktok.com/tag/การ์ตูนไทย' },
+                    { rank: 3, original: 'Japan Anime Thailand Release', translation: '（日本动漫泰国上映）', description: '日本动漫在泰国的上映安排和版权引进信息，当前春季档以《Re:从零开始》《咒术回战》等作品为主', volume: '560万', link: 'https://www.tiktok.com/discover/anime-thailand-release' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'th', countryName: '泰国',
+                title: 'TikTok 热门 - 泰国',
+                category: 'other', categoryName: '其他',
+                topics: [
+                    { rank: 1, original: '#ThaiFood', translation: '（泰国美食）', description: '泰国各地特色美食的探店视频、制作方法或品尝体验分享', volume: '6800万', link: 'https://www.tiktok.com/tag/thaifood' },
+                    { rank: 2, original: '#TravelThailand', translation: '（泰国旅行）', description: '热门旅游目的地的打卡攻略、景点推荐或旅行体验分享', volume: '4500万', link: 'https://www.tiktok.com/tag/travelthailand' },
+                    { rank: 3, original: '#StreetFoodThai', translation: '（泰国街头美食）', description: '当地街头小吃的探店推荐和美食制作过程分享', volume: '3200万', link: 'https://www.tiktok.com/tag/streetfoodthai' },
+                ]
+            },
+            // TikTok - 菲律宾
+            {
+                platform: 'tiktok', country: 'ph', countryName: '菲律宾',
+                title: 'TikTok 热门 - 菲律宾',
+                category: 'gaming', categoryName: '游戏',
+                topics: [
+                    { rank: 1, original: '#mobilelegendsph', translation: '（Mobile Legends菲律宾）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '9200万', link: 'https://www.tiktok.com/tag/mobilelegendsph' },
+                    { rank: 2, original: '#pubgmph', translation: '（PUBG Mobile菲律宾）', description: '热门战术竞技手游PUBG Mobile相关赛事更新或玩法内容', volume: '6800万', link: 'https://www.tiktok.com/tag/pubgmph' },
+                    { rank: 3, original: '#valorantph', translation: '（瓦罗兰特菲律宾）', description: '拳头游戏出品的战术射击游戏在当地的赛事和社区动态', volume: '3500万', link: 'https://www.tiktok.com/tag/valorantph' },
+                    { rank: 4, original: '#robloxph', translation: '（Roblox菲律宾）', description: '创意沙盒游戏平台Roblox在当地的用户创作和社区热点', volume: '2200万', link: 'https://www.tiktok.com/tag/robloxph' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'ph', countryName: '菲律宾',
+                title: 'TikTok 热门 - 菲律宾',
+                category: 'social-challenge', categoryName: '社交挑战',
+                topics: [
+                    { rank: 1, original: '#dance2026', translation: '（2026舞蹈趋势）', description: '2026年度 viral 舞蹈话题合集，当前以巴西桑巴风格舞步和足球庆祝动作为主流趋势', volume: '热门', link: 'https://www.tiktok.com/tag/dance2026' },
+                    { rank: 2, original: 'TikTok Dance Tutorial April 2026', translation: '（4月舞蹈教程 菲律宾韩式舞蹈）', description: '针对当前 viral 舞蹈动作的分解教学视频，帮助新手快速学会热门舞步', volume: '热门', link: 'https://www.tiktok.com/@jef_251/video/7628037922050166037' },
+                    { rank: 3, original: '2026 Dance Trends Mashup April', translation: '（2026舞蹈趋势4月混音）', description: '将多首热门歌曲片段与不同舞蹈动作串烧混剪的创意舞蹈视频合集', volume: '热门', link: 'https://www.tiktok.com/content/2026-dance-trends-mashup-april' },
+                    { rank: 4, original: '#OlaganoPH', translation: '（Olagano菲律宾混音挑战）', description: '菲律宾本土音乐混音作品在TikTok平台引发模仿热潮', volume: '热门', link: 'https://www.tiktok.com/tag/olaganoph' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'ph', countryName: '菲律宾',
+                title: 'TikTok 热门 - 菲律宾',
+                category: 'music-meme', categoryName: '音乐梗',
+                topics: [
+                    { rank: 1, original: 'BINI Coachella 2026', translation: '（BINI科切拉首秀 历史性时刻）', description: '菲律宾流行音乐团体BINI或SB19的最新动态和粉丝互动', volume: '热门', link: 'https://www.tiktok.com/search?q=BINI+Coachella+2026' },
+                    { rank: 2, original: 'BINI P-Pop Global Moment 2026', translation: '（BINI引领P-Pop全球热潮 首个菲律宾组合）', description: '菲律宾流行音乐团体BINI或SB19的最新动态和粉丝互动', volume: '热门', link: 'https://mega-asia.com/lifestyle/culture/ppop-global-moment-2026/' },
+                    { rank: 3, original: '#PPOP', translation: '（菲律宾流行音乐 SB19 BINI）', description: '菲律宾流行音乐产业的发展趋势和代表团体的最新作品', volume: '热门', link: 'https://www.tiktok.com/tag/ppop' },
+                    { rank: 4, original: 'P-Pop US Festivals 2026', translation: '（P-Pop组合登上美国大型音乐节）', description: '当地季节性节日活动或夏日生活方式的相关分享', volume: '热门', link: 'https://www.abc.net.au/news/2026-04-11/p-pop-groups-secure-gigs-at-major-us-festivals' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'ph', countryName: '菲律宾',
+                title: 'TikTok 热门 - 菲律宾',
+                category: 'entertainment', categoryName: '轻娱乐',
+                topics: [
+                    { rank: 1, original: 'BINI Coachella 2026', translation: '（BINI科切拉首秀 历史性时刻）', description: '菲律宾流行音乐团体BINI或SB19的最新动态和粉丝互动', volume: '热门', link: 'https://www.tiktok.com/search?q=BINI+Coachella+2026' },
+                    { rank: 2, original: '#SummerPH', translation: '（菲律宾夏季）', description: '当地季节性节日活动或夏日生活方式的相关分享', volume: '1200万', link: 'https://www.tiktok.com/tag/summerph' },
+                    { rank: 3, original: '#PinoyFood', translation: '（菲律宾美食）', description: '当地特色美食的探店推荐、家庭做法或街头小吃体验', volume: '850万', link: 'https://www.tiktok.com/tag/pinoyfood' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'ph', countryName: '菲律宾',
+                title: 'TikTok 热门 - 菲律宾',
+                category: 'movie', categoryName: '影视',
+                topics: [
+                    { rank: 1, original: '#PinoyHorror', translation: '（菲律宾恐怖电影）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '680万', link: 'https://www.tiktok.com/tag/pinoyhorror' },
+                    { rank: 2, original: '#MMFF2026', translation: '（马尼大都会电影节）', description: '菲律宾马尼拉大都会电影节的参赛作品和获奖信息', volume: '420万', link: 'https://www.tiktok.com/tag/mmff2026' },
+                    { rank: 3, original: '#PinoyDrama', translation: '（菲律宾剧）', description: '菲律宾本土电视剧的最新剧情发展和观众讨论', volume: '980万', link: 'https://www.tiktok.com/tag/pinoydrama' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'ph', countryName: '菲律宾',
+                title: 'TikTok 热门 - 菲律宾',
+                category: 'horror', categoryName: '恐怖',
+                topics: [
+                    { rank: 1, original: '#PinoyScary', translation: '（菲律宾恐怖内容）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '520万', link: 'https://www.tiktok.com/tag/pinoyscary' },
+                    { rank: 2, original: 'Creepypasta Stories PH', translation: '（菲律宾恐怖怪谈）', description: '网络上流传的恐怖短篇故事合集，以诡异惊悚著称', volume: '280万', link: 'https://www.tiktok.com/@creeplabph/video/7632339743300226324' },
+                    { rank: 3, original: '#PhilippineMythology', translation: '（菲律宾神话恐怖）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '150万', link: 'https://www.tiktok.com/tag/philippinemythology' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'ph', countryName: '菲律宾',
+                title: 'TikTok 热门 - 菲律宾',
+                category: 'meme', categoryName: '剧情梗',
+                topics: [
+                    { rank: 1, original: '#PinoyMeme', translation: '（菲律宾梗）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '3500万', link: 'https://www.tiktok.com/tag/pinoymeme' },
+                    { rank: 2, original: '#ComedyPH', translation: '（菲律宾喜剧）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '1800万', link: 'https://www.tiktok.com/tag/comedyph' },
+                    { rank: 3, original: 'TikTok Drama PH 2026', translation: '（2026菲律宾TikTok剧）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '980万', link: 'https://www.tiktok.com/discover/tiktok-drama-philippines' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'ph', countryName: '菲律宾',
+                title: 'TikTok 热门 - 菲律宾',
+                category: 'light-horror', categoryName: '泛恐怖',
+                topics: [
+                    { rank: 1, original: '#PinoyHaunted', translation: '（菲律宾闹鬼）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '320万', link: 'https://www.tiktok.com/tag/pinoyhaunted' },
+                    { rank: 2, original: 'Philippine Ghost Stories', translation: '（菲律宾鬼故事）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '180万', link: 'https://www.tiktok.com/discover/philippine-ghost-stories' },
+                    { rank: 3, original: '#AswangLegend', translation: '（菲律宾Aswang传说）', description: '菲律宾传统神话中的超自然生物形象及其现代演绎', volume: '95万', link: 'https://www.tiktok.com/tag/aswanglegend' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'ph', countryName: '菲律宾',
+                title: 'TikTok 热门 - 菲律宾',
+                category: 'animation', categoryName: '动画',
+                topics: [
+                    { rank: 1, original: '#AnimePH', translation: '（菲律宾动漫）', description: '菲律宾动漫迷社区讨论焦点，当前以《海贼王》《咒术回战》《Re:从零开始S4》等作品热度最高', volume: '2200万', link: 'https://www.tiktok.com/tag/animeph' },
+                    { rank: 2, original: '#CartoonPH', translation: '（菲律宾卡通）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '890万', link: 'https://www.tiktok.com/tag/cartoonph' },
+                    { rank: 3, original: 'Anime Philippines Trending', translation: '（菲律宾动漫趋势）', description: '菲律宾动漫迷社区讨论焦点，当前以《海贼王》《咒术回战》《Re:从零开始S4》等作品热度最高', volume: '560万', link: 'https://www.tiktok.com/discover/anime-philippines-trending' },
+                ]
+            },
+            {
+                platform: 'tiktok', country: 'ph', countryName: '菲律宾',
+                title: 'TikTok 热门 - 菲律宾',
+                category: 'other', categoryName: '其他',
+                topics: [
+                    { rank: 1, original: '#PinoyFood', translation: '（菲律宾美食）', description: '当地特色美食的探店推荐、家庭做法或街头小吃体验', volume: '4500万', link: 'https://www.tiktok.com/tag/pinoyfood' },
+                    { rank: 2, original: '#TravelPH', translation: '（菲律宾旅行）', description: '热门旅游目的地的打卡攻略、景点推荐或旅行体验分享', volume: '3200万', link: 'https://www.tiktok.com/tag/travelph' },
+                    { rank: 3, original: '#FilipinoPride', translation: '（菲律宾骄傲）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '2800万', link: 'https://www.tiktok.com/tag/filipinopride' },
+                ]
+            },
+            // X/Twitter - 印尼
+            {
+                platform: 'twitter', country: 'id', countryName: '印尼',
+                title: 'X (Twitter) - 印尼',
+                category: 'entertainment', categoryName: '轻娱乐',
+                topics: [
+                    { rank: 1, original: 'No Na Girl Group', translation: '（印尼新晋女团 viral）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=No+Na+Indonesian+girl+group' },
+                    { rank: 2, original: '#prayforkai', translation: '（为印尼铁路祈祷/火车事故）', description: '当地发生的重大交通事故及其后续救援和社会反响', volume: '热门', link: 'https://twitter.com/search?q=%23prayforkai' },
+                    { rank: 3, original: 'Hari Buruh', translation: '（劳动节）', description: '劳动节相关的纪念活动、劳动者权益讨论或假期安排', volume: '热门', link: 'https://twitter.com/search?q=Hari+Buruh+Indonesia' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'id', countryName: '印尼',
+                title: 'X (Twitter) - 印尼',
+                category: 'gaming', categoryName: '游戏',
+                topics: [
+                    { rank: 1, original: '#MobileLegends', translation: '（MLBB印尼电竞）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=%23MobileLegends' },
+                    { rank: 2, original: 'Dreadout 3', translation: '（印尼恐怖游戏续作）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=Dreadout+3+Indonesia' },
+                    { rank: 3, original: '#GenshinImpact', translation: '（原神印尼）', description: '开放世界冒险游戏原神的版本更新或角色活动内容', volume: '热门', link: 'https://twitter.com/search?q=%23GenshinImpact' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'id', countryName: '印尼',
+                title: 'X (Twitter) - 印尼',
+                category: 'movie', categoryName: '影视',
+                topics: [
+                    { rank: 1, original: 'Ghost in the Cell', translation: '（Joko Anwar恐怖喜剧 破百万）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=Ghost+in+the+Cell+Joko+Anwar' },
+                    { rank: 2, original: 'Film Jumbo', translation: '（印尼动画电影Jumbo）', description: '印尼本土动画电影Jumbo的票房成绩、观众评价和社交媒体讨论热度', volume: '热门', link: 'https://twitter.com/search?q=Film+Jumbo+Indonesia' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'id', countryName: '印尼',
+                title: 'X (Twitter) - 印尼',
+                category: 'horror', categoryName: '恐怖',
+                topics: [
+                    { rank: 1, original: 'Ghost in the Cell', translation: '（Joko Anwar恐怖电影 viral）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=Ghost+in+the+Cell+Indonesia' },
+                    { rank: 2, original: '#HorrorIndonesia', translation: '（印尼恐怖）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=%23HorrorIndonesia' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'id', countryName: '印尼',
+                title: 'X (Twitter) - 印尼',
+                category: 'light-horror', categoryName: '泛恐怖',
+                topics: [
+                    { rank: 1, original: '#MisteriIndonesia', translation: '（印尼神秘事件）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=%23MisteriIndonesia' },
+                    { rank: 2, original: 'Cerita Horor Viral', translation: '（病毒恐怖故事）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=Cerita+horor+viral' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'id', countryName: '印尼',
+                title: 'X (Twitter) - 印尼',
+                category: 'social-challenge', categoryName: '社交挑战',
+                topics: [
+                    { rank: 1, original: '#TikTokChallengeID', translation: '（印尼TikTok挑战）', description: '社交媒体平台上用户广泛参与的创意互动挑战活动', volume: '热门', link: 'https://twitter.com/search?q=%23TikTokChallengeID' },
+                    { rank: 2, original: 'Viral Dance Indonesia', translation: '（印尼病毒舞蹈）', description: '在社交媒体平台短时间内获得百万级播放量的 viral 舞蹈，当前主流风格为巴西舞和K-pop翻跳', volume: '热门', link: 'https://twitter.com/search?q=Viral+dance+Indonesia+2026' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'id', countryName: '印尼',
+                title: 'X (Twitter) - 印尼',
+                category: 'meme', categoryName: '剧情梗',
+                topics: [
+                    { rank: 1, original: 'Meme Indonesia Viral', translation: '（2026印尼病毒梗）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=Meme+Indonesia+viral+2026' },
+                    { rank: 2, original: 'No Na Girl Group Meme', translation: '（No Na女团梗 viral）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=No+Na+meme+Indonesia' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'id', countryName: '印尼',
+                title: 'X (Twitter) - 印尼',
+                category: 'music-meme', categoryName: '音乐梗',
+                topics: [
+                    { rank: 1, original: '#LaguViralID', translation: '（印尼病毒歌曲）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=%23LaguViralID' },
+                    { rank: 2, original: 'Dangdut Remix Trending', translation: '（Dangdut混音趋势）', description: '印尼传统音乐Dangdut与现代电子音乐融合的混音作品', volume: '热门', link: 'https://twitter.com/search?q=Dangdut+remix+trending' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'id', countryName: '印尼',
+                title: 'X (Twitter) - 印尼',
+                category: 'animation', categoryName: '动画',
+                topics: [
+                    { rank: 1, original: '#AnimeIndonesia', translation: '（印尼动漫）', description: '印尼动漫迷讨论的热门作品，当前以《Re:从零开始》《实力至上教室》《尖帽子魔法工坊》春季新番为主流', volume: '热门', link: 'https://twitter.com/search?q=%23AnimeIndonesia' },
+                    { rank: 2, original: 'Film Animasi Jumbo', translation: '（Jumbo动画电影讨论）', description: '印尼本土制作的动画电影Jumbo，讲述大象冒险故事，创下印尼动画电影票房纪录', volume: '热门', link: 'https://twitter.com/search?q=Film+Animasi+Jumbo' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'id', countryName: '印尼',
+                title: 'X (Twitter) - 印尼',
+                category: 'other', categoryName: '其他',
+                topics: [
+                    { rank: 1, original: 'Berita Viral Indonesia', translation: '（印尼病毒新闻）', description: '当地主流媒体的每日头条新闻和重大事件报道', volume: '热门', link: 'https://twitter.com/search?q=Berita+viral+Indonesia' },
+                    { rank: 2, original: 'Info Jakarta', translation: '（雅加达信息）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=Info+Jakarta' },
+                ]
+            },
+            // X/Twitter - 泰国
+            {
+                platform: 'twitter', country: 'th', countryName: '泰国',
+                title: 'X (Twitter) - 泰国',
+                category: 'meme', categoryName: '剧情梗',
+                topics: [
+                    { rank: 1, original: 'ผีมาลี Meme', translation: '（美丽女鬼梗 viral泰国）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=ผีมาลี+meme' },
+                    { rank: 2, original: '#BokBear', translation: '（泰国CP话题 BL粉圈梗）', description: '泰国热门BL剧集或综艺中角色组合引发的粉丝讨论', volume: '热门', link: 'https://twitter.com/search?q=%23BokBear' },
+                    { rank: 3, original: '#BamBamXKPopMas', translation: '（GOT7 BamBam K-pop）', description: '泰国籍K-pop艺人BamBam的最新活动或合作项目', volume: '热门', link: 'https://twitter.com/search?q=%23BamBamXKPopMas' },
+                    { rank: 4, original: '#นทีร้อยเล่ห์ตอนที่6', translation: '（泰剧第6集）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=นทีร้อยเล่ห์ตอนที่6' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'th', countryName: '泰国',
+                title: 'X (Twitter) - 泰国',
+                category: 'movie', categoryName: '影视',
+                topics: [
+                    { rank: 1, original: 'Netflix Thailand Delusion', translation: '（Netflix泰国 Delusion惊悚剧）', description: 'Netflix平台在泰国上线的原创剧集或电影片单', volume: '热门', link: 'https://twitter.com/search?q=Netflix+Thailand+Delusion+2026' },
+                    { rank: 2, original: '#นทีร้อยเล่ห์', translation: '（泰剧 热议）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=นทีร้อยเล่ห์' },
+                    { rank: 3, original: '#ThaiFilm', translation: '（泰国电影）', description: '泰国电影产业的最新作品上映信息或票房成绩', volume: '热门', link: 'https://twitter.com/search?q=%23ThaiFilm' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'th', countryName: '泰国',
+                title: 'X (Twitter) - 泰国',
+                category: 'gaming', categoryName: '游戏',
+                topics: [
+                    { rank: 1, original: '#ROV', translation: '（传说对决泰国电竞）', description: '泰国及东南亚地区热门的MOBA手游传说对决相关内容', volume: '热门', link: 'https://twitter.com/search?q=%23ROV' },
+                    { rank: 2, original: '#FreeFireTH', translation: '（Free Fire泰国）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=%23FreeFireTH' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'th', countryName: '泰国',
+                title: 'X (Twitter) - 泰国',
+                category: 'entertainment', categoryName: '轻娱乐',
+                topics: [
+                    { rank: 1, original: '#ละครใหม่2026', translation: '（2026新泰剧）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=ละครใหม่+2026' },
+                    { rank: 2, original: '#concertTH', translation: '（泰国演唱会）', description: '当地或国际艺人举办的现场音乐演出活动信息', volume: '热门', link: 'https://twitter.com/search?q=concert+Thailand+2026' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'th', countryName: '泰国',
+                title: 'X (Twitter) - 泰国',
+                category: 'social-challenge', categoryName: '社交挑战',
+                topics: [
+                    { rank: 1, original: '#ThaiChallenge', translation: '（泰国挑战）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=%23ThaiChallenge' },
+                    { rank: 2, original: 'TikTok Dance Thailand', translation: '（泰国TikTok舞蹈）', description: 'TikTok平台上用户跟随热门音乐编排创意舞蹈动作并上传视频参与的热门挑战，当前主流为巴西舞趋势', volume: '热门', link: 'https://twitter.com/search?q=TikTok+dance+Thailand' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'th', countryName: '泰国',
+                title: 'X (Twitter) - 泰国',
+                category: 'animation', categoryName: '动画',
+                topics: [
+                    { rank: 1, original: '#AnimeThailand', translation: '（泰国动漫）', description: '泰国动漫圈当前最火的话题，包括《Re:从零开始S4》《实力至上教室IV》等春季霸权番讨论', volume: '热门', link: 'https://twitter.com/search?q=%23AnimeThailand' },
+                    { rank: 2, original: '#การ์ตูนไทย', translation: '（泰国动画）', description: '日本动漫作品相关的热门讨论、同人创作或角色话题', volume: '热门', link: 'https://twitter.com/search?q=การ์ตูนไทย' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'th', countryName: '泰国',
+                title: 'X (Twitter) - 泰国',
+                category: 'music-meme', categoryName: '音乐梗',
+                topics: [
+                    { rank: 1, original: '#T-Pop', translation: '（泰国流行音乐 T-Pop趋势）', description: '泰国本土流行音乐产业的最新作品和歌手动态', volume: '热门', link: 'https://twitter.com/search?q=%23TPop+Thailand' },
+                    { rank: 2, original: 'Thai Remix Viral', translation: '（泰国病毒混音）', description: '印尼传统音乐Dangdut与现代电子音乐融合的混音作品', volume: '热门', link: 'https://twitter.com/search?q=Thai+remix+viral+2026' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'th', countryName: '泰国',
+                title: 'X (Twitter) - 泰国',
+                category: 'other', categoryName: '其他',
+                topics: [
+                    { rank: 1, original: 'ข่าววันนี้', translation: '（今日新闻泰国）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=ข่าววันนี้' },
+                    { rank: 2, original: '#BangkokNews', translation: '（曼谷新闻）', description: '热门旅游目的地的打卡攻略、景点推荐或旅行体验分享', volume: '热门', link: 'https://twitter.com/search?q=%23BangkokNews' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'th', countryName: '泰国',
+                title: 'X (Twitter) - 泰国',
+                category: 'horror', categoryName: '恐怖',
+                topics: [
+                    { rank: 1, original: 'ผีมาลี Phee Malee', translation: '（泰国美丽女鬼 viral）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=ผีมาลี+Phee+Malee' },
+                    { rank: 2, original: '#ThaiHorror', translation: '（泰国恐怖电影讨论）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=%23ThaiHorror' },
+                    { rank: 3, original: 'The Medium 2026', translation: '（萨满/灵媒 泰国恐怖电影热议）', description: '以泰国民间信仰和萨满文化为背景的恐怖电影作品', volume: '热门', link: 'https://twitter.com/search?q=The+Medium+Thai+Horror+2026' },
+                    { rank: 4, original: 'Death Whisperer 3', translation: '（死亡低语者3 泰式恐怖续集）', description: '以真实民间传说为基础的泰国恐怖电影系列续作', volume: '热门', link: 'https://twitter.com/search?q=Death+Whisperer+3+2026' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'th', countryName: '泰国',
+                title: 'X (Twitter) - 泰国',
+                category: 'light-horror', categoryName: '泛恐怖',
+                topics: [
+                    { rank: 1, original: 'ผีมาลี Ghost Malee', translation: '（美丽女鬼 trending泰国）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=ผีมาลี+Ghost+Malee' },
+                    { rank: 2, original: '#MaeNak', translation: '（泰国传奇女鬼Mae Nak讨论）', description: '泰国最著名的女鬼传说，在影视作品和社交媒体中广泛流传', volume: '热门', link: 'https://twitter.com/search?q=%23MaeNak' },
+                    { rank: 3, original: 'Thai Haunted Places', translation: '（泰国闹鬼地点探险）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=Thai+Haunted+Places+2026' },
+                ]
+            },
+            // X/Twitter - 菲律宾
+            {
+                platform: 'twitter', country: 'ph', countryName: '菲律宾',
+                title: 'X (Twitter) - 菲律宾',
+                category: 'music-meme', categoryName: '音乐梗',
+                topics: [
+                    { rank: 1, original: 'BINI Coachella Historic', translation: '（BINI科切拉 首个菲律宾艺人）', description: '菲律宾流行音乐团体BINI或SB19的最新动态和粉丝互动', volume: '热门', link: 'https://twitter.com/search?q=BINI+Coachella+2026' },
+                    { rank: 2, original: '#PPOP', translation: '（菲律宾流行音乐 BINI引领）', description: '菲律宾流行音乐产业的发展趋势和代表团体的最新作品', volume: '热门', link: 'https://twitter.com/search?q=%23PPOP' },
+                    { rank: 3, original: 'Song of the Summer', translation: '（夏日之歌）', description: '当地季节性节日活动或夏日生活方式的相关分享', volume: '热门', link: 'https://twitter.com/search?q=Song+of+the+Summer+Philippines' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'ph', countryName: '菲律宾',
+                title: 'X (Twitter) - 菲律宾',
+                category: 'meme', categoryName: '剧情梗',
+                topics: [
+                    { rank: 1, original: 'CAPRICE BOOKED AND BUSY', translation: '（Caprice 日程梗 菲律宾艺人）', description: '菲律宾艺人Caprice的日程安排和社交媒体动态', volume: '热门', link: 'https://twitter.com/search?q=CAPRICE+BOOKED+AND+BUSY' },
+                    { rank: 2, original: 'KathNiel', translation: '（KathNiel CP梗）', description: '菲律宾热门明星情侣KathNiel的最新动态和粉丝互动', volume: '热门', link: 'https://twitter.com/search?q=KathNiel+2026' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'ph', countryName: '菲律宾',
+                title: 'X (Twitter) - 菲律宾',
+                category: 'gaming', categoryName: '游戏',
+                topics: [
+                    { rank: 1, original: '#MLBB', translation: '（Mobile Legends菲律宾电竞 MPL S17）', description: '东南亚规模最大的移动端MOBA职业电竞赛事，汇聚各国顶尖战队', volume: '热门', link: 'https://twitter.com/search?q=%23MLBB+Philippines+MPL' },
+                    { rank: 2, original: '#PUBGMobilePH', translation: '（PUBG Mobile菲律宾）', description: '热门战术竞技手游PUBG Mobile相关赛事更新或玩法内容', volume: '热门', link: 'https://twitter.com/search?q=%23PUBGMobilePH' },
+                    { rank: 3, original: '#ValorantPH', translation: '（瓦罗兰特菲律宾）', description: '拳头游戏出品的战术射击游戏在当地的赛事和社区动态', volume: '热门', link: 'https://twitter.com/search?q=%23ValorantPH' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'ph', countryName: '菲律宾',
+                title: 'X (Twitter) - 菲律宾',
+                category: 'horror', categoryName: '恐怖',
+                topics: [
+                    { rank: 1, original: '#PinoyHorror', translation: '（菲律宾恐怖）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=%23PinoyHorror' },
+                    { rank: 2, original: 'Filipino Horror Movie 2026', translation: '（2026菲律宾恐怖电影）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=Filipino+horror+movie+2026' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'ph', countryName: '菲律宾',
+                title: 'X (Twitter) - 菲律宾',
+                category: 'light-horror', categoryName: '泛恐怖',
+                topics: [
+                    { rank: 1, original: '#HauntedPH', translation: '（菲律宾闹鬼）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=%23HauntedPH' },
+                    { rank: 2, original: 'Philippine Ghost Stories', translation: '（菲律宾鬼故事）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://twitter.com/search?q=Philippine+ghost+stories' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'ph', countryName: '菲律宾',
+                title: 'X (Twitter) - 菲律宾',
+                category: 'entertainment', categoryName: '轻娱乐',
+                topics: [
+                    { rank: 1, original: 'BINI Coachella Debut', translation: '（BINI科切拉首秀 创造历史）', description: '菲律宾流行音乐团体BINI或SB19的最新动态和粉丝互动', volume: '热门', link: 'https://twitter.com/search?q=BINI+Coachella+2026' },
+                    { rank: 2, original: '#SummerPH', translation: '（菲律宾夏季）', description: '当地季节性节日活动或夏日生活方式的相关分享', volume: '热门', link: 'https://twitter.com/search?q=%23SummerPH' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'ph', countryName: '菲律宾',
+                title: 'X (Twitter) - 菲律宾',
+                category: 'social-challenge', categoryName: '社交挑战',
+                topics: [
+                    { rank: 1, original: '#TikTokChallengePH', translation: '（菲律宾TikTok挑战）', description: '社交媒体平台上用户广泛参与的创意互动挑战活动', volume: '热门', link: 'https://twitter.com/search?q=%23TikTokChallengePH' },
+                    { rank: 2, original: 'Dance Challenge Philippines', translation: '（菲律宾舞蹈挑战）', description: '当地TikTok用户广泛参与的 viral 舞蹈挑战，当前以巴西桑巴舞步和热门K-pop翻跳为主导', volume: '热门', link: 'https://twitter.com/search?q=Dance+challenge+Philippines' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'ph', countryName: '菲律宾',
+                title: 'X (Twitter) - 菲律宾',
+                category: 'animation', categoryName: '动画',
+                topics: [
+                    { rank: 1, original: '#AnimePH', translation: '（菲律宾动漫）', description: '菲律宾动漫迷社区讨论焦点，当前以《海贼王》《咒术回战》《Re:从零开始S4》等作品热度最高', volume: '热门', link: 'https://twitter.com/search?q=%23AnimePH' },
+                    { rank: 2, original: 'Anime Philippines Trending', translation: '（菲律宾动漫趋势）', description: '菲律宾动漫迷社区讨论焦点，当前以《海贼王》《咒术回战》《Re:从零开始S4》等作品热度最高', volume: '热门', link: 'https://twitter.com/search?q=Anime+Philippines+trending' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'ph', countryName: '菲律宾',
+                title: 'X (Twitter) - 菲律宾',
+                category: 'other', categoryName: '其他',
+                topics: [
+                    { rank: 1, original: 'Philippine News Today', translation: '（菲律宾今日新闻）', description: '当地主流媒体的每日头条新闻和重大事件报道', volume: '热门', link: 'https://twitter.com/search?q=Philippine+news+today' },
+                    { rank: 2, original: '#ManilaNews', translation: '（马尼拉新闻）', description: '当地主流媒体的每日头条新闻和重大事件报道', volume: '热门', link: 'https://twitter.com/search?q=%23ManilaNews' },
+                ]
+            },
+            {
+                platform: 'twitter', country: 'ph', countryName: '菲律宾',
+                title: 'X (Twitter) - 菲律宾',
+                category: 'movie', categoryName: '影视',
+                topics: [
+                    { rank: 1, original: '#MMFF2026', translation: '（马尼大都会电影节）', description: '菲律宾马尼拉大都会电影节的参赛作品和获奖信息', volume: '热门', link: 'https://twitter.com/search?q=%23MMFF2026' },
+                    { rank: 2, original: 'Pinoy Horror Movie', translation: '（菲律宾恐怖电影）', description: '菲律宾本土恐怖电影或民间恐怖故事相关内容', volume: '热门', link: 'https://twitter.com/search?q=Pinoy+Horror+Movie+2026' },
+                ]
+            },
+            // Facebook - 全部
+            {
+                platform: 'facebook', country: 'id', countryName: '印尼',
+                title: 'Facebook 热门 - 印尼',
+                category: 'gaming', categoryName: '游戏',
+                topics: [
+                    { rank: 1, original: 'PUBG Mobile Esports Roadmap 2026', translation: '（PUBG Mobile电竞路线图2026 PMGO赛季）', description: '热门战术竞技手游PUBG Mobile相关赛事更新或玩法内容', volume: '热门', link: 'https://www.facebook.com/PUBGMESPORTSOFFICIAL/posts/your-2026-journey-mapped-out' },
+                    { rank: 2, original: 'Dreadout 3 Indonesia', translation: '（印尼恐怖游戏续作 2026发售）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Dreadout+3+Indonesia' },
+                    { rank: 3, original: 'Mobile Legends Esports ID', translation: '（MLBB印尼电竞社区）', description: '东南亚规模最大的移动端MOBA职业电竞赛事，汇聚各国顶尖战队', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Mobile+Legends+Indonesia' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'id', countryName: '印尼',
+                title: 'Facebook 热门 - 印尼',
+                category: 'entertainment', categoryName: '轻娱乐',
+                topics: [
+                    { rank: 1, original: 'No Na Girl Group Viral', translation: '（印尼新晋女团 viral社交媒体）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.facebook.com/search/top/?q=No+Na+Indonesian+girl+group' },
+                    { rank: 2, original: 'Indonesian Entertainment News', translation: '（印尼娱乐新闻）', description: '当地主流媒体的每日头条新闻和重大事件报道', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Indonesian+entertainment' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'id', countryName: '印尼',
+                title: 'Facebook 热门 - 印尼',
+                category: 'horror', categoryName: '恐怖',
+                topics: [
+                    { rank: 1, original: 'Ghost in the Cell', translation: '（Joko Anwar恐怖喜剧 破百万观众）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Ghost+in+the+Cell+Joko+Anwar' },
+                    { rank: 2, original: 'Cerita Horor Indonesia', translation: '（印尼恐怖故事）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Cerita+horor+Indonesia' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'id', countryName: '印尼',
+                title: 'Facebook 热门 - 印尼',
+                category: 'light-horror', categoryName: '泛恐怖',
+                topics: [
+                    { rank: 1, original: 'Misteri Indonesia', translation: '（印尼神秘事件）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Misteri+Indonesia' },
+                    { rank: 2, original: 'Tempat Angker Indonesia', translation: '（印尼闹鬼地点）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Tempat+angker+Indonesia' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'id', countryName: '印尼',
+                title: 'Facebook 热门 - 印尼',
+                category: 'social-challenge', categoryName: '社交挑战',
+                topics: [
+                    { rank: 1, original: 'TikTok Challenge Indonesia', translation: '（印尼TikTok挑战）', description: '社交媒体平台上用户广泛参与的创意互动挑战活动', volume: '热门', link: 'https://www.facebook.com/search/top/?q=TikTok+challenge+Indonesia' },
+                    { rank: 2, original: 'Viral Dance ID 2026', translation: '（2026印尼病毒舞蹈）', description: '在社交媒体平台短时间内获得百万级播放量的 viral 舞蹈，当前主流风格为巴西舞和K-pop翻跳', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Viral+dance+Indonesia' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'id', countryName: '印尼',
+                title: 'Facebook 热门 - 印尼',
+                category: 'meme', categoryName: '剧情梗',
+                topics: [
+                    { rank: 1, original: 'Meme Indonesia Viral', translation: '（印尼病毒梗）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Meme+Indonesia+viral' },
+                    { rank: 2, original: 'Komedi Indonesia 2026', translation: '（2026印尼喜剧）', description: '当地喜剧演员的单口相声表演或搞笑短视频内容', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Komedi+Indonesia' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'id', countryName: '印尼',
+                title: 'Facebook 热门 - 印尼',
+                category: 'music-meme', categoryName: '音乐梗',
+                topics: [
+                    { rank: 1, original: 'Lagu Viral Indonesia', translation: '（印尼病毒歌曲）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Lagu+viral+Indonesia' },
+                    { rank: 2, original: 'Dangdut Remix 2026', translation: '（2026 Dangdut混音）', description: '印尼传统音乐Dangdut与现代电子音乐融合的混音作品', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Dangdut+remix+2026' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'id', countryName: '印尼',
+                title: 'Facebook 热门 - 印尼',
+                category: 'movie', categoryName: '影视',
+                topics: [
+                    { rank: 1, original: 'Ghost in the Cell', translation: '（Joko Anwar新作 发行86国）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Ghost+in+the+Cell+Indonesia' },
+                    { rank: 2, original: 'Film Indonesia 2026', translation: '（2026印尼电影）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Film+Indonesia+2026' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'id', countryName: '印尼',
+                title: 'Facebook 热门 - 印尼',
+                category: 'animation', categoryName: '动画',
+                topics: [
+                    { rank: 1, original: 'Anime Indonesia Community', translation: '（印尼动漫社区）', description: '印尼动漫爱好者社区的讨论热点，当前以春季新番《Re:从零开始S4》《实力至上教室IV》和长篇连载《海贼王》为主', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Anime+Indonesia' },
+                    { rank: 2, original: 'Film Animasi Jumbo', translation: '（Jumbo动画电影讨论）', description: '印尼本土制作的动画电影Jumbo，讲述大象冒险故事，创下印尼动画电影票房纪录', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Film+Animasi+Jumbo' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'id', countryName: '印尼',
+                title: 'Facebook 热门 - 印尼',
+                category: 'other', categoryName: '其他',
+                topics: [
+                    { rank: 1, original: 'Berita Indonesia Hari Ini', translation: '（印尼今日新闻）', description: '当地主流媒体的每日头条新闻和重大事件报道', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Berita+Indonesia+hari+ini' },
+                    { rank: 2, original: 'Info Kuliner Jakarta', translation: '（雅加达美食信息）', description: '当地特色美食的探店推荐、家庭做法或街头小吃体验', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Info+kuliner+Jakarta' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'th', countryName: '泰国',
+                title: 'Facebook 热门 - 泰国',
+                category: 'movie', categoryName: '影视',
+                topics: [
+                    { rank: 1, original: 'Netflix Thailand 2026 Delusion', translation: '（Netflix泰国 Delusion惊悚剧）', description: 'Netflix平台在泰国上线的原创剧集或电影片单', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Netflix+Thailand+Delusion+2026' },
+                    { rank: 2, original: 'Thailand Film Investment Filmart 2026', translation: '（泰国Filmart 2026吸引大量电影投资）', description: '香港电影展Filmart上泰国电影项目的融资和投资动态', volume: '热门', link: 'https://www.facebook.com/nbtworld/posts/thailand-draws-major-film-investment-at-filmart-2026' },
+                    { rank: 3, original: 'Netflix 2026 Southeast Asia Slate', translation: '（Netflix东南亚片单 泰剧重点）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.facebook.com/tatlerasiaofficial/posts/netflix-2026-southeast-asia' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'th', countryName: '泰国',
+                title: 'Facebook 热门 - 泰国',
+                category: 'gaming', categoryName: '游戏',
+                topics: [
+                    { rank: 1, original: 'ROV Thailand Community', translation: '（ROV泰国社区）', description: '泰国及东南亚地区热门的MOBA手游传说对决相关内容', volume: '热门', link: 'https://www.facebook.com/search/top/?q=ROV+Thailand' },
+                    { rank: 2, original: 'Free Fire Thailand', translation: '（Free Fire泰国）', description: '东南亚地区热门的移动端战术竞技游戏相关内容', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Free+Fire+Thailand' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'th', countryName: '泰国',
+                title: 'Facebook 热门 - 泰国',
+                category: 'entertainment', categoryName: '轻娱乐',
+                topics: [
+                    { rank: 1, original: 'Thai Entertainment News 2026', translation: '（2026泰国娱乐新闻）', description: '当地主流媒体的每日头条新闻和重大事件报道', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Thai+entertainment+news' },
+                    { rank: 2, original: 'Concert Bangkok April', translation: '（曼谷4月演唱会）', description: '热门旅游目的地的打卡攻略、景点推荐或旅行体验分享', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Concert+Bangkok+April' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'th', countryName: '泰国',
+                title: 'Facebook 热门 - 泰国',
+                category: 'horror', categoryName: '恐怖',
+                topics: [
+                    { rank: 1, original: 'ผีมาลี Phee Malee', translation: '（泰国美丽女鬼 trending）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.facebook.com/search/top/?q=ผีมาลี+Phee+Malee' },
+                    { rank: 2, original: 'Thai Horror Movie 2026', translation: '（2026泰国恐怖电影）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Thai+horror+movie+2026' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'th', countryName: '泰国',
+                title: 'Facebook 热门 - 泰国',
+                category: 'light-horror', categoryName: '泛恐怖',
+                topics: [
+                    { rank: 1, original: 'ผีมาลี Ghost Malee', translation: '（美丽女鬼 viral泰国）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.facebook.com/search/top/?q=ผีมาลี+Ghost+Malee' },
+                    { rank: 2, original: 'Mae Nak Ghost Legend', translation: '（Mae Nak女鬼传说）', description: '泰国最著名的女鬼传说，在影视作品和社交媒体中广泛流传', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Mae+Nak+ghost' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'th', countryName: '泰国',
+                title: 'Facebook 热门 - 泰国',
+                category: 'social-challenge', categoryName: '社交挑战',
+                topics: [
+                    { rank: 1, original: 'TikTok Dance Challenge Thailand', translation: '（泰国TikTok舞蹈挑战）', description: '当地TikTok用户广泛参与的 viral 舞蹈挑战，当前以巴西桑巴舞步和热门K-pop翻跳为主导', volume: '热门', link: 'https://www.facebook.com/search/top/?q=TikTok+dance+challenge+Thailand' },
+                    { rank: 2, original: 'Viral Challenge TH 2026', translation: '（2026泰国病毒挑战）', description: '社交媒体平台上用户广泛参与的创意互动挑战活动', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Viral+challenge+Thailand' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'th', countryName: '泰国',
+                title: 'Facebook 热门 - 泰国',
+                category: 'meme', categoryName: '剧情梗',
+                topics: [
+                    { rank: 1, original: 'Thai Meme Viral 2026', translation: '（2026泰国病毒梗）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Thai+meme+viral' },
+                    { rank: 2, original: 'BokBear TH Fandom', translation: '（BokBear泰国粉圈）', description: '泰国热门BL剧集或综艺中角色组合引发的粉丝讨论', volume: '热门', link: 'https://www.facebook.com/search/top/?q=BokBear+Thailand' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'th', countryName: '泰国',
+                title: 'Facebook 热门 - 泰国',
+                category: 'music-meme', categoryName: '音乐梗',
+                topics: [
+                    { rank: 1, original: 'T-Pop Thailand 2026', translation: '（2026泰国T-Pop）', description: '泰国本土流行音乐产业的最新作品和歌手动态', volume: '热门', link: 'https://www.facebook.com/search/top/?q=T-Pop+Thailand' },
+                    { rank: 2, original: 'Thai Remix Viral', translation: '（泰国病毒混音）', description: '印尼传统音乐Dangdut与现代电子音乐融合的混音作品', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Thai+remix+viral' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'th', countryName: '泰国',
+                title: 'Facebook 热门 - 泰国',
+                category: 'animation', categoryName: '动画',
+                topics: [
+                    { rank: 1, original: 'Anime Thailand Community', translation: '（泰国动漫社区）', description: '泰国动漫迷社群的讨论焦点，当前以《Re:从零开始》第四季、《实力至上教室》第四季等春季霸权番最火', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Anime+Thailand' },
+                    { rank: 2, original: 'Japanese Anime Thailand Release', translation: '（日本动漫泰国上映）', description: '日本动漫在泰国的上映安排和版权引进信息，当前春季档以《Re:从零开始》《咒术回战》等作品为主', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Japanese+anime+Thailand' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'th', countryName: '泰国',
+                title: 'Facebook 热门 - 泰国',
+                category: 'other', categoryName: '其他',
+                topics: [
+                    { rank: 1, original: 'Thai News Today', translation: '（泰国今日新闻）', description: '当地主流媒体的每日头条新闻和重大事件报道', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Thai+news+today' },
+                    { rank: 2, original: 'Bangkok Travel Guide', translation: '（曼谷旅行指南）', description: '热门旅游目的地的打卡攻略、景点推荐或旅行体验分享', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Bangkok+travel+guide' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'ph', countryName: '菲律宾',
+                title: 'Facebook 热门 - 菲律宾',
+                category: 'music-meme', categoryName: '音乐梗',
+                topics: [
+                    { rank: 1, original: 'BINI Coachella Historic', translation: '（BINI科切拉首秀 首个菲律宾艺人）', description: '菲律宾流行音乐团体BINI或SB19的最新动态和粉丝互动', volume: '热门', link: 'https://www.facebook.com/search/top/?q=BINI+Coachella+2026' },
+                    { rank: 2, original: 'BINI First All-Time Filipina Group', translation: '（BINI成为史上首个全菲律宾女子组合）', description: '菲律宾流行音乐团体BINI或SB19的最新动态和粉丝互动', volume: '热门', link: 'https://www.facebook.com/abscbnNEWS/posts/p-pop-represent' },
+                    { rank: 3, original: 'P-Pop Community PH', translation: '（P-Pop菲律宾社区）', description: '菲律宾流行音乐产业的发展趋势和代表团体的最新作品', volume: '热门', link: 'https://www.facebook.com/search/top/?q=P-Pop+Philippines' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'ph', countryName: '菲律宾',
+                title: 'Facebook 热门 - 菲律宾',
+                category: 'gaming', categoryName: '游戏',
+                topics: [
+                    { rank: 1, original: 'MLBB Philippines Community', translation: '（MLBB菲律宾社区）', description: '东南亚规模最大的移动端MOBA职业电竞赛事，汇聚各国顶尖战队', volume: '热门', link: 'https://www.facebook.com/search/top/?q=MLBB+Philippines' },
+                    { rank: 2, original: 'PUBG Mobile Philippines', translation: '（PUBG Mobile菲律宾）', description: '热门战术竞技手游PUBG Mobile相关赛事更新或玩法内容', volume: '热门', link: 'https://www.facebook.com/search/top/?q=PUBG+Mobile+Philippines' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'ph', countryName: '菲律宾',
+                title: 'Facebook 热门 - 菲律宾',
+                category: 'entertainment', categoryName: '轻娱乐',
+                topics: [
+                    { rank: 1, original: 'BINI Coachella Debut', translation: '（BINI创造历史 科切拉首秀）', description: '菲律宾流行音乐团体BINI或SB19的最新动态和粉丝互动', volume: '热门', link: 'https://www.facebook.com/search/top/?q=BINI+Coachella+2026' },
+                    { rank: 2, original: 'Pinoy Entertainment News', translation: '（菲律宾娱乐新闻）', description: '当地主流媒体的每日头条新闻和重大事件报道', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Pinoy+entertainment+news' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'ph', countryName: '菲律宾',
+                title: 'Facebook 热门 - 菲律宾',
+                category: 'horror', categoryName: '恐怖',
+                topics: [
+                    { rank: 1, original: 'Pinoy Horror Stories', translation: '（菲律宾恐怖故事）', description: '菲律宾本土恐怖电影或民间恐怖故事相关内容', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Pinoy+horror+stories' },
+                    { rank: 2, original: 'Filipino Horror Movie 2026', translation: '（2026菲律宾恐怖电影）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Filipino+horror+movie+2026' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'ph', countryName: '菲律宾',
+                title: 'Facebook 热门 - 菲律宾',
+                category: 'light-horror', categoryName: '泛恐怖',
+                topics: [
+                    { rank: 1, original: 'Haunted Philippines', translation: '（闹鬼菲律宾）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Haunted+Philippines' },
+                    { rank: 2, original: 'Philippine Mythology Creatures', translation: '（菲律宾神话生物）', description: '菲律宾传统神话中的超自然生物形象及其现代演绎', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Philippine+mythology+creatures' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'ph', countryName: '菲律宾',
+                title: 'Facebook 热门 - 菲律宾',
+                category: 'social-challenge', categoryName: '社交挑战',
+                topics: [
+                    { rank: 1, original: 'TikTok Dance Challenge PH', translation: '（菲律宾TikTok舞蹈挑战）', description: 'TikTok平台上用户跟随热门音乐编排创意舞蹈动作并上传视频参与的热门挑战，当前主流为巴西舞趋势', volume: '热门', link: 'https://www.facebook.com/search/top/?q=TikTok+dance+challenge+Philippines' },
+                    { rank: 2, original: 'Viral Challenge Philippines 2026', translation: '（2026菲律宾病毒挑战）', description: '社交媒体平台上用户广泛参与的创意互动挑战活动', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Viral+challenge+Philippines' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'ph', countryName: '菲律宾',
+                title: 'Facebook 热门 - 菲律宾',
+                category: 'meme', categoryName: '剧情梗',
+                topics: [
+                    { rank: 1, original: 'Pinoy Meme Community', translation: '（菲律宾梗社区）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Pinoy+meme+community' },
+                    { rank: 2, original: 'Filipino Comedy Viral', translation: '（菲律宾病毒喜剧）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Filipino+comedy+viral' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'ph', countryName: '菲律宾',
+                title: 'Facebook 热门 - 菲律宾',
+                category: 'movie', categoryName: '影视',
+                topics: [
+                    { rank: 1, original: 'MMFF 2026 Entries', translation: '（2026马尼拉大都会电影节参赛作品）', description: '菲律宾马尼拉大都会电影节的参赛作品和获奖信息', volume: '热门', link: 'https://www.facebook.com/search/top/?q=MMFF+2026' },
+                    { rank: 2, original: 'Filipino Horror Movies 2026', translation: '（2026菲律宾恐怖电影 Balikaw等）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Filipino+horror+movies+2026' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'ph', countryName: '菲律宾',
+                title: 'Facebook 热门 - 菲律宾',
+                category: 'animation', categoryName: '动画',
+                topics: [
+                    { rank: 1, original: 'Anime Philippines Community', translation: '（菲律宾动漫社区）', description: '菲律宾动漫爱好者社区的热门话题，当前以《海贼王》《咒术回战》《Re:从零开始S4》《鬼灭之刃》讨论度最高', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Anime+Philippines' },
+                    { rank: 2, original: 'Filipino Animation Studio', translation: '（菲律宾动画工作室）', description: '日本动漫作品相关的热门讨论、同人创作或角色话题', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Filipino+animation+studio' },
+                ]
+            },
+            {
+                platform: 'facebook', country: 'ph', countryName: '菲律宾',
+                title: 'Facebook 热门 - 菲律宾',
+                category: 'other', categoryName: '其他',
+                topics: [
+                    { rank: 1, original: 'Philippine News Today', translation: '（菲律宾今日新闻）', description: '当地主流媒体的每日头条新闻和重大事件报道', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Philippine+news+today' },
+                    { rank: 2, original: 'Manila Food Guide', translation: '（马尼拉美食指南）', description: '在社交媒体平台引发广泛关注和讨论的热门话题', volume: '热门', link: 'https://www.facebook.com/search/top/?q=Manila+food+guide' },
+                ]
+            },
+        ];
+
+        let currentPlatform = 'all';
+        let currentCountry = 'all';
+        let currentCategory = 'all';
+
+        function filterPlatform(platform) {
+            currentPlatform = platform;
+            document.querySelectorAll('.filter-row:nth-child(1) .filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            applyFilters();
+        }
+
+        function filterCountry(country) {
+            currentCountry = country;
+            document.querySelectorAll('.filter-row:nth-child(2) .filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            applyFilters();
+        }
+
+        function filterCategory(category) {
+            currentCategory = category;
+            document.querySelectorAll('.filter-row:nth-child(3) .category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            applyFilters();
+        }
+
+        function applyFilters() {
+            // Filter data
+            const filtered = allData.filter(item => {
+                const matchPlatform = currentPlatform === 'all' || item.platform === currentPlatform;
+                const matchCountry = currentCountry === 'all' || item.country === currentCountry;
+                const matchCategory = currentCategory === 'all' || item.category === currentCategory;
+                return matchPlatform && matchCountry && matchCategory;
+            });
+
+            // Update results info
+            updateResultsInfo(filtered.length);
+
+            // Render cards
+            renderCards(filtered);
+        }
+
+        function updateResultsInfo(count) {
+            document.getElementById('result-count').textContent = count;
+            const tagsContainer = document.getElementById('active-tags');
+            tagsContainer.innerHTML = '';
+
+            if (currentPlatform !== 'all') {
+                const platformNames = { google: 'Google', tiktok: 'TikTok', twitter: 'X', facebook: 'Facebook' };
+                addTag(tagsContainer, platformNames[currentPlatform] || currentPlatform);
+            }
+            if (currentCountry !== 'all') {
+                const countryNames = { id: '印尼', th: '泰国', ph: '菲律宾' };
+                addTag(tagsContainer, countryNames[currentCountry] || currentCountry);
+            }
+            if (currentCategory !== 'all') {
+                const categoryNames = {
+                    gaming: '游戏', entertainment: '轻娱乐', 'social-challenge': '社交挑战',
+                    horror: '恐怖', 'light-horror': '泛恐怖', meme: '剧情梗',
+                    'music-meme': '音乐梗', movie: '影视', animation: '动画', other: '其他'
+                };
+                addTag(tagsContainer, categoryNames[currentCategory] || currentCategory);
+            }
+
+            // Show/hide no results
+            const noResults = document.getElementById('no-results');
+            if (count === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+
+        function addTag(container, text) {
+            const tag = document.createElement('span');
+            tag.className = 'tag';
+            tag.textContent = text;
+            container.appendChild(tag);
+        }
+
+        function renderCards(data) {
+            const container = document.getElementById('cards-container');
+            container.innerHTML = '';
+
+            if (data.length === 0) {
+                return;
+            }
+
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.dataset.platform = item.platform;
+                card.dataset.country = item.country;
+                card.dataset.category = item.category;
+
+                const platformIcons = {
+                    google: 'G', tiktok: '♪', twitter: '𝕏', facebook: 'f', news: 'N'
+                };
+
+                const topicsHtml = item.topics.map(topic => `
+                    <li class="topic-item">
+                        <span class="rank">${topic.rank}</span>
+                        <div class="topic-content">
+                            <div class="topic-original">${topic.original}</div>
+                            <div class="topic-translation">${topic.translation}</div>
+                            ${topic.description ? `<div class="topic-description">${topic.description}</div>` : ''}
+                        </div>
+                        <a href="${topic.link}" target="_blank" class="topic-link">
+                            详情<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                                <polyline points="15 3 21 3 21 9"/>
+                                <line x1="10" y1="14" x2="21" y2="3"/>
+                            </svg>
+                        </a>
+                        <span class="volume ${topic.volume === '热门' || topic.volume.includes('亿') || topic.volume.includes('万') && parseInt(topic.volume) > 100 ? 'high' : ''} ${topic.volume.includes('万') && parseInt(topic.volume) <= 100 && parseInt(topic.volume) > 10 ? 'medium' : ''}">${topic.volume}</span>
+                    </li>
+                `).join('');
+
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div class="platform-icon ${item.platform}">${platformIcons[item.platform] || '?'}</div>
+                        <span class="card-title">${item.title}</span>
+                        <span class="card-country">${item.countryName}</span>
+                        <span class="card-category ${item.category}">${item.categoryName}</span>
+                    </div>
+                    <ul class="topic-list">
+                        ${topicsHtml}
+                    </ul>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        // Initial render
+        applyFilters();
+    </script>
+</body>
+</html>
