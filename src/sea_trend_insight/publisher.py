@@ -173,12 +173,16 @@ def _enrich_insights(insights: list[dict], sections: list[dict]) -> list[dict]:
     return enriched
 
 
+from urllib.parse import quote as _urlquote
+
 def _get_env() -> Environment:
     templates_dir = Path(__file__).resolve().parents[2] / "templates"
-    return Environment(
+    env = Environment(
         loader=FileSystemLoader(str(templates_dir)),
         autoescape=False,
     )
+    env.filters["urlquote"] = _urlquote
+    return env
 
 
 def render_html(report: dict[str, Any], run_log: dict[str, Any] | None = None) -> str:

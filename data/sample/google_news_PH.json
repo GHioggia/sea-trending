@@ -5,12 +5,16 @@
     "country": "PH",
     "title": "EDSA traffic management plan overhaul announced by MMDA",
     "keyword": "EDSA traffic plan",
-    "url": "https://news.google.com/rss?gl=PH",
+    "url": null,
     "published_at": "2026-05-09T06:00:00Z",
     "raw_score": null,
     "language": "en",
     "category": null,
-    "tags": ["traffic", "infrastructure", "manila"],
+    "tags": [
+      "traffic",
+      "infrastructure",
+      "manila"
+    ],
     "summary": "MMDA unveils comprehensive traffic management plan for EDSA corridor"
   },
   {
@@ -19,12 +23,16 @@
     "country": "PH",
     "title": "Genshin Impact 5.0 Natlan update draws Filipino gamers",
     "keyword": "Genshin Impact 5.0",
-    "url": "https://news.google.com/rss?gl=PH",
+    "url": null,
     "published_at": "2026-05-09T08:00:00Z",
     "raw_score": null,
     "language": "en",
     "category": null,
-    "tags": ["gaming", "genshin impact", "update"],
+    "tags": [
+      "gaming",
+      "genshin impact",
+      "update"
+    ],
     "summary": "Genshin Impact 5.0 Natlan region launches to massive player engagement in Philippines"
   },
   {
@@ -33,12 +41,15 @@
     "country": "PH",
     "title": "Miss Universe Philippines 2026 candidates announced",
     "keyword": "Miss Universe Philippines 2026",
-    "url": "https://news.google.com/rss?gl=PH",
+    "url": null,
     "published_at": "2026-05-09T04:00:00Z",
     "raw_score": null,
     "language": "en",
     "category": null,
-    "tags": ["pageant", "entertainment"],
+    "tags": [
+      "pageant",
+      "entertainment"
+    ],
     "summary": "Official candidate list revealed for Miss Universe Philippines 2026"
   }
 ]
