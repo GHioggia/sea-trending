@@ -11,4 +11,4 @@ dist/
 build/
 .venv/
 .pytest_cache/
-.claude/
+.claude/settings.local.json
