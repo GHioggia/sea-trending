@@ -1,0 +1,87 @@
+[
+  {
+    "source": "trends24",
+    "platform": "twitter",
+    "country": "TH",
+    "title": "#RoVProLeague",
+    "keyword": "RoV Pro League",
+    "url": null,
+    "published_at": "2026-05-09T06:00:00Z",
+    "raw_score": 23,
+    "language": "th",
+    "category": null,
+    "tags": [
+      "esports",
+      "rov"
+    ],
+    "summary": "RPL Spring 2026 semifinals break viewership records"
+  },
+  {
+    "source": "trends24",
+    "platform": "twitter",
+    "country": "TH",
+    "title": "#OnlyFriends2",
+    "keyword": "Only Friends 2 Netflix",
+    "url": null,
+    "published_at": "2026-05-09T05:00:00Z",
+    "raw_score": 21,
+    "language": "th",
+    "category": null,
+    "tags": [
+      "drama",
+      "bl"
+    ],
+    "summary": "BL sequel dominates Thai Twitter within first day"
+  },
+  {
+    "source": "trends24",
+    "platform": "twitter",
+    "country": "TH",
+    "title": "#SongkranBangkok2026",
+    "keyword": "Songkran preparation",
+    "url": null,
+    "published_at": "2026-05-09T04:00:00Z",
+    "raw_score": 19,
+    "language": "th",
+    "category": null,
+    "tags": [
+      "culture",
+      "festival"
+    ],
+    "summary": "Countdown to water festival generates massive UGC"
+  },
+  {
+    "source": "trends24",
+    "platform": "twitter",
+    "country": "TH",
+    "title": "#GenshinCosplayTH",
+    "keyword": "Genshin Impact cosplay challenge",
+    "url": null,
+    "published_at": "2026-05-09T03:00:00Z",
+    "raw_score": 14,
+    "language": "th",
+    "category": null,
+    "tags": [
+      "gaming",
+      "cosplay"
+    ],
+    "summary": "Thai cosplay community hosts Fontaine character showcase"
+  },
+  {
+    "source": "trends24",
+    "platform": "twitter",
+    "country": "TH",
+    "title": "#MuayThaiWorld",
+    "keyword": "Muay Thai world championship",
+    "url": null,
+    "published_at": "2026-05-09T02:00:00Z",
+    "raw_score": 12,
+    "language": "th",
+    "category": null,
+    "tags": [
+      "sports",
+      "muaythai"
+    ],
+    "summary": "Thai fighters win 5 gold medals at world championship"
+  }
+]

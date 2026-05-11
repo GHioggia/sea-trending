@@ -1,0 +1,83 @@
+[
+  {
+    "source": "getdaytrends",
+    "platform": "twitter",
+    "country": "PH",
+    "title": "MPL PH Season 14",
+    "keyword": "MPL PH Season 14",
+    "url": null,
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 980000,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "esports"
+    ],
+    "summary": "980K tweets — MLBB grand finals"
+  },
+  {
+    "source": "getdaytrends",
+    "platform": "twitter",
+    "country": "PH",
+    "title": "Typhoon Carina",
+    "keyword": "Typhoon Carina",
+    "url": null,
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 750000,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "typhoon"
+    ],
+    "summary": "750K tweets — storm landfall updates"
+  },
+  {
+    "source": "getdaytrends",
+    "platform": "twitter",
+    "country": "PH",
+    "title": "Miss Universe PH 2026",
+    "keyword": "Miss Universe Philippines 2026",
+    "url": null,
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 420000,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "pageant"
+    ],
+    "summary": "420K tweets — candidates announced"
+  },
+  {
+    "source": "getdaytrends",
+    "platform": "twitter",
+    "country": "PH",
+    "title": "Genshin 5.0",
+    "keyword": "Genshin Impact 5.0",
+    "url": null,
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 310000,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "gaming"
+    ],
+    "summary": "310K tweets — 5.0 update reactions"
+  },
+  {
+    "source": "getdaytrends",
+    "platform": "twitter",
+    "country": "PH",
+    "title": "Jollibee Chickenjoy meme",
+    "keyword": "Jollibee Chickenjoy meme",
+    "url": null,
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 210000,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "food",
+      "meme"
+    ],
+    "summary": "210K tweets — viral chicken meme"
+  }
+]

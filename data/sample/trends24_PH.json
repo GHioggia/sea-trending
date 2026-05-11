@@ -1,0 +1,87 @@
+[
+  {
+    "source": "trends24",
+    "platform": "twitter",
+    "country": "PH",
+    "title": "#MPLPhseason14",
+    "keyword": "MPL PH Season 14",
+    "url": null,
+    "published_at": "2026-05-09T06:00:00Z",
+    "raw_score": 25,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "esports",
+      "trending"
+    ],
+    "summary": "Grand finals trending nationwide on Twitter/X"
+  },
+  {
+    "source": "trends24",
+    "platform": "twitter",
+    "country": "PH",
+    "title": "#TyphoonCarina",
+    "keyword": "Typhoon Carina",
+    "url": null,
+    "published_at": "2026-05-09T05:00:00Z",
+    "raw_score": 22,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "typhoon",
+      "trending"
+    ],
+    "summary": "Storm tracker updates flood Twitter with shelter info"
+  },
+  {
+    "source": "trends24",
+    "platform": "twitter",
+    "country": "PH",
+    "title": "#Jollibee1700",
+    "keyword": "Jollibee 1700th store",
+    "url": null,
+    "published_at": "2026-05-09T04:00:00Z",
+    "raw_score": 18,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "food",
+      "viral"
+    ],
+    "summary": "Fans celebrate Jollibee milestone with memes and photos"
+  },
+  {
+    "source": "trends24",
+    "platform": "twitter",
+    "country": "PH",
+    "title": "#SB19Pagtatag",
+    "keyword": "SB19 Pagtatag",
+    "url": null,
+    "published_at": "2026-05-09T03:00:00Z",
+    "raw_score": 15,
+    "language": "tl",
+    "category": null,
+    "tags": [
+      "kpop",
+      "music"
+    ],
+    "summary": "P-pop group SB19 tour announcement breaks fan records"
+  },
+  {
+    "source": "trends24",
+    "platform": "twitter",
+    "country": "PH",
+    "title": "#GenshinImpact50",
+    "keyword": "Genshin Impact 5.0",
+    "url": null,
+    "published_at": "2026-05-09T02:00:00Z",
+    "raw_score": 12,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "gaming",
+      "genshin"
+    ],
+    "summary": "5.0 livestream pulls record concurrent viewers in SEA"
+  }
+]

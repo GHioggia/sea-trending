@@ -1,0 +1,86 @@
+[
+  {
+    "source": "google_play",
+    "platform": "android",
+    "country": "ID",
+    "title": "Mobile Legends Bang Bang",
+    "keyword": "Mobile Legends Bang Bang",
+    "url": "https://play.google.com/store/apps/details?id=com.mobile.legends",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 25,
+    "language": "id",
+    "category": null,
+    "tags": [
+      "gaming",
+      "top_free"
+    ],
+    "summary": "#1 Top Free Game — ranked #1 across SEA"
+  },
+  {
+    "source": "google_play",
+    "platform": "android",
+    "country": "ID",
+    "title": "Free Fire MAX",
+    "keyword": "Free Fire MAX",
+    "url": "https://play.google.com/store/apps/details?id=com.dts.freefiremax",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 23,
+    "language": "id",
+    "category": null,
+    "tags": [
+      "gaming",
+      "top_free"
+    ],
+    "summary": "#2 Top Free Game — rising after FFID Championship"
+  },
+  {
+    "source": "google_play",
+    "platform": "android",
+    "country": "ID",
+    "title": "Ragnarok M Eternal Love",
+    "keyword": "Ragnarok M Eternal Love",
+    "url": "https://play.google.com/store/apps/details?id=com.gravity.romg",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 18,
+    "language": "id",
+    "category": null,
+    "tags": [
+      "gaming",
+      "rpg"
+    ],
+    "summary": "#4 Top Free Game — new chapter update"
+  },
+  {
+    "source": "google_play",
+    "platform": "android",
+    "country": "ID",
+    "title": "Dana",
+    "keyword": "Dana e-wallet",
+    "url": "https://play.google.com/store/apps/details?id=id.dana",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 16,
+    "language": "id",
+    "category": null,
+    "tags": [
+      "finance"
+    ],
+    "summary": "#1 Top Free App — digital wallet leader ID"
+  },
+  {
+    "source": "google_play",
+    "platform": "android",
+    "country": "ID",
+    "title": "Honor of Kings",
+    "keyword": "Honor of Kings ID",
+    "url": "https://play.google.com/store/apps/details?id=com.levelinfinite.sgameGlobal",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 14,
+    "language": "id",
+    "category": null,
+    "tags": [
+      "gaming",
+      "moba"
+    ],
+    "summary": "#3 Top Free Game — server migration complete"
+  }
+]

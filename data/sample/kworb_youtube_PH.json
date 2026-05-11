@@ -1,0 +1,87 @@
+[
+  {
+    "source": "kworb_youtube",
+    "platform": "youtube",
+    "country": "PH",
+    "title": "MPL PH S14 Grand Finals Live",
+    "keyword": "MPL PH Season 14",
+    "url": "https://kworb.net/youtube/",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 5200000,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "esports",
+      "live"
+    ],
+    "summary": "5.2M views — live stream grand finals"
+  },
+  {
+    "source": "kworb_youtube",
+    "platform": "youtube",
+    "country": "PH",
+    "title": "Genshin Impact 5.0 Official Trailer",
+    "keyword": "Genshin Impact 5.0",
+    "url": "https://kworb.net/youtube/",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 3800000,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "gaming",
+      "trailer"
+    ],
+    "summary": "3.8M views in 24h — Fontaine chapter reveal"
+  },
+  {
+    "source": "kworb_youtube",
+    "platform": "youtube",
+    "country": "PH",
+    "title": "SB19 PAGTATAG World Tour Vlog",
+    "keyword": "SB19 Pagtatag",
+    "url": "https://kworb.net/youtube/",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 2100000,
+    "language": "tl",
+    "category": null,
+    "tags": [
+      "music",
+      "kpop"
+    ],
+    "summary": "2.1M views — behind-the-scenes world tour"
+  },
+  {
+    "source": "kworb_youtube",
+    "platform": "youtube",
+    "country": "PH",
+    "title": "Typhoon Carina tracker livestream",
+    "keyword": "Typhoon Carina",
+    "url": "https://kworb.net/youtube/",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 1800000,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "news",
+      "typhoon"
+    ],
+    "summary": "1.8M concurrent viewers — storm tracking"
+  },
+  {
+    "source": "kworb_youtube",
+    "platform": "youtube",
+    "country": "PH",
+    "title": "Jollibee 1700 store opening highlights",
+    "keyword": "Jollibee expansion",
+    "url": "https://kworb.net/youtube/",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 950000,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "food",
+      "viral"
+    ],
+    "summary": "950K views — milestone store celebration"
+  }
+]

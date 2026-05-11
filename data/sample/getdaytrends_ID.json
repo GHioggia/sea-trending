@@ -1,0 +1,83 @@
+[
+  {
+    "source": "getdaytrends",
+    "platform": "twitter",
+    "country": "ID",
+    "title": "MPL ID Season 14",
+    "keyword": "MPL ID Season 14",
+    "url": null,
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 920000,
+    "language": "id",
+    "category": null,
+    "tags": [
+      "esports"
+    ],
+    "summary": "920K tweets — pro league finals"
+  },
+  {
+    "source": "getdaytrends",
+    "platform": "twitter",
+    "country": "ID",
+    "title": "Banjir Jakarta",
+    "keyword": "banjir Jakarta",
+    "url": null,
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 680000,
+    "language": "id",
+    "category": null,
+    "tags": [
+      "flood"
+    ],
+    "summary": "680K tweets — flood evacuation info"
+  },
+  {
+    "source": "getdaytrends",
+    "platform": "twitter",
+    "country": "ID",
+    "title": "Indomie Challenge",
+    "keyword": "Indomie recipe challenge",
+    "url": null,
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 450000,
+    "language": "id",
+    "category": null,
+    "tags": [
+      "food",
+      "viral"
+    ],
+    "summary": "450K tweets — recipe viral challenge"
+  },
+  {
+    "source": "getdaytrends",
+    "platform": "twitter",
+    "country": "ID",
+    "title": "Free Fire ID",
+    "keyword": "Free Fire Indonesia Championship",
+    "url": null,
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 280000,
+    "language": "id",
+    "category": null,
+    "tags": [
+      "gaming"
+    ],
+    "summary": "280K tweets — FFID championship"
+  },
+  {
+    "source": "getdaytrends",
+    "platform": "twitter",
+    "country": "ID",
+    "title": "Citayam Fashion",
+    "keyword": "Citayam Fashion Week",
+    "url": null,
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 180000,
+    "language": "id",
+    "category": null,
+    "tags": [
+      "fashion"
+    ],
+    "summary": "180K tweets — street fashion revival"
+  }
+]

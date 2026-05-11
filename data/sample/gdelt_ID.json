@@ -1,0 +1,87 @@
+[
+  {
+    "source": "gdelt",
+    "platform": "gdelt",
+    "country": "ID",
+    "title": "Prabowo launches food security program",
+    "keyword": "Prabowo food security",
+    "url": "https://api.gdeltproject.org/",
+    "published_at": "2026-05-09T02:00:00Z",
+    "raw_score": 18,
+    "language": "id",
+    "category": null,
+    "tags": [
+      "politics",
+      "food"
+    ],
+    "summary": "President announces free school meals for 82 million students"
+  },
+  {
+    "source": "gdelt",
+    "platform": "gdelt",
+    "country": "ID",
+    "title": "Jakarta flooding hits central districts",
+    "keyword": "banjir Jakarta",
+    "url": "https://api.gdeltproject.org/",
+    "published_at": "2026-05-09T01:30:00Z",
+    "raw_score": 16,
+    "language": "id",
+    "category": null,
+    "tags": [
+      "flood",
+      "disaster"
+    ],
+    "summary": "Heavy rains cause flooding in Pluit and Kemayoran"
+  },
+  {
+    "source": "gdelt",
+    "platform": "gdelt",
+    "country": "ID",
+    "title": "Rupiah strengthens to 15,800 per USD",
+    "keyword": "kurs rupiah dolar",
+    "url": "https://api.gdeltproject.org/",
+    "published_at": "2026-05-09T01:00:00Z",
+    "raw_score": 13,
+    "language": "id",
+    "category": null,
+    "tags": [
+      "economy",
+      "currency"
+    ],
+    "summary": "IDR rebounds on positive trade data and BI rate hold"
+  },
+  {
+    "source": "gdelt",
+    "platform": "gdelt",
+    "country": "ID",
+    "title": "Bandung earthquake felt across West Java",
+    "keyword": "gempa Bandung",
+    "url": "https://api.gdeltproject.org/",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 11,
+    "language": "id",
+    "category": null,
+    "tags": [
+      "earthquake",
+      "disaster"
+    ],
+    "summary": "5.1 magnitude quake strikes 10km south of Bandung"
+  },
+  {
+    "source": "gdelt",
+    "platform": "gdelt",
+    "country": "ID",
+    "title": "Grab Indonesia IPO on IDX planned for 2027",
+    "keyword": "Grab IPO Indonesia",
+    "url": "https://api.gdeltproject.org/",
+    "published_at": "2026-05-08T23:00:00Z",
+    "raw_score": 8,
+    "language": "id",
+    "category": null,
+    "tags": [
+      "business",
+      "tech"
+    ],
+    "summary": "Grab confirms dual-listing plan on IDX alongside Nasdaq"
+  }
+]

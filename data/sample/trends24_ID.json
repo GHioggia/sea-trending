@@ -1,0 +1,87 @@
+[
+  {
+    "source": "trends24",
+    "platform": "twitter",
+    "country": "ID",
+    "title": "#MPLIDSeason14",
+    "keyword": "MPL ID Season 14",
+    "url": null,
+    "published_at": "2026-05-09T06:00:00Z",
+    "raw_score": 24,
+    "language": "id",
+    "category": null,
+    "tags": [
+      "esports",
+      "trending"
+    ],
+    "summary": "MLBB pro league finals dominates Indonesian Twitter"
+  },
+  {
+    "source": "trends24",
+    "platform": "twitter",
+    "country": "ID",
+    "title": "#BanjirJakarta",
+    "keyword": "banjir Jakarta",
+    "url": null,
+    "published_at": "2026-05-09T05:30:00Z",
+    "raw_score": 20,
+    "language": "id",
+    "category": null,
+    "tags": [
+      "flood",
+      "trending"
+    ],
+    "summary": "Citizens share real-time flood updates and evacuation routes"
+  },
+  {
+    "source": "trends24",
+    "platform": "twitter",
+    "country": "ID",
+    "title": "#IndomieChallenge",
+    "keyword": "Indomie recipe challenge",
+    "url": null,
+    "published_at": "2026-05-09T04:00:00Z",
+    "raw_score": 17,
+    "language": "id",
+    "category": null,
+    "tags": [
+      "food",
+      "viral"
+    ],
+    "summary": "Viral TikTok recipe challenge crosses 50M views"
+  },
+  {
+    "source": "trends24",
+    "platform": "twitter",
+    "country": "ID",
+    "title": "#FreeFire2026",
+    "keyword": "Free Fire Indonesia Championship",
+    "url": null,
+    "published_at": "2026-05-09T03:00:00Z",
+    "raw_score": 14,
+    "language": "id",
+    "category": null,
+    "tags": [
+      "gaming",
+      "esports"
+    ],
+    "summary": "FFID championship announcement sets new registration record"
+  },
+  {
+    "source": "trends24",
+    "platform": "twitter",
+    "country": "ID",
+    "title": "#CitayamFashion",
+    "keyword": "Citayam Fashion Week",
+    "url": null,
+    "published_at": "2026-05-09T02:00:00Z",
+    "raw_score": 11,
+    "language": "id",
+    "category": null,
+    "tags": [
+      "fashion",
+      "viral"
+    ],
+    "summary": "Street fashion event returns with 2026 summer edition"
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "source": "gdelt",
+    "platform": "gdelt",
+    "country": "PH",
+    "title": "Typhoon Carina batters Luzon",
+    "keyword": "Typhoon Carina",
+    "url": "https://api.gdeltproject.org/",
+    "published_at": "2026-05-09T02:00:00Z",
+    "raw_score": 18,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "typhoon",
+      "disaster"
+    ],
+    "summary": "Typhoon Carina makes landfall in Luzon with 120kph winds"
+  },
+  {
+    "source": "gdelt",
+    "platform": "gdelt",
+    "country": "PH",
+    "title": "Philippine economy grows 6.4% in Q1",
+    "keyword": "Philippine economy GDP",
+    "url": "https://api.gdeltproject.org/",
+    "published_at": "2026-05-09T01:00:00Z",
+    "raw_score": 15,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "economy"
+    ],
+    "summary": "GDP growth beats forecast driven by services and remittances"
+  },
+  {
+    "source": "gdelt",
+    "platform": "gdelt",
+    "country": "PH",
+    "title": "EDSA Busway expansion approved",
+    "keyword": "EDSA Busway",
+    "url": "https://api.gdeltproject.org/",
+    "published_at": "2026-05-09T00:30:00Z",
+    "raw_score": 12,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "transport",
+      "infrastructure"
+    ],
+    "summary": "MMDA approves EDSA Busway extension to Monumento"
+  },
+  {
+    "source": "gdelt",
+    "platform": "gdelt",
+    "country": "PH",
+    "title": "Marcos meets ASEAN leaders in Jakarta",
+    "keyword": "Marcos ASEAN summit",
+    "url": "https://api.gdeltproject.org/",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 10,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "politics",
+      "asean"
+    ],
+    "summary": "PH president attends 44th ASEAN Summit in Jakarta"
+  },
+  {
+    "source": "gdelt",
+    "platform": "gdelt",
+    "country": "PH",
+    "title": "Jollibee opens 1,700th store",
+    "keyword": "Jollibee expansion",
+    "url": "https://api.gdeltproject.org/",
+    "published_at": "2026-05-08T22:00:00Z",
+    "raw_score": 8,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "food",
+      "business"
+    ],
+    "summary": "Fast-food giant opens milestone store in Cebu City"
+  }
+]

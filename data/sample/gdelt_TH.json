@@ -1,0 +1,87 @@
+[
+  {
+    "source": "gdelt",
+    "platform": "gdelt",
+    "country": "TH",
+    "title": "Thailand raises minimum wage to 400 baht",
+    "keyword": "minimum wage Thailand",
+    "url": "https://api.gdeltproject.org/",
+    "published_at": "2026-05-09T02:00:00Z",
+    "raw_score": 17,
+    "language": "th",
+    "category": null,
+    "tags": [
+      "economy",
+      "labor"
+    ],
+    "summary": "Cabinet approves nationwide minimum wage hike effective June"
+  },
+  {
+    "source": "gdelt",
+    "platform": "gdelt",
+    "country": "TH",
+    "title": "Bangkok flood alert as monsoon arrives early",
+    "keyword": "น้ำท่วม กรุงเทพ",
+    "url": "https://api.gdeltproject.org/",
+    "published_at": "2026-05-09T01:00:00Z",
+    "raw_score": 15,
+    "language": "th",
+    "category": null,
+    "tags": [
+      "flood",
+      "disaster"
+    ],
+    "summary": "RID issues flood warning for low-lying Bangkok districts"
+  },
+  {
+    "source": "gdelt",
+    "platform": "gdelt",
+    "country": "TH",
+    "title": "Srettha unveils digital economy roadmap",
+    "keyword": "digital economy Thailand",
+    "url": "https://api.gdeltproject.org/",
+    "published_at": "2026-05-09T00:30:00Z",
+    "raw_score": 12,
+    "language": "th",
+    "category": null,
+    "tags": [
+      "politics",
+      "tech"
+    ],
+    "summary": "PM presents 5-year plan to add 1 trillion THB via digital sector"
+  },
+  {
+    "source": "gdelt",
+    "platform": "gdelt",
+    "country": "TH",
+    "title": "Thai BL drama 'Only Friends 2' sets Netflix record",
+    "keyword": "Only Friends 2 Netflix",
+    "url": "https://api.gdeltproject.org/",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 10,
+    "language": "th",
+    "category": null,
+    "tags": [
+      "entertainment",
+      "drama"
+    ],
+    "summary": "Sequel tops SEA charts within 48 hours of release"
+  },
+  {
+    "source": "gdelt",
+    "platform": "gdelt",
+    "country": "TH",
+    "title": "Songkran extended holiday boosts tourism",
+    "keyword": "Songkran tourism 2026",
+    "url": "https://api.gdeltproject.org/",
+    "published_at": "2026-05-08T22:00:00Z",
+    "raw_score": 9,
+    "language": "th",
+    "category": null,
+    "tags": [
+      "tourism",
+      "culture"
+    ],
+    "summary": "TAT reports record 3.2M tourists during extended Songkran week"
+  }
+]

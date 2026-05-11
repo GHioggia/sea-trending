@@ -1,0 +1,83 @@
+[
+  {
+    "source": "getdaytrends",
+    "platform": "twitter",
+    "country": "TH",
+    "title": "RoV Pro League",
+    "keyword": "RoV Pro League",
+    "url": null,
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 870000,
+    "language": "th",
+    "category": null,
+    "tags": [
+      "esports"
+    ],
+    "summary": "870K tweets — RPL Spring semifinals"
+  },
+  {
+    "source": "getdaytrends",
+    "platform": "twitter",
+    "country": "TH",
+    "title": "Only Friends 2",
+    "keyword": "Only Friends 2 Netflix",
+    "url": null,
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 650000,
+    "language": "th",
+    "category": null,
+    "tags": [
+      "drama"
+    ],
+    "summary": "650K tweets — BL sequel drops"
+  },
+  {
+    "source": "getdaytrends",
+    "platform": "twitter",
+    "country": "TH",
+    "title": "Songkran 2026",
+    "keyword": "Songkran preparation",
+    "url": null,
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 490000,
+    "language": "th",
+    "category": null,
+    "tags": [
+      "festival"
+    ],
+    "summary": "490K tweets — festival countdown"
+  },
+  {
+    "source": "getdaytrends",
+    "platform": "twitter",
+    "country": "TH",
+    "title": "Genshin Cosplay TH",
+    "keyword": "Genshin Impact cosplay challenge",
+    "url": null,
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 240000,
+    "language": "th",
+    "category": null,
+    "tags": [
+      "gaming",
+      "cosplay"
+    ],
+    "summary": "240K tweets — Fontaine cosplay showcase"
+  },
+  {
+    "source": "getdaytrends",
+    "platform": "twitter",
+    "country": "TH",
+    "title": "Muay Thai World",
+    "keyword": "Muay Thai world championship",
+    "url": null,
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 190000,
+    "language": "th",
+    "category": null,
+    "tags": [
+      "sports"
+    ],
+    "summary": "190K tweets — Thai gold medal wins"
+  }
+]

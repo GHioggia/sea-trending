@@ -1,0 +1,85 @@
+[
+  {
+    "source": "google_play",
+    "platform": "android",
+    "country": "TH",
+    "title": "RoV Arena of Valor",
+    "keyword": "RoV Arena of Valor",
+    "url": "https://play.google.com/store/apps/details?id=com.garena.game.kgth",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 25,
+    "language": "th",
+    "category": null,
+    "tags": [
+      "gaming",
+      "moba"
+    ],
+    "summary": "#1 Top Free Game — RPL Spring boost"
+  },
+  {
+    "source": "google_play",
+    "platform": "android",
+    "country": "TH",
+    "title": "Genshin Impact",
+    "keyword": "Genshin Impact",
+    "url": "https://play.google.com/store/apps/details?id=com.miHoYo.GenshinImpact",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 22,
+    "language": "th",
+    "category": null,
+    "tags": [
+      "gaming",
+      "top_free"
+    ],
+    "summary": "#2 Top Free Game — 5.0 update dominates"
+  },
+  {
+    "source": "google_play",
+    "platform": "android",
+    "country": "TH",
+    "title": "Ragnarok Origin Thailand",
+    "keyword": "Ragnarok Origin Thailand",
+    "url": "https://play.google.com/store/apps/details?id=com.gravity.roo.th",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 20,
+    "language": "th",
+    "category": null,
+    "tags": [
+      "gaming",
+      "rpg"
+    ],
+    "summary": "#3 Top Free Game — server launch week"
+  },
+  {
+    "source": "google_play",
+    "platform": "android",
+    "country": "TH",
+    "title": "TrueMoney Wallet",
+    "keyword": "TrueMoney",
+    "url": "https://play.google.com/store/apps/details?id=th.co.truemoney.wallet",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 15,
+    "language": "th",
+    "category": null,
+    "tags": [
+      "finance"
+    ],
+    "summary": "#1 Top Free App — e-wallet TH leader"
+  },
+  {
+    "source": "google_play",
+    "platform": "android",
+    "country": "TH",
+    "title": "Free Fire MAX",
+    "keyword": "Free Fire MAX",
+    "url": "https://play.google.com/store/apps/details?id=com.dts.freefiremax",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 13,
+    "language": "th",
+    "category": null,
+    "tags": [
+      "gaming"
+    ],
+    "summary": "#4 Top Free Game — 5th anniversary event"
+  }
+]

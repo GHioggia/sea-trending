@@ -1,0 +1,87 @@
+[
+  {
+    "source": "google_play",
+    "platform": "android",
+    "country": "PH",
+    "title": "Mobile Legends Bang Bang",
+    "keyword": "Mobile Legends Bang Bang",
+    "url": "https://play.google.com/store/apps/details?id=com.mobile.legends",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 25,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "gaming",
+      "top_free"
+    ],
+    "summary": "#1 Top Free Game — 200M+ downloads"
+  },
+  {
+    "source": "google_play",
+    "platform": "android",
+    "country": "PH",
+    "title": "Free Fire MAX",
+    "keyword": "Free Fire MAX",
+    "url": "https://play.google.com/store/apps/details?id=com.dts.freefiremax",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 22,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "gaming",
+      "top_free"
+    ],
+    "summary": "#2 Top Free Game — battle royale"
+  },
+  {
+    "source": "google_play",
+    "platform": "android",
+    "country": "PH",
+    "title": "Genshin Impact",
+    "keyword": "Genshin Impact",
+    "url": "https://play.google.com/store/apps/details?id=com.miHoYo.GenshinImpact",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 20,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "gaming",
+      "top_free"
+    ],
+    "summary": "#3 Top Free Game — 5.0 update boost"
+  },
+  {
+    "source": "google_play",
+    "platform": "android",
+    "country": "PH",
+    "title": "GCash",
+    "keyword": "GCash",
+    "url": "https://play.google.com/store/apps/details?id=com.globe.gcash.android",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 15,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "finance",
+      "top_free"
+    ],
+    "summary": "#1 Top Free App — mobile wallet"
+  },
+  {
+    "source": "google_play",
+    "platform": "android",
+    "country": "PH",
+    "title": "Call of Duty Mobile",
+    "keyword": "Call of Duty Mobile",
+    "url": "https://play.google.com/store/apps/details?id=com.activision.callofduty.shooter",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 13,
+    "language": "en",
+    "category": null,
+    "tags": [
+      "gaming",
+      "top_grossing"
+    ],
+    "summary": "#1 Top Grossing Game — Season 12"
+  }
+]
