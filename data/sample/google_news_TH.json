@@ -1,0 +1,44 @@
+[
+  {
+    "source": "google_news",
+    "platform": "google",
+    "country": "TH",
+    "title": "Thailand GDP growth exceeds forecast Q1 2026",
+    "keyword": "Thailand GDP growth",
+    "url": "https://news.google.com/rss?gl=TH",
+    "published_at": "2026-05-09T04:00:00Z",
+    "raw_score": null,
+    "language": "th",
+    "category": null,
+    "tags": ["economy", "gdp"],
+    "summary": "Thai economy grows 4.1% in Q1 2026, beating analyst expectations of 3.5%"
+  },
+  {
+    "source": "google_news",
+    "platform": "google",
+    "country": "TH",
+    "title": "Ragnarok Origin Thailand server launch breaks records",
+    "keyword": "Ragnarok Origin Thailand",
+    "url": "https://news.google.com/rss?gl=TH",
+    "published_at": "2026-05-09T09:00:00Z",
+    "raw_score": null,
+    "language": "th",
+    "category": null,
+    "tags": ["gaming", "ragnarok", "mmorpg"],
+    "summary": "Ragnarok Origin Thailand server launch attracts 500K players in first 48 hours"
+  },
+  {
+    "source": "google_news",
+    "platform": "google",
+    "country": "TH",
+    "title": "Bangkok street food TikTok trend attracts tourists",
+    "keyword": "Bangkok street food TikTok",
+    "url": "https://news.google.com/rss?gl=TH",
+    "published_at": "2026-05-09T06:00:00Z",
+    "raw_score": null,
+    "language": "th",
+    "category": null,
+    "tags": ["viral", "food", "tiktok", "tourism"],
+    "summary": "TikTok street food videos from Bangkok Chinatown drive tourism surge"
+  }
+]

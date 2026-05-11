@@ -1,0 +1,30 @@
+[
+  {
+    "source": "tiktok_mock",
+    "platform": "tiktok",
+    "country": "ID",
+    "title": "Indomie recipe challenge viral trend Indonesia",
+    "keyword": "Indomie recipe challenge",
+    "url": null,
+    "published_at": "2026-05-09T10:00:00Z",
+    "raw_score": 3200000,
+    "language": "id",
+    "category": null,
+    "tags": ["food", "challenge", "viral"],
+    "summary": "Creative Indomie recipe challenge goes viral with 3.2M views"
+  },
+  {
+    "source": "tiktok_mock",
+    "platform": "tiktok",
+    "country": "ID",
+    "title": "MLBB new hero Arlott gameplay tips trending",
+    "keyword": "MLBB Arlott gameplay",
+    "url": null,
+    "published_at": "2026-05-09T12:00:00Z",
+    "raw_score": 1500000,
+    "language": "id",
+    "category": null,
+    "tags": ["gaming", "mobile legends", "mlbb", "tips"],
+    "summary": "MLBB Arlott hero guide and gameplay tips trend on TikTok Indonesia"
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "source": "google_news",
+    "platform": "google",
+    "country": "ID",
+    "title": "Jakarta MRT extension Phase 2 progress update",
+    "keyword": "Jakarta MRT extension",
+    "url": "https://news.google.com/rss?gl=ID",
+    "published_at": "2026-05-09T05:00:00Z",
+    "raw_score": null,
+    "language": "id",
+    "category": null,
+    "tags": ["infrastructure", "jakarta", "mrt"],
+    "summary": "Jakarta MRT Phase 2 construction reaches 65% completion milestone"
+  },
+  {
+    "source": "google_news",
+    "platform": "google",
+    "country": "ID",
+    "title": "Indonesian food review mukbang viral across Southeast Asia",
+    "keyword": "Indonesian food review viral",
+    "url": "https://news.google.com/rss?gl=ID",
+    "published_at": "2026-05-09T07:00:00Z",
+    "raw_score": null,
+    "language": "id",
+    "category": null,
+    "tags": ["viral", "food", "mukbang"],
+    "summary": "Indonesian street food mukbang creator reaches 10M views in 24 hours"
+  },
+  {
+    "source": "google_news",
+    "platform": "google",
+    "country": "ID",
+    "title": "Pemilu 2026 regional election preparations begin",
+    "keyword": "Pemilu 2026",
+    "url": "https://news.google.com/rss?gl=ID",
+    "published_at": "2026-05-09T03:00:00Z",
+    "raw_score": null,
+    "language": "id",
+    "category": null,
+    "tags": ["election", "politics"],
+    "summary": "KPU begins preparations for 2026 regional elections across 270 districts"
+  }
+]

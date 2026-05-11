@@ -1,0 +1,14 @@
+data/raw/
+data/normalized/
+reports/
+logs/
+public/*.html
+public/archive/
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+.venv/
+.pytest_cache/
+.claude/

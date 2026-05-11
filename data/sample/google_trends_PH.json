@@ -1,0 +1,72 @@
+[
+  {
+    "source": "google_trends",
+    "platform": "google",
+    "country": "PH",
+    "title": "Mobile Legends MPL PH Season 14 finals",
+    "keyword": "MPL PH Season 14",
+    "url": "https://trends.google.com/trending?geo=PH",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 95000,
+    "language": "en",
+    "category": null,
+    "tags": ["esports", "mobile legends"],
+    "summary": "MPL PH Season 14 grand finals draw record viewership"
+  },
+  {
+    "source": "google_trends",
+    "platform": "google",
+    "country": "PH",
+    "title": "Typhoon Carina latest update PAGASA",
+    "keyword": "Typhoon Carina",
+    "url": "https://trends.google.com/trending?geo=PH",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 200000,
+    "language": "en",
+    "category": null,
+    "tags": ["weather", "typhoon"],
+    "summary": "PAGASA raises Signal No. 3 over Northern Luzon as Typhoon Carina intensifies"
+  },
+  {
+    "source": "google_trends",
+    "platform": "google",
+    "country": "PH",
+    "title": "Jollibee Chickenjoy meme viral TikTok",
+    "keyword": "Jollibee Chickenjoy meme",
+    "url": "https://trends.google.com/trending?geo=PH",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 150000,
+    "language": "en",
+    "category": null,
+    "tags": ["meme", "food", "viral"],
+    "summary": "Jollibee Chickenjoy comparison meme goes viral on TikTok Philippines"
+  },
+  {
+    "source": "google_trends",
+    "platform": "google",
+    "country": "PH",
+    "title": "SB19 PAGTATAG world tour concert dates",
+    "keyword": "SB19 PAGTATAG",
+    "url": "https://trends.google.com/trending?geo=PH",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 120000,
+    "language": "en",
+    "category": null,
+    "tags": ["music", "concert", "ppop"],
+    "summary": "SB19 announces additional dates for PAGTATAG world tour"
+  },
+  {
+    "source": "google_trends",
+    "platform": "google",
+    "country": "PH",
+    "title": "PhilHealth contribution increase 2026",
+    "keyword": "PhilHealth contribution",
+    "url": "https://trends.google.com/trending?geo=PH",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 180000,
+    "language": "en",
+    "category": null,
+    "tags": ["health", "government", "policy"],
+    "summary": "PhilHealth contribution rate to increase starting July 2026"
+  }
+]

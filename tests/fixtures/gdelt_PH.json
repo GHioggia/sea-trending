@@ -1,0 +1,36 @@
+{
+  "articles": [
+    {
+      "url": "https://example.com/ph/article1",
+      "title": "Typhoon Carina makes landfall in Northern Luzon",
+      "seendate": "20260509T060000Z",
+      "domain": "inquirer.net",
+      "language": "English",
+      "sourcecountry": "Philippines"
+    },
+    {
+      "url": "https://example.com/ph/article2",
+      "title": "Mobile Legends MPL PH S14 finals draw record viewers",
+      "seendate": "20260509T080000Z",
+      "domain": "rappler.com",
+      "language": "English",
+      "sourcecountry": "Philippines"
+    },
+    {
+      "url": "https://example.com/ph/article3",
+      "title": "Philippine economy grows 6.2% in Q1 2026",
+      "seendate": "20260509T100000Z",
+      "domain": "philstar.com",
+      "language": "English",
+      "sourcecountry": "Philippines"
+    },
+    {
+      "url": "https://example.com/ph/article4",
+      "title": "Viral TikTok dance challenge sweeps Filipino youth",
+      "seendate": "20260509T120000Z",
+      "domain": "abs-cbn.com",
+      "language": "English",
+      "sourcecountry": "Philippines"
+    }
+  ]
+}

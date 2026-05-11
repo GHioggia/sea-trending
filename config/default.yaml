@@ -1,0 +1,172 @@
+countries:
+  PH:
+    name: Philippines
+    languages: [en, tl]
+  ID:
+    name: Indonesia
+    languages: [id, en]
+  TH:
+    name: Thailand
+    languages: [th, en]
+
+categories:
+  news:
+    label: "重要新闻/民生"
+    label_en: "Important News"
+  gaming:
+    label: "游戏相关"
+    label_en: "Gaming"
+  viral:
+    label: "大传播热点/梗"
+    label_en: "Viral / Memes"
+  trending:
+    label: "民众热搜"
+    label_en: "Trending"
+
+providers:
+  proxy: "http://mgproxy.ejoy.com:23488"
+  google_trends:
+    enabled: true
+    platform: google
+  google_news:
+    enabled: true
+    platform: google
+  gdelt:
+    enabled: true
+    platform: gdelt
+  trends24:
+    enabled: true
+    platform: twitter
+  getdaytrends:
+    enabled: true
+    platform: twitter
+  kworb_youtube:
+    enabled: true
+    platform: youtube
+  appbrain:
+    enabled: false
+    platform: android
+  google_play:
+    enabled: true
+    platform: android
+  appfigures:
+    enabled: false
+    platform: appstore
+    api_key: ""
+  tiktok:
+    enabled: false
+    platform: tiktok
+    mode: mock
+
+output:
+  raw_dir: data/raw
+  normalized_dir: data/normalized
+  reports_dir: reports
+  public_dir: public
+  logs_dir: logs
+
+scoring:
+  relevance:
+    raw_score_max: 500000
+    source_weights:
+      google_trends: 1.0
+      google_news: 0.9
+      gdelt: 0.8
+      trends24: 0.7
+      getdaytrends: 0.7
+      kworb_youtube: 0.6
+      google_play: 0.8
+      appbrain: 0.7
+      appfigures: 0.7
+      sample: 0.5
+    multi_source_bonus: 0.15
+  virality:
+    viral_keyword_boost: 0.3
+    high_score_threshold: 100000
+    high_score_boost: 0.2
+    platform_weights:
+      tiktok: 1.0
+      twitter: 0.9
+      youtube: 0.8
+      google: 0.6
+      android: 0.4
+  game_design_value:
+    gaming_category_base: 0.6
+    gaming_keyword_boost: 0.2
+    cultural_keyword_boost: 0.15
+    viral_mechanic_boost: 0.1
+    cultural_keywords:
+      - festival
+      - holiday
+      - tradition
+      - food
+      - fashion
+      - music
+      - dance
+      - cosplay
+      - ramadan
+      - eid
+      - songkran
+      - loy\s*krathong
+      - sinulog
+      - ati-atihan
+      - lebaran
+      - imlek
+    viral_mechanic_keywords:
+      - challenge
+      - meme
+      - trend
+      - viral
+      - dance
+      - mukbang
+      - unboxing
+  risk:
+    sensitive_keywords:
+      - death
+      - suicide
+      - kill
+      - murder
+      - bomb
+      - terror
+      - drug
+      - gambling
+      - sex
+      - religion
+      - political\s*crisis
+      - coup
+      - riot
+      - protest
+      - martial\s*law
+      - bunuh
+      - narkoba
+      - judi
+    controversy_keywords:
+      - scandal
+      - controversy
+      - backlash
+      - boycott
+      - lawsuit
+      - fraud
+      - corruption
+    sensitive_score: 0.7
+    controversy_score: 0.4
+
+analysis:
+  dedup:
+    title_similarity_threshold: 0.7
+  country_summary:
+    top_n: 10
+  trend_summary:
+    cross_country_min_countries: 2
+    unique_top_n: 5
+    gaming_top_n: 10
+  design_insights:
+    top_n: 8
+    min_game_design_value: 0.3
+
+publish:
+  mode: docs
+  pages_base_url: https://GHioggia.github.io/sea-trending/
+  auto_push: false
+  backup_before_publish: true
+  archive_dir: archive

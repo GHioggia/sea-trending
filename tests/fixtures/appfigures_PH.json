@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Mobile Legends: Bang Bang",
+    "developer": {"name": "Moonton"},
+    "url": "https://play.google.com/store/apps/details?id=com.mobile.legends"
+  },
+  {
+    "name": "Genshin Impact",
+    "developer": {"name": "miHoYo"},
+    "url": "https://play.google.com/store/apps/details?id=com.mihoyo.genshin"
+  },
+  {
+    "name": "Roblox",
+    "developer": {"name": "Roblox Corporation"},
+    "url": "https://play.google.com/store/apps/details?id=com.roblox.client"
+  }
+]

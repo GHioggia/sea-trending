@@ -1,0 +1,72 @@
+[
+  {
+    "source": "google_trends",
+    "platform": "google",
+    "country": "TH",
+    "title": "RoV Pro League Thailand Season 2026",
+    "keyword": "RoV Pro League",
+    "url": "https://trends.google.com/trending?geo=TH",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 100000,
+    "language": "th",
+    "category": null,
+    "tags": ["esports", "rov", "arena of valor"],
+    "summary": "RoV Pro League Thailand kicks off new season with expanded prize pool"
+  },
+  {
+    "source": "google_trends",
+    "platform": "google",
+    "country": "TH",
+    "title": "Bangkok flood warning May 2026 heavy rain",
+    "keyword": "Bangkok flood warning",
+    "url": "https://trends.google.com/trending?geo=TH",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 220000,
+    "language": "th",
+    "category": null,
+    "tags": ["weather", "flood", "bangkok"],
+    "summary": "Bangkok Metropolitan Administration issues flood warning as heavy rains continue"
+  },
+  {
+    "source": "google_trends",
+    "platform": "google",
+    "country": "TH",
+    "title": "Thai BL drama trending worldwide Netflix",
+    "keyword": "Thai BL drama",
+    "url": "https://trends.google.com/trending?geo=TH",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 160000,
+    "language": "th",
+    "category": null,
+    "tags": ["entertainment", "bl", "drama", "netflix"],
+    "summary": "New Thai BL series tops Netflix global charts within first week"
+  },
+  {
+    "source": "google_trends",
+    "platform": "google",
+    "country": "TH",
+    "title": "Thai boxing Muay Thai world championship 2026",
+    "keyword": "Muay Thai world championship",
+    "url": "https://trends.google.com/trending?geo=TH",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 95000,
+    "language": "th",
+    "category": null,
+    "tags": ["sports", "muay thai"],
+    "summary": "Thai fighter wins gold at Muay Thai World Championship in Bangkok"
+  },
+  {
+    "source": "google_trends",
+    "platform": "google",
+    "country": "TH",
+    "title": "Thailand digital wallet scheme update economy",
+    "keyword": "Thailand digital wallet",
+    "url": "https://trends.google.com/trending?geo=TH",
+    "published_at": "2026-05-09T00:00:00Z",
+    "raw_score": 190000,
+    "language": "th",
+    "category": null,
+    "tags": ["government", "economy", "policy"],
+    "summary": "Government announces phase 2 of digital wallet stimulus with expanded eligibility"
+  }
+]
