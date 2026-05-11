@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEA 玩家趋势日报 — 2026-05-09</title>
+<style>
+:root {
+  --bg: #0f1117;
+  --bg-card: #1a1d27;
+  --bg-card-hover: #222632;
+  --border: #2a2e3a;
+  --text: #e4e4e7;
+  --text-dim: #9ca3af;
+  --text-muted: #6b7280;
+  --accent: #60a5fa;
+  --green: #34d399;
+  --red: #f87171;
+  --amber: #fbbf24;
+  --c-news: #ef4444; --c-news-bg: rgba(239,68,68,.1);
+  --c-gaming: #a855f7; --c-gaming-bg: rgba(168,85,247,.1);
+  --c-viral: #f97316; --c-viral-bg: rgba(249,115,22,.1);
+  --c-trending: #3b82f6; --c-trending-bg: rgba(59,130,246,.1);
+  --c-risk: #dc2626; --c-risk-bg: rgba(220,38,38,.08);
+  --ph: #3b82f6; --id: #ef4444; --th: #eab308;
+  --radius: 8px; --radius-sm: 4px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+  --mono: "SF Mono", "Fira Code", monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:var(--font); background:var(--bg); color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased; }
+.container { max-width:1400px; margin:0 auto; padding:0 20px; }
+.header { background:linear-gradient(135deg,#1e2030,#161822); border-bottom:1px solid var(--border); padding:20px 0; position:sticky; top:0; z-index:100; }
+.header-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+.header-left { display:flex; align-items:center; gap:12px; }
+.logo { width:36px; height:36px; background:linear-gradient(135deg,var(--accent),var(--c-gaming)); border-radius:var(--radius); display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:700; color:#fff; }
+.header-title { font-size:18px; font-weight:600; }
+.header-date { font-size:13px; color:var(--text-dim); font-family:var(--mono); }
+.header-stats { display:flex; gap:16px; font-size:13px; color:var(--text-dim); }
+.header-stats .stat-value { color:var(--text); font-weight:600; }
+.health-bar { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:12px 16px; margin:16px 0; display:flex; align-items:center; gap:16px; font-size:13px; flex-wrap:wrap; }
+.health-dot { width:8px; height:8px; border-radius:50%; display:inline-block; margin-right:4px; }
+.health-dot.ok { background:var(--green); } .health-dot.fail { background:var(--red); } .health-dot.skip { background:var(--amber); }
+.health-label { color:var(--text-dim); }
+.section-title { font-size:16px; font-weight:600; margin:24px 0 12px; display:flex; align-items:center; gap:8px; }
+.section-icon { font-size:18px; }
+.exec-summary { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:20px; }
+@media(max-width:768px) { .exec-summary { grid-template-columns:1fr; } }
+.country-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:16px; }
+.country-card-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+.country-flag { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; color:#fff; }
+.country-flag.ph { background:var(--ph); } .country-flag.id { background:var(--id); } .country-flag.th { background:var(--th); }
+.country-name { font-size:15px; font-weight:600; margin-left:8px; }
+.country-count { font-size:12px; color:var(--text-dim); background:rgba(255,255,255,.05); padding:2px 8px; border-radius:10px; }
+.country-highlights { list-style:none; }
+.country-highlights li { font-size:13px; padding:4px 0; border-bottom:1px solid rgba(255,255,255,.04); display:flex; align-items:center; gap:6px; }
+.country-highlights li:last-child { border-bottom:none; }
+.cross-hotspots { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:12px; margin-bottom:20px; }
+.hotspot-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:14px; }
+.hotspot-keyword { font-size:15px; font-weight:600; margin-bottom:6px; }
+.hotspot-countries { display:flex; gap:4px; margin-bottom:8px; }
+.tag { display:inline-flex; align-items:center; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:500; }
+.tag-ph { background:rgba(59,130,246,.15); color:var(--ph); }
+.tag-id { background:rgba(239,68,68,.15); color:var(--id); }
+.tag-th { background:rgba(234,179,8,.15); color:var(--th); }
+.tag-source { background:rgba(255,255,255,.06); color:var(--text-dim); font-size:10px; }
+.cat-badge { display:inline-flex; align-items:center; gap:4px; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:500; }
+.cat-news { background:var(--c-news-bg); color:var(--c-news); }
+.cat-gaming { background:var(--c-gaming-bg); color:var(--c-gaming); }
+.cat-viral { background:var(--c-viral-bg); color:var(--c-viral); }
+.cat-trending { background:var(--c-trending-bg); color:var(--c-trending); }
+.score-pill { display:inline-flex; align-items:center; gap:2px; padding:1px 6px; border-radius:3px; font-size:10px; font-family:var(--mono); font-weight:500; }
+.score-pill.rel { background:rgba(96,165,250,.12); color:#93c5fd; }
+.score-pill.vir { background:rgba(249,115,22,.12); color:#fdba74; }
+.score-pill.gdv { background:rgba(168,85,247,.12); color:#c4b5fd; }
+.score-pill.risk { background:rgba(248,113,113,.15); color:var(--red); }
+.score-legend { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:10px 16px; margin-bottom:16px; display:flex; gap:20px; flex-wrap:wrap; font-size:12px; color:var(--text-dim); }
+.score-legend .sl-item { display:flex; align-items:center; gap:6px; }
+.country-compare { display:grid; grid-template-columns:repeat(3,1fr); margin-bottom:20px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+@media(max-width:960px) { .country-compare { grid-template-columns:1fr; } }
+.cc-hdr { padding:14px 16px 10px; display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--border); background:linear-gradient(180deg,rgba(255,255,255,.03) 0%,transparent 100%); }
+.cc-hdr .country-name { font-size:16px; font-weight:700; margin-left:6px; }
+.cc-hdr .country-count { margin-left:auto; }
+.cc-hdr-bar { height:3px; }
+.cc-hdr-bar.ph { background:var(--ph); } .cc-hdr-bar.id { background:var(--id); } .cc-hdr-bar.th { background:var(--th); }
+.cc-hdr-wrap { border-right:1px solid var(--border); } .cc-hdr-wrap:last-child { border-right:none; }
+.cc-cat-row-label { grid-column:1/-1; padding:8px 16px 6px; font-size:13px; font-weight:600; display:flex; align-items:center; gap:6px; border-top:1px solid var(--border); border-bottom:1px solid rgba(255,255,255,.04); background:rgba(255,255,255,.02); }
+.cc-cell { padding:6px 14px 10px; border-right:1px solid var(--border); border-bottom:1px solid rgba(255,255,255,.03); }
+.cc-cell:nth-child(3n) { border-right:none; }
+.cc-item { display:flex; align-items:flex-start; gap:8px; padding:6px 0; border-bottom:1px solid rgba(255,255,255,.04); font-size:12px; min-height:72px; }
+.cc-item:last-child { border-bottom:none; }
+.cc-item.empty { min-height:72px; opacity:0.25; }
+.cc-item.empty .cc-body { display:flex; align-items:center; color:var(--text-muted); font-size:11px; }
+.cc-item .cc-rank { width:18px; flex-shrink:0; text-align:center; font-size:11px; color:var(--text-muted); font-family:var(--mono); padding-top:1px; }
+.cc-item .cc-body { flex:1; min-width:0; }
+.cc-item a { color:var(--text); text-decoration:none; } .cc-item a:hover { color:var(--accent); text-decoration:underline; }
+.cc-item .kw { font-weight:500; line-height:1.4; }
+.cc-item .zh { color:var(--text-dim); font-size:11px; }
+.cc-item .summary { color:var(--text-muted); font-size:11px; margin-top:2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.cc-item .meta { display:flex; align-items:center; gap:4px; margin-top:3px; flex-wrap:wrap; }
+.insights-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:12px; margin-bottom:20px; }
+@media(max-width:768px) { .insights-grid { grid-template-columns:1fr; } }
+.insight-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:16px; border-left:3px solid var(--c-gaming); }
+.insight-keyword { font-size:14px; font-weight:600; margin-bottom:4px; }
+.insight-item { font-size:12px; margin-bottom:10px; }
+.insight-item dt { color:var(--text-dim); font-weight:500; margin-bottom:2px; }
+.insight-item dd { color:var(--text); line-height:1.5; }
+.risk-section { background:var(--c-risk-bg); border:1px solid rgba(220,38,38,.2); border-radius:var(--radius); padding:16px; margin-bottom:20px; }
+.risk-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:8px; }
+.risk-item { display:flex; align-items:flex-start; gap:8px; padding:8px; border-radius:var(--radius-sm); background:rgba(0,0,0,.2); font-size:13px; }
+.risk-icon { font-size:16px; flex-shrink:0; }
+.risk-label { font-weight:500; } .risk-detail { color:var(--text-dim); font-size:12px; }
+.risk-score-bar { height:3px; border-radius:2px; margin-top:4px; background:rgba(255,255,255,.1); position:relative; }
+.risk-score-fill { position:absolute; top:0; left:0; height:100%; border-radius:2px; background:var(--red); }
+.source-table { width:100%; border-collapse:collapse; font-size:13px; margin-bottom:20px; }
+.source-table th { text-align:left; padding:8px 12px; color:var(--text-dim); font-weight:500; border-bottom:1px solid var(--border); font-size:12px; }
+.source-table td { padding:6px 12px; border-bottom:1px solid rgba(255,255,255,.03); }
+.status-ok { color:var(--green); } .status-fail { color:var(--red); } .status-disabled { color:var(--text-muted); }
+.run-log { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:16px; margin-bottom:20px; font-size:12px; font-family:var(--mono); color:var(--text-dim); line-height:1.8; }
+.run-log .label { color:var(--text-muted); } .run-log .value { color:var(--text); }
+.footer { text-align:center; padding:24px 0; color:var(--text-muted); font-size:12px; border-top:1px solid var(--border); }
+.flex { display:flex; align-items:center; } .gap-4 { gap:4px; } .gap-8 { gap:8px; }
+.mt-8 { margin-top:8px; }
+.no-data { color:var(--text-muted); font-size:12px; font-style:italic; padding:12px 0; }
+</style>
+</head>
+<body>
+
+
+
+<header class="header">
+  <div class="container header-inner">
+    <div class="header-left">
+      <div class="logo">S</div>
+      <div>
+        <div class="header-title">SEA 玩家趋势日报</div>
+        <div class="header-date">2026-05-09</div>
+      </div>
+    </div>
+    <div class="header-stats">
+      <span><span class="stat-value">30</span> 条数据</span>
+      
+      <span><span class="stat-value">1</span>/1 源正常</span>
+      
+      <span><span class="stat-value">2</span> 跨国热点</span>
+      <span><span class="stat-value">8</span> 设计洞察</span>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+<div class="health-bar">
+  <span class="health-label">数据源：</span>
+  
+  <span><span class="health-dot ok"></span>Sample</span>
+  
+  <span style="margin-left:auto;color:var(--text-dim)">去重：0 合并 | 分类：📰11 🎮9 🔥6 🔍4</span>
+</div>
+<div class="section-title"><span class="section-icon">📋</span> 三国速览</div>
+<div class="exec-summary">
+  
+  <div class="country-card">
+    <div class="country-card-header">
+      <div class="flex gap-8">
+        <div class="country-flag ph">PH</div>
+        <span class="country-name">Philippines 菲律宾</span>
+      </div>
+      <span class="country-count">10 条</span>
+    </div>
+    <ul class="country-highlights">
+      
+      <li><span class="cat-badge cat-gaming">🎮</span> Valorant Champions Tour（无畏契约冠军巡回赛）</li>
+      
+      <li><span class="cat-badge cat-gaming">🎮</span> MPL PH Season 14（MPL菲律宾联赛 第14赛季）</li>
+      
+      <li><span class="cat-badge cat-news">📰</span> BalikAral dance challenge（BalikAral返校舞蹈挑战）</li>
+      
+      <li><span class="cat-badge cat-gaming">🎮</span> Genshin Impact 5.0（原神5.0版本）</li>
+      
+      
+    </ul>
+  </div>
+  
+  <div class="country-card">
+    <div class="country-card-header">
+      <div class="flex gap-8">
+        <div class="country-flag id">ID</div>
+        <span class="country-name">Indonesia 印尼</span>
+      </div>
+      <span class="country-count">10 条</span>
+    </div>
+    <ul class="country-highlights">
+      
+      <li><span class="cat-badge cat-gaming">🎮</span> MLBB Arlott gameplay（无尽对决 阿洛特实机玩法）</li>
+      
+      <li><span class="cat-badge cat-gaming">🎮</span> MPL ID Season 14（MPL印尼联赛 第14赛季）</li>
+      
+      <li><span class="cat-badge cat-gaming">🎮</span> Free Fire Indonesia Championship（Free Fire印尼锦标赛）</li>
+      
+      <li><span class="cat-badge cat-viral">🔥</span> Indomie recipe challenge（营多面食谱挑战）</li>
+      
+      
+    </ul>
+  </div>
+  
+  <div class="country-card">
+    <div class="country-card-header">
+      <div class="flex gap-8">
+        <div class="country-flag th">TH</div>
+        <span class="country-name">Thailand 泰国</span>
+      </div>
+      <span class="country-count">10 条</span>
+    </div>
+    <ul class="country-highlights">
+      
+      <li><span class="cat-badge cat-gaming">🎮</span> Genshin Impact cosplay challenge（原神Cos挑战）</li>
+      
+      <li><span class="cat-badge cat-gaming">🎮</span> RoV Pro League（传说对决(泰服)职业联赛）</li>
+      
+      <li><span class="cat-badge cat-trending">🔍</span> Songkran preparation（泼水节筹备）</li>
+      
+      <li><span class="cat-badge cat-gaming">🎮</span> Ragnarok Origin Thailand（仙境传说泰服上线）</li>
+      
+      
+    </ul>
+  </div>
+  
+</div>
+<div class="section-title"><span class="section-icon">🌏</span> 跨国共同热点</div>
+<div class="cross-hotspots">
+  
+  <div class="hotspot-card">
+    <div class="hotspot-keyword">Genshin Impact 5.0（原神5.0版本）</div>
+    <div class="hotspot-countries">
+      <span class="tag tag-ph">PH</span><span class="tag tag-th">TH</span>
+      <span class="tag tag-source">综合分 0.80</span>
+    </div>
+    
+    <div class="meta mt-8"><span class="score-pill rel">相关 0.80</span>
+<span class="score-pill vir">传播 0.80</span>
+<span class="score-pill gdv">设计 1.00</span>
+</div>
+    
+  </div>
+  
+  <div class="hotspot-card">
+    <div class="hotspot-keyword">MPL PH Season 14（MPL菲律宾联赛 第14赛季）</div>
+    <div class="hotspot-countries">
+      <span class="tag tag-id">ID</span><span class="tag tag-ph">PH</span>
+      <span class="tag tag-source">综合分 0.53</span>
+    </div>
+    
+    <div class="meta mt-8"><span class="score-pill rel">相关 0.53</span>
+<span class="score-pill vir">传播 0.25</span>
+<span class="score-pill gdv">设计 0.80</span>
+</div>
+    
+  </div>
+  
+</div>
+<div class="section-title"><span class="section-icon">📊</span> 国家详情对比</div>
+<div class="score-legend">
+  <span style="color:var(--text);font-weight:600">评分说明</span>
+  <span class="sl-item"><span class="score-pill rel">相关</span> 趋势在当地的搜索热度和数据源质量</span>
+  <span class="sl-item"><span class="score-pill vir">传播</span> 跨平台病毒式传播的潜力</span>
+  <span class="sl-item"><span class="score-pill gdv">设计</span> 对游戏策划的参考价值（竞品动态/文化活动/玩法启发）</span>
+  <span class="sl-item"><span class="score-pill risk">风险</span> 在游戏中引用该话题的敏感性</span>
+</div>
+<div class="country-compare">
+  
+  
+  <div class="cc-hdr-wrap">
+    <div class="cc-hdr-bar ph"></div>
+    <div class="cc-hdr">
+      <div class="country-flag ph">PH</div>
+      <span class="country-name">Philippines 菲律宾</span>
+      <span class="country-count">10 条</span>
+    </div>
+  </div>
+  
+  <div class="cc-hdr-wrap">
+    <div class="cc-hdr-bar id"></div>
+    <div class="cc-hdr">
+      <div class="country-flag id">ID</div>
+      <span class="country-name">Indonesia 印尼</span>
+      <span class="country-count">10 条</span>
+    </div>
+  </div>
+  
+  <div class="cc-hdr-wrap">
+    <div class="cc-hdr-bar th"></div>
+    <div class="cc-hdr">
+      <div class="country-flag th">TH</div>
+      <span class="country-name">Thailand 泰国</span>
+      <span class="country-count">10 条</span>
+    </div>
+  </div>
+  
+
+  
+  
+  <div class="cc-cat-row-label"><span class="cat-badge cat-news">📰</span> 重要新闻/民生</div>
+  
+  <div class="cc-cell">
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss?gl=PH" target="_blank">EDSA traffic plan</a></div>
+    <div class="zh">EDSA大道交通规划</div>
+    <div class="summary">MMDA unveils comprehensive traffic management plan for EDSA corridor</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.18</span>
+
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">2</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss?gl=PH" target="_blank">Miss Universe Philippines 2026</a></div>
+    <div class="zh">2026菲律宾环球小姐</div>
+    <div class="summary">Official candidate list revealed for Miss Universe Philippines 2026</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.18</span>
+
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">3</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending?geo=PH" target="_blank">Typhoon Carina</a></div>
+    <div class="zh">台风卡琳娜</div>
+    <div class="summary">PAGASA raises Signal No. 3 over Northern Luzon as Typhoon Carina intensifies</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.64</span>
+<span class="score-pill vir">传播 0.31</span>
+
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+  </div>
+  
+  <div class="cc-cell">
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss?gl=ID" target="_blank">Jakarta MRT extension</a></div>
+    <div class="zh">雅加达地铁延伸工程</div>
+    <div class="summary">Jakarta MRT Phase 2 construction reaches 65% completion milestone</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.18</span>
+
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">2</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss?gl=ID" target="_blank">Pemilu 2026</a></div>
+    <div class="zh">2026印尼大选</div>
+    <div class="summary">KPU begins preparations for 2026 regional elections across 270 districts</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.18</span>
+
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">3</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending?geo=ID" target="_blank">Harga beras naik</a></div>
+    <div class="zh">米价上涨</div>
+    <div class="summary">Rice prices surge across Java markets amid supply disruption</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.70</span>
+<span class="score-pill vir">传播 0.35</span>
+<span class="score-pill gdv">设计 0.15</span>
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+  </div>
+  
+  <div class="cc-cell">
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss?gl=TH" target="_blank">Thailand GDP growth</a></div>
+    <div class="zh">泰国GDP增长</div>
+    <div class="summary">Thai economy grows 4.1% in Q1 2026, beating analyst expectations of 3.5%</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.18</span>
+
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">2</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending?geo=TH" target="_blank">Bangkok flood warning</a></div>
+    <div class="zh">曼谷洪水预警</div>
+    <div class="summary">Bangkok Metropolitan Administration issues flood warning as heavy rains continue</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.66</span>
+<span class="score-pill vir">传播 0.33</span>
+
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">3</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending?geo=TH" target="_blank">Thailand digital wallet</a></div>
+    <div class="zh">泰国数字钱包政策</div>
+    <div class="summary">Government announces phase 2 of digital wallet stimulus with expanded eligibility</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.63</span>
+<span class="score-pill vir">传播 0.31</span>
+
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+  </div>
+  
+  
+  <div class="cc-cat-row-label"><span class="cat-badge cat-gaming">🎮</span> 游戏相关</div>
+  
+  <div class="cc-cell">
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss?gl=PH" target="_blank">Genshin Impact 5.0</a></div>
+    <div class="zh">原神5.0版本</div>
+    <div class="summary">Genshin Impact 5.0 Natlan region launches to massive player engagement in Philippines</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.18</span>
+<span class="score-pill gdv">设计 0.80</span>
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">2</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending?geo=PH" target="_blank">MPL PH Season 14</a></div>
+    <div class="zh">MPL菲律宾联赛 第14赛季</div>
+    <div class="summary">MPL PH Season 14 grand finals draw record viewership</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.51</span>
+<span class="score-pill vir">传播 0.18</span>
+<span class="score-pill gdv">设计 0.80</span>
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">3</span>
+  <div class="cc-body">
+    <div class="kw">Valorant Champions Tour</div>
+    <div class="zh">无畏契约冠军巡回赛</div>
+    <div class="summary">Manila watch party for VCT Pacific draws thousands of fans</div>
+    <div class="meta">
+      <span class="tag tag-source">tiktok_mock</span>
+      <span class="score-pill rel">相关 0.80</span>
+<span class="score-pill vir">传播 0.50</span>
+<span class="score-pill gdv">设计 0.80</span>
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+  </div>
+  
+  <div class="cc-cell">
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending?geo=ID" target="_blank">MPL ID Season 14</a></div>
+    <div class="zh">MPL印尼联赛 第14赛季</div>
+    <div class="summary">Major roster changes ahead of MPL ID Season 14 opening week</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.53</span>
+<span class="score-pill vir">传播 0.25</span>
+<span class="score-pill gdv">设计 0.80</span>
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">2</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending?geo=ID" target="_blank">Free Fire Indonesia Championship</a></div>
+    <div class="zh">Free Fire印尼锦标赛</div>
+    <div class="summary">Open qualifiers begin for Free Fire Indonesia Championship 2026</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.50</span>
+<span class="score-pill vir">传播 0.18</span>
+<span class="score-pill gdv">设计 0.80</span>
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">3</span>
+  <div class="cc-body">
+    <div class="kw">MLBB Arlott gameplay</div>
+    <div class="zh">无尽对决 阿洛特实机玩法</div>
+    <div class="summary">MLBB Arlott hero guide and gameplay tips trend on TikTok Indonesia</div>
+    <div class="meta">
+      <span class="tag tag-source">tiktok_mock</span>
+      <span class="score-pill rel">相关 0.80</span>
+<span class="score-pill vir">传播 0.80</span>
+<span class="score-pill gdv">设计 0.90</span>
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+  </div>
+  
+  <div class="cc-cell">
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss?gl=TH" target="_blank">Ragnarok Origin Thailand</a></div>
+    <div class="zh">仙境传说泰服上线</div>
+    <div class="summary">Ragnarok Origin Thailand server launch attracts 500K players in first 48 hours</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.18</span>
+<span class="score-pill gdv">设计 0.60</span>
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">2</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending?geo=TH" target="_blank">RoV Pro League</a></div>
+    <div class="zh">传说对决(泰服)职业联赛</div>
+    <div class="summary">RoV Pro League Thailand kicks off new season with expanded prize pool</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.52</span>
+<span class="score-pill vir">传播 0.25</span>
+<span class="score-pill gdv">设计 0.80</span>
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">3</span>
+  <div class="cc-body">
+    <div class="kw">Genshin Impact cosplay challenge</div>
+    <div class="zh">原神Cos挑战</div>
+    <div class="summary">Thai cosplayers create viral Genshin Impact transformation challenge</div>
+    <div class="meta">
+      <span class="tag tag-source">tiktok_mock</span>
+      <span class="score-pill rel">相关 0.80</span>
+<span class="score-pill vir">传播 0.80</span>
+<span class="score-pill gdv">设计 1.00</span>
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+  </div>
+  
+  
+  <div class="cc-cat-row-label"><span class="cat-badge cat-viral">🔥</span> 大传播热点/梗</div>
+  
+  <div class="cc-cell">
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending?geo=PH" target="_blank">Jollibee Chickenjoy meme</a></div>
+    <div class="zh">快乐蜂炸鸡乐梗</div>
+    <div class="summary">Jollibee Chickenjoy comparison meme goes viral on TikTok Philippines</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.58</span>
+<span class="score-pill vir">传播 0.58</span>
+<span class="score-pill gdv">设计 0.25</span>
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+    <div class="cc-item empty">
+  <span class="cc-rank">—</span>
+  <div class="cc-body">暂无更多数据</div>
+</div>
+    
+    
+    
+    <div class="cc-item empty">
+  <span class="cc-rank">—</span>
+  <div class="cc-body">暂无更多数据</div>
+</div>
+    
+    
+    
+  </div>
+  
+  <div class="cc-cell">
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss?gl=ID" target="_blank">Indonesian food review viral</a></div>
+    <div class="zh">印尼美食测评爆火</div>
+    <div class="summary">Indonesian street food mukbang creator reaches 10M views in 24 hours</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.48</span>
+<span class="score-pill gdv">设计 0.25</span>
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">2</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending?geo=ID" target="_blank">Citayam Fashion Week</a></div>
+    <div class="zh">Citayam街头时装周</div>
+    <div class="summary">Citayam Fashion Week makes a comeback with new generation of street style influencers</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.60</span>
+<span class="score-pill vir">传播 0.59</span>
+<span class="score-pill gdv">设计 0.25</span>
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">3</span>
+  <div class="cc-body">
+    <div class="kw">Indomie recipe challenge</div>
+    <div class="zh">营多面食谱挑战</div>
+    <div class="summary">Creative Indomie recipe challenge goes viral with 3.2M views</div>
+    <div class="meta">
+      <span class="tag tag-source">tiktok_mock</span>
+      <span class="score-pill rel">相关 0.80</span>
+<span class="score-pill vir">传播 0.80</span>
+<span class="score-pill gdv">设计 0.25</span>
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+  </div>
+  
+  <div class="cc-cell">
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss?gl=TH" target="_blank">Bangkok street food TikTok</a></div>
+    <div class="zh">曼谷街头美食短视频</div>
+    <div class="summary">TikTok street food videos from Bangkok Chinatown drive tourism surge</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.48</span>
+<span class="score-pill gdv">设计 0.25</span>
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">2</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending?geo=TH" target="_blank">Thai BL drama</a></div>
+    <div class="zh">泰国耽美剧</div>
+    <div class="summary">New Thai BL series tops Netflix global charts within first week</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.59</span>
+<span class="score-pill vir">传播 0.59</span>
+<span class="score-pill gdv">设计 0.10</span>
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+    <div class="cc-item empty">
+  <span class="cc-rank">—</span>
+  <div class="cc-body">暂无更多数据</div>
+</div>
+    
+    
+    
+  </div>
+  
+  
+  <div class="cc-cat-row-label"><span class="cat-badge cat-trending">🔍</span> 民众热搜</div>
+  
+  <div class="cc-cell">
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending?geo=PH" target="_blank">SB19 PAGTATAG</a></div>
+    <div class="zh">SB19乐队PAGTATAG巡演</div>
+    <div class="summary">SB19 announces additional dates for PAGTATAG world tour</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.54</span>
+<span class="score-pill vir">传播 0.26</span>
+<span class="score-pill gdv">设计 0.15</span>
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+    <div class="cc-item empty">
+  <span class="cc-rank">—</span>
+  <div class="cc-body">暂无更多数据</div>
+</div>
+    
+    
+    
+    <div class="cc-item empty">
+  <span class="cc-rank">—</span>
+  <div class="cc-body">暂无更多数据</div>
+</div>
+    
+    
+    
+  </div>
+  
+  <div class="cc-cell">
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending?geo=ID" target="_blank">Bali tourism record</a></div>
+    <div class="zh">巴厘岛旅游纪录</div>
+    <div class="summary">Bali breaks monthly visitor record with 1.2 million international arrivals</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.51</span>
+<span class="score-pill vir">传播 0.18</span>
+
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+    <div class="cc-item empty">
+  <span class="cc-rank">—</span>
+  <div class="cc-body">暂无更多数据</div>
+</div>
+    
+    
+    
+    <div class="cc-item empty">
+  <span class="cc-rank">—</span>
+  <div class="cc-body">暂无更多数据</div>
+</div>
+    
+    
+    
+  </div>
+  
+  <div class="cc-cell">
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending?geo=TH" target="_blank">Muay Thai world championship</a></div>
+    <div class="zh">泰拳世锦赛</div>
+    <div class="summary">Thai fighter wins gold at Muay Thai World Championship in Bangkok</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.51</span>
+<span class="score-pill vir">传播 0.18</span>
+
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+    <div class="cc-item">
+  <span class="cc-rank">2</span>
+  <div class="cc-body">
+    <div class="kw">Songkran preparation</div>
+    <div class="zh">泼水节筹备</div>
+    <div class="summary">Songkran festival preparation videos trending with 2.8M views</div>
+    <div class="meta">
+      <span class="tag tag-source">tiktok_mock</span>
+      <span class="score-pill rel">相关 0.80</span>
+<span class="score-pill vir">传播 0.80</span>
+<span class="score-pill gdv">设计 0.25</span>
+
+    </div>
+  </div>
+</div>
+    
+    
+    
+    <div class="cc-item empty">
+  <span class="cc-rank">—</span>
+  <div class="cc-body">暂无更多数据</div>
+</div>
+    
+    
+    
+  </div>
+  
+  
+</div>
+<div class="section-title"><span class="section-icon">💡</span> 游戏设计洞察</div>
+<div class="insights-grid">
+  
+  
+  <div class="insight-card" style="border-left-color:var(--c-gaming)">
+    <div class="insight-keyword">🎮 Genshin Impact cosplay challenge（原神Cos挑战） <span class="tag tag-th" style="margin-left:6px">TH</span></div>
+    <dl class="insight-item">
+      <dt>🔍 为什么值得关注</dt><dd>游戏相关话题 Genshin Impact cosplay challenge 在Thailand 泰国成为热搜，反映当地游戏市场活跃</dd>
+      <dt>🧠 玩家心理</dt><dd>玩家对游戏内容持续关注，有社群讨论和分享的需求</dd>
+      <dt>🎯 设计方向</dt><dd>可关注该话题涉及的玩法类型和受众偏好，用于后续策划参考</dd>
+      <dt>⚠️ 风险</dt><dd>关注话题情绪倾向，若涉及负面评价需谨慎借势</dd>
+    </dl>
+  </div>
+  
+  
+  <div class="insight-card" style="border-left-color:var(--c-gaming)">
+    <div class="insight-keyword">🎮 MLBB Arlott gameplay（无尽对决 阿洛特实机玩法） <span class="tag tag-id" style="margin-left:6px">ID</span></div>
+    <dl class="insight-item">
+      <dt>🔍 为什么值得关注</dt><dd>MLBB Arlott gameplay 在Indonesia 印尼引发关注，新游/大版本上线是玩家迁移窗口期</dd>
+      <dt>🧠 玩家心理</dt><dd>玩家对新内容有强烈好奇心和 FOMO 心理，容易在此期间尝试新游戏</dd>
+      <dt>🎯 设计方向</dt><dd>关注竞品更新节奏和卖点，考虑差异化活动策划或内容更新时机错开</dd>
+      <dt>⚠️ 风险</dt><dd>避免直接对标或模仿竞品内容，注意合规风险</dd>
+    </dl>
+  </div>
+  
+  
+  <div class="insight-card" style="border-left-color:var(--c-gaming)">
+    <div class="insight-keyword">🎮 Genshin Impact 5.0（原神5.0版本） <span class="tag tag-ph" style="margin-left:6px">PH</span></div>
+    <dl class="insight-item">
+      <dt>🔍 为什么值得关注</dt><dd>Genshin Impact 5.0 在Philippines 菲律宾引发关注，新游/大版本上线是玩家迁移窗口期</dd>
+      <dt>🧠 玩家心理</dt><dd>玩家对新内容有强烈好奇心和 FOMO 心理，容易在此期间尝试新游戏</dd>
+      <dt>🎯 设计方向</dt><dd>关注竞品更新节奏和卖点，考虑差异化活动策划或内容更新时机错开</dd>
+      <dt>⚠️ 风险</dt><dd>避免直接对标或模仿竞品内容，注意合规风险</dd>
+    </dl>
+  </div>
+  
+  
+  <div class="insight-card" style="border-left-color:var(--c-gaming)">
+    <div class="insight-keyword">🎮 MPL PH Season 14（MPL菲律宾联赛 第14赛季） <span class="tag tag-ph" style="margin-left:6px">PH</span></div>
+    <dl class="insight-item">
+      <dt>🔍 为什么值得关注</dt><dd>电竞赛事 MPL PH Season 14 在Philippines 菲律宾热度攀升，说明当地玩家对竞技赛事关注度高</dd>
+      <dt>🧠 玩家心理</dt><dd>玩家追求竞技荣誉和社群归属感，赛事期间活跃度和付费意愿通常上升</dd>
+      <dt>🎯 设计方向</dt><dd>可考虑在赛事期间推出限定活动/皮肤、观赛任务、竞猜玩法，借势提升活跃</dd>
+      <dt>⚠️ 风险</dt><dd>注意赛事版权和选手肖像权问题，避免直接使用赛事素材</dd>
+    </dl>
+  </div>
+  
+  
+  <div class="insight-card" style="border-left-color:var(--c-gaming)">
+    <div class="insight-keyword">🎮 Valorant Champions Tour（无畏契约冠军巡回赛） <span class="tag tag-ph" style="margin-left:6px">PH</span></div>
+    <dl class="insight-item">
+      <dt>🔍 为什么值得关注</dt><dd>电竞赛事 Valorant Champions Tour 在Philippines 菲律宾热度攀升，说明当地玩家对竞技赛事关注度高</dd>
+      <dt>🧠 玩家心理</dt><dd>玩家追求竞技荣誉和社群归属感，赛事期间活跃度和付费意愿通常上升</dd>
+      <dt>🎯 设计方向</dt><dd>可考虑在赛事期间推出限定活动/皮肤、观赛任务、竞猜玩法，借势提升活跃</dd>
+      <dt>⚠️ 风险</dt><dd>注意赛事版权和选手肖像权问题，避免直接使用赛事素材</dd>
+    </dl>
+  </div>
+  
+  
+  <div class="insight-card" style="border-left-color:var(--c-gaming)">
+    <div class="insight-keyword">🎮 MPL ID Season 14（MPL印尼联赛 第14赛季） <span class="tag tag-id" style="margin-left:6px">ID</span></div>
+    <dl class="insight-item">
+      <dt>🔍 为什么值得关注</dt><dd>电竞赛事 MPL ID Season 14 在Indonesia 印尼热度攀升，说明当地玩家对竞技赛事关注度高</dd>
+      <dt>🧠 玩家心理</dt><dd>玩家追求竞技荣誉和社群归属感，赛事期间活跃度和付费意愿通常上升</dd>
+      <dt>🎯 设计方向</dt><dd>可考虑在赛事期间推出限定活动/皮肤、观赛任务、竞猜玩法，借势提升活跃</dd>
+      <dt>⚠️ 风险</dt><dd>注意赛事版权和选手肖像权问题，避免直接使用赛事素材</dd>
+    </dl>
+  </div>
+  
+</div>
+
+<div class="section-title"><span class="section-icon">✅</span> 风险提醒</div>
+<div class="no-data" style="padding:12px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:20px">今日暂无高风险话题</div>
+
+<div class="section-title"><span class="section-icon">🔌</span> 数据源状态</div>
+<div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;margin-bottom:20px">
+  <table class="source-table">
+    <thead><tr><th>数据源</th><th>状态</th><th>备注</th></tr></thead>
+    <tbody>
+      
+      <tr>
+        <td>Sample</td>
+        <td class="status-ok">✓ 正常</td>
+        <td style="color:var(--text-muted)"></td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+<div class="section-title"><span class="section-icon">📝</span> 运行日志</div>
+<div class="run-log">
+  <span class="label">日期:</span> <span class="value">2026-05-09</span> |
+  <span class="label">数据源:</span> <span class="value">1/1 正常</span> |
+  <span class="label">原始数据:</span> <span class="value">30 条</span> |
+  <span class="label">去重:</span> <span class="value">0 合并</span>
+  
+</div>
+
+
+</main>
+
+<footer class="footer">
+  <div class="container">Generated by sea-trend-insight</div>
+</footer>
+
+</body>
+</html>
