@@ -16,6 +16,7 @@ CATEGORY_EMOJI = {
 def generate_broadcast(report: dict[str, Any], pages_url: str = "") -> str:
     date = report["date"]
     total = report["total_items"]
+    pages_url = pages_url.rstrip("/")
     lines: list[str] = []
 
     lines.append(f"# SEA 趋势日报 {date}")

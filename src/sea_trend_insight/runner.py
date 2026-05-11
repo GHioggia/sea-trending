@@ -219,7 +219,7 @@ def cmd_run(
         log.info("dry-run: HTML saved → %s (not published)", html_path)
 
     # --- Broadcast ---
-    pages_url = cfg["publish"].get("pages_base_url", "")
+    pages_url = cfg["publish"].get("pages_base_url", "").rstrip("/")
     broadcast_text = generate_broadcast(report, pages_url)
     broadcast_dir = reports_dir / date
     broadcast_dir.mkdir(parents=True, exist_ok=True)
@@ -252,7 +252,7 @@ def cmd_broadcast(date: str, config_path: str | None = None) -> str:
     if not report_path.exists():
         raise FileNotFoundError(f"No report found at {report_path}. Run 'report' first.")
     report = json.loads(report_path.read_text())
-    pages_url = cfg["publish"].get("pages_base_url", "")
+    pages_url = cfg["publish"].get("pages_base_url", "").rstrip("/")
     text = generate_broadcast(report, pages_url)
     print(text)
     return text
