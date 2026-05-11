@@ -102,7 +102,8 @@ def test_kworb_youtube_parse():
     assert all(it.source == "kworb_youtube" for it in items)
     assert all(it.platform == "youtube" for it in items)
     assert any("Mobile Legends" in it.title for it in items)
-    assert items[0].raw_score == 15_230_000.0
+    assert all("youtube.com/watch?v=" in (it.url or "") for it in items)
+    assert items[0].raw_score < items[-1].raw_score
 
 
 # ── AppBrain ─────────────────────────────────────────────────
@@ -140,6 +141,80 @@ def test_appfigures_no_key():
 
     provider = AppfiguresProvider()
     items = provider.fetch("PH", "2026-05-09")
+    assert items == []
+
+
+# ── Rappler ──────────────────────────────────────────────────
+
+def test_rappler_parse():
+    from sea_trend_insight.providers.rappler import RapplerProvider
+
+    provider = RapplerProvider()
+    xml = (FIXTURES / "rappler_PH.xml").read_text()
+    seen: set = set()
+    items = provider._parse(xml, "PH", seen)
+
+    assert len(items) == 3
+    assert all(it.source == "rappler" for it in items)
+    assert all(it.platform == "web" for it in items)
+    assert all(it.country == "PH" for it in items)
+    assert all("rappler.com" in (it.url or "") for it in items)
+    assert "news" in items[0].tags
+
+
+def test_rappler_country_filter():
+    from sea_trend_insight.providers.rappler import RapplerProvider
+
+    provider = RapplerProvider()
+    items = provider.fetch("ID", "2026-05-11")
+    assert items == []
+
+
+# ── Detik ────────────────────────────────────────────────────
+
+def test_detik_parse_terpopuler():
+    from sea_trend_insight.providers.detik import DetikProvider
+
+    provider = DetikProvider()
+    html = (FIXTURES / "detik_terpopuler.html").read_text()
+    items = provider._parse_terpopuler(html, "ID")
+
+    assert len(items) == 3
+    assert all(it.source == "detik" for it in items)
+    assert all(it.country == "ID" for it in items)
+    assert all("detik.com" in (it.url or "") for it in items)
+    assert "terpopuler" in items[0].tags
+
+
+def test_detik_country_filter():
+    from sea_trend_insight.providers.detik import DetikProvider
+
+    provider = DetikProvider()
+    items = provider.fetch("PH", "2026-05-11")
+    assert items == []
+
+
+# ── LINE Today ───────────────────────────────────────────────
+
+def test_line_today_parse():
+    from sea_trend_insight.providers.line_today import LineTodayProvider
+
+    provider = LineTodayProvider()
+    html = (FIXTURES / "line_today_TH.html").read_text()
+    items = provider._parse(html, "TH")
+
+    assert len(items) >= 3
+    assert all(it.source == "line_today" for it in items)
+    assert all(it.country == "TH" for it in items)
+    assert all(it.language == "th" for it in items)
+    assert any("today.line.me" in (it.url or "") for it in items)
+
+
+def test_line_today_country_filter():
+    from sea_trend_insight.providers.line_today import LineTodayProvider
+
+    provider = LineTodayProvider()
+    items = provider.fetch("PH", "2026-05-11")
     assert items == []
 
 

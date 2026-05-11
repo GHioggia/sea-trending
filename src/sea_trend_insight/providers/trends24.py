@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+from urllib.parse import quote_plus
 
 from bs4 import BeautifulSoup
 
@@ -16,6 +17,13 @@ COUNTRY_SLUG = {
     "TH": "thailand",
 }
 BASE_URL = "https://trends24.in"
+
+
+def _x_url(text: str) -> str:
+    tag = text.lstrip("#")
+    if text.startswith("#"):
+        return f"https://x.com/hashtag/{quote_plus(tag)}"
+    return f"https://x.com/search?q={quote_plus(text)}"
 
 
 class Trends24Provider(TrendProvider):
@@ -47,15 +55,13 @@ class Trends24Provider(TrendProvider):
             if not text or text.lower() in seen:
                 continue
             seen.add(text.lower())
-            href = tag.get("href", "")
-            full_url = href if href.startswith("http") else f"{BASE_URL}{href}"
             items.append(SourceItem(
                 source=self.name,
                 platform=self.platform,
                 country=country,
                 title=text,
                 keyword=text.lstrip("#"),
-                url=full_url,
+                url=_x_url(text),
                 raw_score=float(len(items) + 1),
                 tags=["twitter", "trending"],
             ))
@@ -74,6 +80,7 @@ class Trends24Provider(TrendProvider):
                     country=country,
                     title=text,
                     keyword=text.lstrip("#"),
+                    url=_x_url(text),
                     raw_score=float(len(items) + 1),
                     tags=["twitter", "trending"],
                 ))

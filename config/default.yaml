@@ -57,6 +57,15 @@ providers:
     enabled: false
     platform: tiktok
     mode: mock
+  rappler:
+    enabled: true
+    platform: web
+  detik:
+    enabled: true
+    platform: web
+  line_today:
+    enabled: true
+    platform: web
 
 output:
   raw_dir: data/raw
@@ -78,6 +87,9 @@ scoring:
       google_play: 0.8
       appbrain: 0.7
       appfigures: 0.7
+      rappler: 0.85
+      detik: 0.85
+      line_today: 0.85
       sample: 0.5
     multi_source_bonus: 0.15
   virality:

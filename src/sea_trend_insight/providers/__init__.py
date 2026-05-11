@@ -9,6 +9,9 @@ from sea_trend_insight.providers.kworb_youtube import KworbYouTubeProvider
 from sea_trend_insight.providers.appbrain import AppBrainProvider
 from sea_trend_insight.providers.appfigures import AppfiguresProvider
 from sea_trend_insight.providers.google_play import GooglePlayProvider
+from sea_trend_insight.providers.rappler import RapplerProvider
+from sea_trend_insight.providers.detik import DetikProvider
+from sea_trend_insight.providers.line_today import LineTodayProvider
 
 __all__ = [
     "TrendProvider",
@@ -22,6 +25,9 @@ __all__ = [
     "AppBrainProvider",
     "AppfiguresProvider",
     "GooglePlayProvider",
+    "RapplerProvider",
+    "DetikProvider",
+    "LineTodayProvider",
 ]
 
 LIVE_PROVIDERS = {
@@ -34,4 +40,8 @@ LIVE_PROVIDERS = {
     "appbrain": AppBrainProvider,
     "appfigures": AppfiguresProvider,
     "google_play": GooglePlayProvider,
+    "rappler": RapplerProvider,
+    "detik": DetikProvider,
+    "line_today": LineTodayProvider,
 }
+

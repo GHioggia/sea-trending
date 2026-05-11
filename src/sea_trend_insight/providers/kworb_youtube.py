@@ -42,23 +42,30 @@ class KworbYouTubeProvider(TrendProvider):
             log.warning("kworb_youtube: no table found in page")
             return []
 
-        for row in table.find_all("tr")[1:]:
+        for row in table.find_all("tr"):
             cells = row.find_all("td")
-            if len(cells) < 2:
+            # real kworb layout: rank | change | title(link)
+            # find the cell that contains a link to YouTube
+            link = None
+            for cell in cells:
+                a = cell.find("a", href=True)
+                if a and ("youtu" in a.get("href", "") or "youtube" in a.get("href", "")):
+                    link = a
+                    break
+            if not link:
                 continue
-            link = cells[0].find("a")
-            if link:
-                title = link.get_text(strip=True)
-                href = link.get("href", "")
-                vid_url = href if href.startswith("http") else f"{BASE_URL}{href}"
-            else:
-                title = cells[0].get_text(strip=True)
-                vid_url = None
 
+            title = link.get_text(strip=True)
             if not title:
                 continue
 
-            views_text = cells[1].get_text(strip=True) if len(cells) > 1 else ""
+            href = link["href"]
+            # href is already a full YouTube URL: https://youtu.be/ID or https://www.youtube.com/watch?v=ID
+            if href.startswith("https://youtu.be/"):
+                vid_id = href.split("/")[-1]
+                vid_url = f"https://www.youtube.com/watch?v={vid_id}"
+            else:
+                vid_url = href
 
             items.append(SourceItem(
                 source=self.name,
@@ -67,19 +74,10 @@ class KworbYouTubeProvider(TrendProvider):
                 title=title,
                 keyword=title[:80],
                 url=vid_url,
-                raw_score=self._parse_views(views_text),
+                raw_score=float(len(items) + 1),
                 tags=["youtube", "video"],
-                summary=f"Views: {views_text}" if views_text else None,
             ))
             if len(items) >= 25:
                 break
 
         return items
-
-    @staticmethod
-    def _parse_views(v: str) -> float:
-        v = v.strip().replace(",", "").replace("+", "")
-        try:
-            return float(v)
-        except ValueError:
-            return 0.0
