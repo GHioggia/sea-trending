@@ -22,14 +22,26 @@ from sea_trend_insight.scorer import score_items
 log = logging.getLogger("sea_trend_insight")
 
 
+def _fix_mojibake(text: str) -> str:
+    if not text:
+        return text
+    try:
+        fixed = text.encode('latin-1').decode('utf-8')
+        if fixed != text:
+            return fixed
+    except (UnicodeEncodeError, UnicodeDecodeError):
+        pass
+    return text
+
+
 def _normalize(item: SourceItem, now_iso: str) -> NormalizedItem:
     return NormalizedItem(
-        keyword=item.keyword,
+        keyword=_fix_mojibake(item.keyword),
         country=item.country,
         source=item.source,
         platform=item.platform,
         category=item.category or "trending",
-        title=item.title,
+        title=_fix_mojibake(item.title),
         url=item.url,
         score=item.raw_score or 0.0,
         language=item.language,
@@ -199,11 +211,14 @@ def cmd_run(
     log.info("Scored %d items", len(scored))
 
     # --- Translate (LLM) ---
-    if use_llm:
+    llm_api_key = os.environ.get(llm_cfg.get("api_key_env", "DEEPSEEK_API_KEY"))
+    if llm_api_key:
         from sea_trend_insight.translator import batch_translate_zh
         all_keywords = list({it.keyword for it in scored})
         batch_translate_zh(all_keywords, llm_cfg)
         log.info("Translated %d unique keywords", len(all_keywords))
+    else:
+        log.info("Skipping LLM translation (no API key)")
 
     # --- Analyze ---
     country_summaries = build_country_summaries(
