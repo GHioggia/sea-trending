@@ -24,7 +24,7 @@ categories:
     label_en: "Trending"
 
 providers:
-  proxy: "http://mgproxy.ejoy.com:23488"
+  proxy: ""                             # 留空；本地需要代理时设环境变量 SEA_TREND_PROXY
   google_trends:
     enabled: true
     platform: google
