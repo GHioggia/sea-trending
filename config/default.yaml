@@ -182,3 +182,14 @@ publish:
   auto_push: false
   backup_before_publish: true
   archive_dir: archive
+
+llm:
+  enabled: false                        # 设为 true 启用 LLM，需配置 API Key
+  base_url: https://api.deepseek.com/v1
+  model: deepseek-chat                  # DeepSeek V4-Pro；轻量版改为 deepseek-chat-flash
+  api_key_env: DEEPSEEK_API_KEY         # 从此环境变量读取 API Key
+  classify:
+    enabled: true
+    batch_size: 50                      # 每次 LLM 调用处理的条目数
+  insights:
+    enabled: true

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import json
+import logging
 from collections import defaultdict
 from difflib import SequenceMatcher
 from typing import Any
@@ -12,6 +14,8 @@ from sea_trend_insight.models import (
     ScoredItem,
     TrendSummary,
 )
+
+log = logging.getLogger("sea_trend_insight")
 
 INSIGHT_TEMPLATES = {
     "gaming_esport": {
@@ -236,3 +240,74 @@ def build_trend_summary(items: list[ScoredItem]) -> TrendSummary:
         gaming_hotspots=gaming_hotspots,
         design_insights=[ins.to_dict() for ins in insights],
     )
+
+
+def generate_design_insights_llm(
+    items: list[ScoredItem],
+    llm_cfg: dict,
+    top_n: int = 8,
+) -> list[DesignInsight]:
+    """Generate design insights via LLM. Falls back to template method on failure."""
+    from sea_trend_insight.llm import call_json
+
+    candidates = [it for it in items if it.scores.game_design_value >= 0.3 or it.category == "gaming"]
+    candidates.sort(key=lambda it: it.scores.game_design_value, reverse=True)
+    candidates = candidates[:top_n]
+
+    if not candidates:
+        return []
+
+    entries = [
+        {
+            "keyword": it.keyword,
+            "title": it.title,
+            "country": it.country,
+            "category": it.category,
+            "platform": it.platform,
+            "scores": {
+                "relevance": it.scores.relevance,
+                "virality": it.scores.virality,
+                "game_design_value": it.scores.game_design_value,
+                "risk": it.scores.risk,
+            },
+        }
+        for it in candidates
+    ]
+
+    prompt = (
+        "你是资深手游策划，专注东南亚市场（菲律宾、印尼、泰国）。\n\n"
+        "以下是今日从多平台抓取的热搜条目（已按游戏设计价值排序），请为每条生成策划洞察。\n"
+        "输出 JSON 数组，每项严格对应输入条目（按顺序），格式：\n"
+        "[\n"
+        '  {\n'
+        '    "item_keyword": "<原keyword>",\n'
+        '    "item_country": "<原country>",\n'
+        '    "why_notable": "<为什么值得关注，结合当地实际背景，1-2句>",\n'
+        '    "player_psychology": "<玩家心理分析，1-2句>",\n'
+        '    "game_design_direction": "<具体可落地的设计或活动方向建议，1-2句>",\n'
+        '    "risk_reminder": "<风险提示，1句>"\n'
+        "  }\n"
+        "]\n\n"
+        f"条目：\n{json.dumps(entries, ensure_ascii=False, indent=2)}"
+    )
+
+    try:
+        parsed = call_json(
+            [{"role": "user", "content": prompt}],
+            llm_cfg,
+            temperature=0.5,
+        )
+        insights = []
+        for row in parsed:
+            insights.append(DesignInsight(
+                item_keyword=row.get("item_keyword", ""),
+                item_country=row.get("item_country", ""),
+                why_notable=row.get("why_notable", ""),
+                player_psychology=row.get("player_psychology", ""),
+                game_design_direction=row.get("game_design_direction", ""),
+                risk_reminder=row.get("risk_reminder", ""),
+            ))
+        return insights
+    except Exception as e:
+        log.warning("LLM insights failed: %s, falling back to templates", e)
+        return generate_design_insights(items, top_n)

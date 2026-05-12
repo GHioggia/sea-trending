@@ -156,10 +156,23 @@ def cmd_run(
     deduped, dedup_log = deduplicate(normalized, title_threshold=threshold)
     log.info("Dedup: %d → %d items (%d merged)", len(normalized), len(deduped), len(dedup_log))
 
-    # --- Classify (with debug) ---
+    # --- Classify ---
+    llm_cfg = cfg.get("llm", {})
+    use_llm = llm_cfg.get("enabled", False)
     classify_debug_map: dict[int, dict] = {}
+
+    if use_llm and llm_cfg.get("classify", {}).get("enabled", True):
+        from sea_trend_insight.classifier import classify_batch_llm
+        llm_results = classify_batch_llm(deduped, llm_cfg)
+        log.info("LLM classify: %d/%d items classified", len(llm_results), len(deduped))
+    else:
+        llm_results = {}
+
     for i, item in enumerate(deduped):
-        cat, debug = classify_with_debug(item)
+        if i in llm_results:
+            cat, debug = llm_results[i]
+        else:
+            cat, debug = classify_with_debug(item)
         item.category = cat
         classify_debug_map[i] = debug
 
@@ -182,6 +195,15 @@ def cmd_run(
         top_n=analysis_cfg.get("country_summary", {}).get("top_n", 10),
     )
     trend_summary = build_trend_summary(scored)
+
+    if use_llm and llm_cfg.get("insights", {}).get("enabled", True):
+        from sea_trend_insight.analyzer import generate_design_insights_llm
+        top_n_insights = analysis_cfg.get("design_insights", {}).get("top_n", 8)
+        llm_insights = generate_design_insights_llm(scored, llm_cfg, top_n=top_n_insights)
+        if llm_insights:
+            trend_summary.design_insights = [ins.to_dict() for ins in llm_insights]
+            log.info("LLM insights: %d generated", len(llm_insights))
+
     log.info("Analysis complete: %d country summaries, %d cross-country hotspots, %d insights",
              len(country_summaries), len(trend_summary.cross_country_hotspots),
              len(trend_summary.design_insights))

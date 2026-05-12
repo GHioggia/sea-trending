@@ -1,9 +1,13 @@
 from __future__ import annotations
 
+import json
+import logging
 import re
 from typing import Any
 
 from sea_trend_insight.models import NormalizedItem
+
+log = logging.getLogger("sea_trend_insight")
 
 GAMING_KEYWORDS = [
     r"mobile\s*legends", r"\bmlbb\b", r"\bmpl\b", r"genshin", r"valorant",
@@ -149,3 +153,68 @@ def classify_items(items: list[NormalizedItem]) -> list[NormalizedItem]:
     for item in items:
         item.category = classify(item)
     return items
+
+
+def classify_batch_llm(
+    items: list[NormalizedItem],
+    llm_cfg: dict,
+) -> dict[int, tuple[str, dict]]:
+    """Batch-classify items via LLM. Returns {index: (category, debug)}.
+
+    Items missing from the result should fall back to rule-based classify.
+    """
+    from sea_trend_insight.llm import call_json
+
+    batch_size = llm_cfg.get("classify", {}).get("batch_size", 50)
+    results: dict[int, tuple[str, dict]] = {}
+    valid_cats = {"gaming", "news", "viral", "trending"}
+
+    for start in range(0, len(items), batch_size):
+        batch = items[start : start + batch_size]
+        entries = [
+            {
+                "id": start + i,
+                "keyword": item.keyword,
+                "title": item.title,
+                "source": item.source,
+                "platform": item.platform,
+                "country": item.country,
+                "language": item.language or "",
+                "tags": item.tags,
+            }
+            for i, item in enumerate(batch)
+        ]
+
+        prompt = (
+            "将以下东南亚热搜条目分类为四个类别之一：\n"
+            "- gaming: 游戏相关（具体游戏名、电竞赛事、应用商店游戏等）\n"
+            "- news: 重要新闻/民生（政治、经济、灾害、政策等）\n"
+            "- viral: 大传播热点/梗（挑战、表情包、病毒视频、网红事件等）\n"
+            "- trending: 民众热搜（不属于上述三类的其他热搜）\n\n"
+            "条目来自菲律宾(PH)、印尼(ID)、泰国(TH)，内容可能包含英语、印尼语、泰语、菲律宾语。\n"
+            "返回 JSON 数组，格式：\n"
+            '[{"id": <原id>, "category": "<分类>", "reason": "<一句话理由>"}]\n\n'
+            f"条目：\n{json.dumps(entries, ensure_ascii=False)}"
+        )
+
+        try:
+            parsed = call_json(
+                [{"role": "user", "content": prompt}],
+                llm_cfg,
+                temperature=0.1,
+            )
+            for row in parsed:
+                idx = row.get("id")
+                if idx is None:
+                    continue
+                cat = row.get("category", "trending")
+                if cat not in valid_cats:
+                    cat = "trending"
+                results[idx] = (cat, {"source": "llm", "reason": row.get("reason", "")})
+        except Exception as e:
+            log.warning(
+                "LLM classify failed for batch %d-%d: %s",
+                start, start + len(batch), e,
+            )
+
+    return results
