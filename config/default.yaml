@@ -56,7 +56,7 @@ providers:
   tiktok:
     enabled: true
     platform: tiktok
-    apify_actor: unseenuser~tiktok-trend-hunter
+    apify_actor: unseenuser~tiktok-search-scraper
     api_key_env: APIFY_API_KEY
     max_results: 8
   rappler:
