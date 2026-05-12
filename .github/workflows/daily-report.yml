@@ -1,0 +1,37 @@
+name: Daily SEA Trend Report
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # UTC 00:00 = 北京时间 08:00
+  workflow_dispatch:        # 允许在 GitHub 页面手动触发
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write       # 允许 git commit + push 到 docs/
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -e .
+
+      - name: Run report
+        run: python -m sea_trend_insight run --date $(date +%Y-%m-%d) --live
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+
+      - name: Publish to GitHub Pages
+        run: python -m sea_trend_insight publish --date $(date +%Y-%m-%d) --commit --push
+        env:
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
