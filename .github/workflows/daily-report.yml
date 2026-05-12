@@ -27,6 +27,7 @@ jobs:
         run: python -m sea_trend_insight run --date $(date +%Y-%m-%d) --live
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          APIFY_API_KEY: ${{ secrets.APIFY_API_KEY }}
 
       - name: Publish to GitHub Pages
         run: python -m sea_trend_insight publish --date $(date +%Y-%m-%d) --commit --push

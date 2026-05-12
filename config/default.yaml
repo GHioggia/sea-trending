@@ -54,9 +54,11 @@ providers:
     platform: appstore
     api_key: ""
   tiktok:
-    enabled: false
+    enabled: true
     platform: tiktok
-    mode: mock
+    apify_actor: unseenuser~tiktok-trend-hunter
+    api_key_env: APIFY_API_KEY
+    max_results: 8
   rappler:
     enabled: true
     platform: web
