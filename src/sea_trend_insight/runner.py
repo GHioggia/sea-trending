@@ -139,7 +139,10 @@ def cmd_run(
                     if items:
                         prov.save_raw(items, raw_dir, country)
                         all_source_items.extend(items)
-                    run_log.providers_status[key] = "ok"
+                        run_log.providers_status[key] = "ok"
+                    else:
+                        run_log.providers_status[key] = "ok_empty"
+                        log.warning("%s/%s: returned 0 items", prov.name, country)
                     log.info("%s/%s: %d items", prov.name, country, len(items))
                 except Exception as e:
                     run_log.providers_status[key] = "failed"
@@ -194,6 +197,13 @@ def cmd_run(
         if i in classify_debug_map:
             item.classify_debug = classify_debug_map[i]
     log.info("Scored %d items", len(scored))
+
+    # --- Translate (LLM) ---
+    if use_llm:
+        from sea_trend_insight.translator import batch_translate_zh
+        all_keywords = list({it.keyword for it in scored})
+        batch_translate_zh(all_keywords, llm_cfg)
+        log.info("Translated %d unique keywords", len(all_keywords))
 
     # --- Analyze ---
     country_summaries = build_country_summaries(

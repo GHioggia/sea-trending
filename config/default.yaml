@@ -44,7 +44,7 @@ providers:
     enabled: true
     platform: youtube
   appbrain:
-    enabled: false
+    enabled: true
     platform: android
   google_play:
     enabled: true
@@ -194,4 +194,6 @@ llm:
     enabled: true
     batch_size: 50                      # 每次 LLM 调用处理的条目数
   insights:
+    enabled: true
+  translate:
     enabled: true

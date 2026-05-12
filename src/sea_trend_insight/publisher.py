@@ -108,6 +108,10 @@ def _build_run_meta(run_log: dict[str, Any] | None) -> dict[str, Any] | None:
         if status == "ok":
             status_text = "✓ 正常"
             css_td = "status-ok"
+        elif status == "ok_empty":
+            status_text = "⚠ 无数据"
+            css_td = "status-disabled"
+            css = "skip"
         elif "fail" in status or "error" in status:
             status_text = "✗ 失败"
             css_td = "status-fail"

@@ -139,12 +139,12 @@ body { font-family:var(--font); background:var(--bg); color:var(--text); line-he
   <span class="cc-rank">{{ rank }}</span>
   <div class="cc-body">
     <div class="kw">
-      {%- if item.url and "rss" not in item.url -%}
+      {%- if item.url and "rss/articles" not in item.url -%}
         <a href="{{ item.url }}" target="_blank">{{ item.keyword }}</a>
       {%- elif item.source == "google_news" -%}
         <a href="https://news.google.com/search?q={{ item.keyword | urlquote }}" target="_blank" title="在 Google News 搜索">{{ item.keyword }} ↗</a>
       {%- else -%}
-        {{ item.keyword }}
+        <a href="https://www.google.com/search?q={{ item.keyword | urlquote }}" target="_blank" title="Google 搜索">{{ item.keyword }} ↗</a>
       {%- endif -%}
     </div>
     {% if item.keyword_zh %}<div class="zh">{{ item.keyword_zh }}</div>{% endif %}

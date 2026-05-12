@@ -1,6 +1,11 @@
 from __future__ import annotations
 
+import json
+import logging
 import re
+from typing import Any
+
+log = logging.getLogger("sea_trend_insight")
 
 PHRASE_ZH: dict[str, str] = {
     "mpl ph season 14": "MPL菲律宾联赛 第14赛季",
@@ -135,4 +140,48 @@ def annotate_zh(text: str) -> str:
         if term in lower:
             return f"{text}（{zh}）"
 
+    if lower in _llm_cache and _llm_cache[lower]:
+        return f"{text}（{_llm_cache[lower]}）"
+
     return text
+
+
+_llm_cache: dict[str, str] = {}
+
+
+def batch_translate_zh(keywords: list[str], llm_cfg: dict[str, Any]) -> dict[str, str]:
+    """Translate a list of keywords to Chinese using LLM. Returns {original: zh}."""
+    need = []
+    for kw in keywords:
+        low = kw.lower().strip()
+        if low not in _llm_cache and not _has_cjk(kw) and annotate_zh(kw) == kw:
+            need.append(kw)
+
+    if not need:
+        return {kw: _llm_cache.get(kw.lower().strip(), "") for kw in keywords}
+
+    from sea_trend_insight.llm import call_json
+
+    BATCH = 40
+    for i in range(0, len(need), BATCH):
+        batch = need[i:i + BATCH]
+        prompt = (
+            "将以下东南亚热搜关键词翻译为简短的中文（不超过15字）。"
+            "如果是人名则音译，如果是泰语/印尼语/菲律宾语则翻译含义。"
+            "返回 JSON 对象，key 是原文，value 是中文翻译。\n\n"
+            + json.dumps(batch, ensure_ascii=False)
+        )
+        try:
+            result = call_json(
+                [{"role": "user", "content": prompt}],
+                llm_cfg,
+                temperature=0.1,
+            )
+            if isinstance(result, dict):
+                for k, v in result.items():
+                    _llm_cache[k.lower().strip()] = v
+                log.info("LLM translated %d/%d keywords", len(result), len(batch))
+        except Exception as e:
+            log.warning("LLM translation batch failed: %s", e)
+
+    return {kw: _llm_cache.get(kw.lower().strip(), "") for kw in keywords}
