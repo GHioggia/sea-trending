@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import re
 
 import feedparser
 from bs4 import BeautifulSoup
@@ -96,6 +97,6 @@ class DetikProvider(TrendProvider):
                 raw_score=float(20 - i),
                 language="id",
                 tags=["news", "indonesia"],
-                summary=entry.get("summary", "")[:200] or None,
+                summary=re.sub(r"<[^>]+>", " ", entry.get("summary", "")).strip()[:200] or None,
             ))
         return items

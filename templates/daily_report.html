@@ -148,7 +148,7 @@ body { font-family:var(--font); background:var(--bg); color:var(--text); line-he
       {%- endif -%}
     </div>
     {% if item.keyword_zh %}<div class="zh">{{ item.keyword_zh }}</div>{% endif %}
-    {% if item.summary %}<div class="summary">{{ item.summary }}</div>{% endif %}
+    {% if item.summary %}<div class="summary">{{ item.summary | striptags }}</div>{% endif %}
     <div class="meta">
       <span class="tag tag-source">{{ item.source }}</span>
       {{ score_pills(item.scores) }}
@@ -306,7 +306,7 @@ body { font-family:var(--font); background:var(--bg); color:var(--text); line-he
       <span class="risk-icon">{{ ri.icon }}</span>
       <div style="flex:1">
         <div class="risk-label">{{ ri.label }} ({{ ri.country }})</div>
-        <div class="risk-detail">{{ ri.detail }}</div>
+        <div class="risk-detail">{{ ri.detail | striptags }}</div>
         <div class="risk-score-bar"><div class="risk-score-fill" style="width:{{ (ri.risk * 100)|int }}%"></div></div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import re
 from datetime import datetime, timezone
 
 import feedparser
@@ -51,6 +52,7 @@ class GoogleNewsProvider(TrendProvider):
             if hasattr(entry, "source"):
                 source_name = entry.source.get("title", "")
             summary = entry.get("summary", entry.get("description", ""))
+            summary = re.sub(r"<[^>]+>", " ", summary).strip() if summary else ""
             if " - " in title and source_name:
                 title = title.rsplit(" - ", 1)[0].strip()
 

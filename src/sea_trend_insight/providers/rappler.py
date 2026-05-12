@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import re
 
 import feedparser
 
@@ -52,6 +53,7 @@ class RapplerProvider(TrendProvider):
             seen.add(link)
             published = entry.get("published", "")
             summary = entry.get("summary", entry.get("description", ""))
+            summary = re.sub(r"<[^>]+>", " ", summary).strip() if summary else ""
             tags = [t.get("term", "") for t in entry.get("tags", [])]
 
             items.append(SourceItem(
