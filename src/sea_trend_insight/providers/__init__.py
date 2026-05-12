@@ -12,6 +12,7 @@ from sea_trend_insight.providers.google_play import GooglePlayProvider
 from sea_trend_insight.providers.rappler import RapplerProvider
 from sea_trend_insight.providers.detik import DetikProvider
 from sea_trend_insight.providers.line_today import LineTodayProvider
+from sea_trend_insight.providers.tiktok import TiktokProvider
 
 __all__ = [
     "TrendProvider",
@@ -28,6 +29,7 @@ __all__ = [
     "RapplerProvider",
     "DetikProvider",
     "LineTodayProvider",
+    "TiktokProvider",
 ]
 
 LIVE_PROVIDERS = {
@@ -43,5 +45,6 @@ LIVE_PROVIDERS = {
     "rappler": RapplerProvider,
     "detik": DetikProvider,
     "line_today": LineTodayProvider,
+    "tiktok": TiktokProvider,
 }
 

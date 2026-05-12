@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -70,6 +71,11 @@ def _build_live_providers(cfg: dict[str, Any]) -> list:
         if name == "appfigures":
             api_key = entry.get("api_key", "")
             kwargs["api_key"] = api_key if api_key else None
+        if name == "tiktok":
+            api_key_env = entry.get("api_key_env", "APIFY_API_KEY")
+            kwargs["apify_token"] = os.environ.get(api_key_env) or None
+            kwargs["actor_id"] = entry.get("apify_actor", "unseenuser~tiktok-trend-hunter")
+            kwargs["max_results"] = entry.get("max_results", 30)
         providers.append(cls(**kwargs))
     return providers
 

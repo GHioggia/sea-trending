@@ -241,3 +241,41 @@ def test_classifier_new_keywords():
     assert classify(_item("ดราม่า ล่าสุด trending")) == "viral"
     assert classify(_item("ghost haunted house trending")) == "viral"
     assert classify(_item("SB19 concert dates")) == "trending"
+
+
+# ── TikTok (Apify) ───────────────────────────────────────────
+
+def test_tiktok_parse():
+    from sea_trend_insight.providers.tiktok import TiktokProvider
+
+    provider = TiktokProvider()
+    data = json.loads((FIXTURES / "tiktok_PH.json").read_text())
+    items = provider._parse(data, "PH")
+
+    assert len(items) == 3                          # hashtag row is filtered out
+    assert all(it.source == "tiktok" for it in items)
+    assert all(it.platform == "tiktok" for it in items)
+    assert all(it.country == "PH" for it in items)
+    assert items[0].keyword == "MobileLegends"
+    assert items[0].raw_score == 2_500_000.0
+    assert "MLBB" in items[0].tags
+    assert "tiktok" in items[0].tags
+    assert "tiktok.com" in items[0].url
+    assert "virality=" in items[0].summary
+
+
+def test_tiktok_no_token():
+    from sea_trend_insight.providers.tiktok import TiktokProvider
+
+    provider = TiktokProvider(apify_token=None)
+    items = provider.fetch("PH", "2026-05-12")
+    assert items == []
+
+
+def test_tiktok_unsupported_country():
+    from sea_trend_insight.providers.tiktok import TiktokProvider
+
+    provider = TiktokProvider(apify_token="dummy")
+    items = provider.fetch("SG", "2026-05-12")
+    assert items == []
+
