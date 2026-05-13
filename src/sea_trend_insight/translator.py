@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import logging
 import re
+from pathlib import Path
 from typing import Any
 
 log = logging.getLogger("sea_trend_insight")
@@ -123,11 +124,15 @@ def _has_cjk(text: str) -> bool:
     return False
 
 
+def _normalize_quotes(text: str) -> str:
+    return text.replace("‘", "'").replace("’", "'").replace("“", '"').replace("”", '"')
+
+
 def annotate_zh(text: str) -> str:
     if _has_cjk(text):
         return text
 
-    lower = text.lower().strip()
+    lower = _normalize_quotes(text.lower().strip())
 
     if lower in PHRASE_ZH:
         return f"{text}（{PHRASE_ZH[lower]}）"
@@ -147,6 +152,20 @@ def annotate_zh(text: str) -> str:
 
 
 _llm_cache: dict[str, str] = {}
+
+
+def _load_overrides() -> None:
+    overrides_path = Path(__file__).resolve().parents[2] / "data" / "translations" / "overrides.json"
+    if overrides_path.exists():
+        try:
+            data = json.loads(overrides_path.read_text(encoding="utf-8"))
+            for k, v in data.items():
+                _llm_cache[k.lower().strip()] = v
+        except Exception:
+            pass
+
+
+_load_overrides()
 
 
 def batch_translate_zh(keywords: list[str], llm_cfg: dict[str, Any]) -> dict[str, str]:
