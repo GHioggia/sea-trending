@@ -80,6 +80,10 @@ def _build_live_providers(cfg: dict[str, Any]) -> list:
         if not entry.get("enabled", False):
             continue
         kwargs: dict[str, Any] = {"proxy": proxy}
+        if name == "gdelt":
+            for option in ("request_interval", "max_retries", "backoff_factor", "max_backoff"):
+                if option in entry:
+                    kwargs[option] = entry[option]
         if name == "appfigures":
             api_key = entry.get("api_key", "")
             kwargs["api_key"] = api_key if api_key else None
