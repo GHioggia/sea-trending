@@ -1,6 +1,8 @@
 """Tests for dedup, scoring, analyzer modules."""
 from __future__ import annotations
 
+import pytest
+
 from sea_trend_insight.models import NormalizedItem, ScoredItem, ScoreBreakdown
 
 
@@ -90,6 +92,94 @@ class TestDedup:
 # ── Classifier ─────────────────────────────────────────────────
 
 class TestClassifierImproved:
+    @pytest.mark.parametrize("source,expected", [
+        ("google_trends", "trending"), ("trends24", "trending"),
+        ("google_news", "news"), ("gdelt", "news"),
+    ])
+    @pytest.mark.parametrize("keyword", [
+        "lakers game today", "NBA game today", "WNBA game results",
+        "PBA basketball game", "football match today", "cricket match live",
+        "Lakers play tonight", "World Cup match schedule", "game today",
+        "match", "play", "new game", "school play opens tonight",
+        "game plan", "match made in heaven", "New NBA game released",
+        "Lakers game launch", "NBA releases a new game",
+    ])
+    def test_ambiguous_words_are_not_gaming(self, keyword, source, expected):
+        from sea_trend_insight.classifier import classify, classify_with_debug
+
+        item = _item(keyword, source=source)
+        category, debug = classify_with_debug(item)
+        assert classify(item) == category == expected
+        assert debug["matches"]["ambiguous_game"]
+        assert not debug["matches"]["gaming_weak"]
+        assert "game_context" in debug
+
+    @pytest.mark.parametrize("source", ["google_trends", "trends24", "google_news", "gdelt"])
+    @pytest.mark.parametrize("keyword", [
+        "New game released", "Exciting new game launch", "Game launches today",
+        "Studio releases a new game", "New video game released",
+        "New mobile game", "PC game download", "Console game trailer", "Gameplay reveal",
+        "esports match today", "MPL PH Season 14", "Mobile Legends match today",
+        "Roblox basketball game", "Play Roblox", "Valorant match live",
+        "NBA mobile game launch", "PlayStation game today", "Xbox game today",
+    ])
+    def test_video_game_context_is_preserved(self, keyword, source):
+        from sea_trend_insight.classifier import classify, classify_with_debug
+
+        item = _item(keyword, source=source)
+        assert classify(item) == classify_with_debug(item)[0] == "gaming"
+
+    @pytest.mark.parametrize("context", [
+        {"title": "NBA game released today"},
+        {"summary": "Basketball game launch today"},
+        {"tags": ["NBA"]},
+    ])
+    def test_sports_context_in_all_fields(self, context):
+        from sea_trend_insight.classifier import classify, classify_with_debug
+
+        item = _item("New game released", **context)
+        category, debug = classify_with_debug(item)
+        assert classify(item) == category == "trending"
+        assert debug["matches"]["sports"]
+        assert debug["game_context"] == "sports context blocks generic game release"
+
+    @pytest.mark.parametrize("context", [
+        {"title": "Roblox basketball match"},
+        {"summary": "Mobile Legends esports match"},
+        {"tags": ["video game"]},
+    ])
+    def test_video_game_context_in_all_fields(self, context):
+        from sea_trend_insight.classifier import classify, classify_with_debug
+
+        item = _item("game today", **context)
+        assert classify(item) == classify_with_debug(item)[0] == "gaming"
+
+    def test_release_phrase_cannot_span_fields(self):
+        from sea_trend_insight.classifier import classify, classify_with_debug
+
+        item = _item("game", title="released today")
+        assert classify(item) == classify_with_debug(item)[0] == "trending"
+
+    @pytest.mark.parametrize("source", ["google_play", "appbrain", "appfigures"])
+    def test_gaming_platform_preserves_sports_video_games(self, source):
+        from sea_trend_insight.classifier import classify, classify_with_debug
+
+        item = _item("NBA basketball game", source=source)
+        assert classify(item) == classify_with_debug(item)[0] == "gaming"
+
+    @pytest.mark.parametrize("source", ["google_trends", "google_news", "gdelt"])
+    @pytest.mark.parametrize("keyword,expected", [
+        ("Lakers game election news", "news"),
+        ("Lakers game viral meme", "viral"),
+        ("New game released government policy", "news"),
+        ("Roblox government policy", "gaming"),
+    ])
+    def test_context_preserves_category_priority(self, source, keyword, expected):
+        from sea_trend_insight.classifier import classify, classify_with_debug
+
+        item = _item(keyword, source=source)
+        assert classify(item) == classify_with_debug(item)[0] == expected
+
     def test_google_play_always_gaming(self):
         from sea_trend_insight.classifier import classify
 
@@ -134,6 +224,40 @@ class TestClassifierImproved:
 # ── Scorer ─────────────────────────────────────────────────────
 
 class TestScorer:
+    def test_lakers_regression_through_classification_scoring_and_analysis(self):
+        from sea_trend_insight.analyzer import find_gaming_hotspots, generate_design_insights
+        from sea_trend_insight.classifier import classify_items, classify_with_debug
+        from sea_trend_insight.scorer import score_items
+
+        # Provider tags include 'google_trends', which independently earns the
+        # existing 0.1 trend-mechanic bonus. Only the false gaming bonus is removed.
+        item = _item("lakers game today", summary="Search volume: 100+",
+                     score=100, tags=["google_trends"])
+        falsely_gaming = _item("lakers game today", category="gaming",
+                               summary=item.summary, score=100, tags=item.tags)
+        assert score_items([falsely_gaming])[0].scores.game_design_value == pytest.approx(0.7)
+
+        scored = score_items(classify_items([item]))
+        assert item.category == classify_with_debug(item)[0] == "trending"
+        assert scored[0].scores.game_design_value == pytest.approx(0.1)
+        assert "gaming_category" not in scored[0].scores.debug["game_design_value"]
+        assert find_gaming_hotspots(scored) == []
+        assert generate_design_insights(scored) == []
+
+    @pytest.mark.parametrize("keyword", [
+        "New game released", "esports match today", "Roblox basketball game",
+        "Mobile Legends match today",
+    ])
+    def test_real_games_retain_design_value_after_classification(self, keyword):
+        from sea_trend_insight.classifier import classify_items, classify_with_debug
+        from sea_trend_insight.scorer import score_items
+
+        item = _item(keyword)
+        scored = score_items(classify_items([item]))[0]
+        assert scored.category == classify_with_debug(item)[0] == "gaming"
+        assert scored.scores.game_design_value >= 0.6
+        assert scored.scores.debug["game_design_value"]["gaming_category"] is True
+
     def test_score_items(self):
         from sea_trend_insight.scorer import score_items
 
