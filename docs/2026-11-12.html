@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEA 玩家趋势日报 — 2026-11-12</title>
+<style>
+:root {
+  --bg: #0f1117;
+  --bg-card: #1a1d27;
+  --bg-card-hover: #222632;
+  --border: #2a2e3a;
+  --text: #e4e4e7;
+  --text-dim: #9ca3af;
+  --text-muted: #6b7280;
+  --accent: #60a5fa;
+  --green: #34d399;
+  --red: #f87171;
+  --amber: #fbbf24;
+  --c-news: #ef4444; --c-news-bg: rgba(239,68,68,.1);
+  --c-gaming: #a855f7; --c-gaming-bg: rgba(168,85,247,.1);
+  --c-viral: #f97316; --c-viral-bg: rgba(249,115,22,.1);
+  --c-trending: #3b82f6; --c-trending-bg: rgba(59,130,246,.1);
+  --c-risk: #dc2626; --c-risk-bg: rgba(220,38,38,.08);
+  --ph: #3b82f6; --id: #ef4444; --th: #eab308;
+  --radius: 8px; --radius-sm: 4px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+  --mono: "SF Mono", "Fira Code", monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:var(--font); background:var(--bg); color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased; }
+.container { max-width:1400px; margin:0 auto; padding:0 20px; }
+.header { background:linear-gradient(135deg,#1e2030,#161822); border-bottom:1px solid var(--border); padding:20px 0; position:sticky; top:0; z-index:100; }
+.header-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+.header-left { display:flex; align-items:center; gap:12px; }
+.logo { width:36px; height:36px; background:linear-gradient(135deg,var(--accent),var(--c-gaming)); border-radius:var(--radius); display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:700; color:#fff; }
+.header-title { font-size:18px; font-weight:600; }
+.header-date { font-size:13px; color:var(--text-dim); font-family:var(--mono); }
+.header-stats { display:flex; gap:16px; font-size:13px; color:var(--text-dim); }
+.header-stats .stat-value { color:var(--text); font-weight:600; }
+.health-bar { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:12px 16px; margin:16px 0; display:flex; align-items:center; gap:16px; font-size:13px; flex-wrap:wrap; }
+.health-dot { width:8px; height:8px; border-radius:50%; display:inline-block; margin-right:4px; }
+.health-dot.ok { background:var(--green); } .health-dot.fail { background:var(--red); } .health-dot.skip { background:var(--amber); }
+.health-label { color:var(--text-dim); }
+.section-title { font-size:16px; font-weight:600; margin:24px 0 12px; display:flex; align-items:center; gap:8px; }
+.section-icon { font-size:18px; }
+.exec-summary { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:20px; }
+@media(max-width:768px) { .exec-summary { grid-template-columns:1fr; } }
+.country-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:16px; }
+.country-card-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+.country-flag { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; color:#fff; }
+.country-flag.ph { background:var(--ph); } .country-flag.id { background:var(--id); } .country-flag.th { background:var(--th); }
+.country-name { font-size:15px; font-weight:600; margin-left:8px; }
+.country-count { font-size:12px; color:var(--text-dim); background:rgba(255,255,255,.05); padding:2px 8px; border-radius:10px; }
+.country-highlights { list-style:none; }
+.country-highlights li { font-size:13px; padding:4px 0; border-bottom:1px solid rgba(255,255,255,.04); display:flex; align-items:center; gap:6px; }
+.country-highlights li:last-child { border-bottom:none; }
+.cross-hotspots { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:12px; margin-bottom:20px; }
+.hotspot-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:14px; }
+.hotspot-keyword { font-size:15px; font-weight:600; margin-bottom:6px; }
+.hotspot-countries { display:flex; gap:4px; margin-bottom:8px; }
+.tag { display:inline-flex; align-items:center; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:500; }
+.tag-ph { background:rgba(59,130,246,.15); color:var(--ph); }
+.tag-id { background:rgba(239,68,68,.15); color:var(--id); }
+.tag-th { background:rgba(234,179,8,.15); color:var(--th); }
+.tag-source { background:rgba(255,255,255,.06); color:var(--text-dim); font-size:10px; }
+.cat-badge { display:inline-flex; align-items:center; gap:4px; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:500; }
+.cat-news { background:var(--c-news-bg); color:var(--c-news); }
+.cat-gaming { background:var(--c-gaming-bg); color:var(--c-gaming); }
+.cat-viral { background:var(--c-viral-bg); color:var(--c-viral); }
+.cat-trending { background:var(--c-trending-bg); color:var(--c-trending); }
+.score-pill { display:inline-flex; align-items:center; gap:2px; padding:1px 6px; border-radius:3px; font-size:10px; font-family:var(--mono); font-weight:500; }
+.score-pill.rel { background:rgba(96,165,250,.12); color:#93c5fd; }
+.score-pill.vir { background:rgba(249,115,22,.12); color:#fdba74; }
+.score-pill.gdv { background:rgba(168,85,247,.12); color:#c4b5fd; }
+.score-pill.risk { background:rgba(248,113,113,.15); color:var(--red); }
+.score-legend { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:10px 16px; margin-bottom:16px; display:flex; gap:20px; flex-wrap:wrap; font-size:12px; color:var(--text-dim); }
+.score-legend .sl-item { display:flex; align-items:center; gap:6px; }
+.country-compare { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:20px; }
+@media(max-width:960px) { .country-compare { grid-template-columns:1fr; } }
+.cc-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; min-width:0; }
+.cc-hdr { padding:14px 16px 10px; display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--border); background:linear-gradient(180deg,rgba(255,255,255,.03) 0%,transparent 100%); }
+.cc-hdr .country-name { font-size:16px; font-weight:700; margin-left:6px; }
+.cc-hdr .country-count { margin-left:auto; }
+.cc-hdr-bar { height:3px; }
+.cc-hdr-bar.ph { background:var(--ph); } .cc-hdr-bar.id { background:var(--id); } .cc-hdr-bar.th { background:var(--th); }
+.cc-cat-block { border-top:1px solid var(--border); }
+.cc-cat-label { padding:7px 14px 5px; font-size:12px; font-weight:600; display:flex; align-items:center; gap:5px; background:rgba(255,255,255,.02); border-bottom:1px solid rgba(255,255,255,.04); }
+.cc-cell { padding:4px 14px 8px; }
+.cc-item { display:flex; align-items:flex-start; gap:8px; padding:6px 0; border-bottom:1px solid rgba(255,255,255,.04); font-size:13px; min-height:72px; }
+.cc-item:last-child { border-bottom:none; }
+.cc-item.empty { min-height:72px; opacity:0.25; }
+.cc-item.empty .cc-body { display:flex; align-items:center; color:var(--text-muted); font-size:12px; }
+.cc-item .cc-rank { width:18px; flex-shrink:0; text-align:center; font-size:12px; color:var(--text-muted); font-family:var(--mono); padding-top:1px; }
+.cc-item .cc-body { flex:1; min-width:0; }
+.cc-item a { color:var(--text); text-decoration:none; } .cc-item a:hover { color:var(--accent); text-decoration:underline; }
+.cc-item .kw { font-weight:500; font-size:13px; line-height:1.4; }
+.cc-item .zh { color:var(--text-dim); font-size:12px; }
+.cc-item .summary { color:var(--text-muted); font-size:12px; margin-top:2px; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+.cc-item .meta { display:flex; align-items:center; gap:4px; margin-top:3px; flex-wrap:wrap; }
+.insights-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:12px; margin-bottom:20px; }
+@media(max-width:768px) { .insights-grid { grid-template-columns:1fr; } }
+.insight-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:16px; border-left:3px solid var(--c-gaming); }
+.insight-keyword { font-size:14px; font-weight:600; margin-bottom:4px; }
+.insight-item { font-size:12px; margin-bottom:10px; }
+.insight-item dt { color:var(--text-dim); font-weight:500; margin-bottom:2px; }
+.insight-item dd { color:var(--text); line-height:1.5; }
+.risk-section { background:var(--c-risk-bg); border:1px solid rgba(220,38,38,.2); border-radius:var(--radius); padding:16px; margin-bottom:20px; }
+.risk-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:8px; }
+.risk-item { display:flex; align-items:flex-start; gap:8px; padding:8px; border-radius:var(--radius-sm); background:rgba(0,0,0,.2); font-size:13px; }
+.risk-icon { font-size:16px; flex-shrink:0; }
+.risk-label { font-weight:500; } .risk-detail { color:var(--text-dim); font-size:12px; }
+.risk-score-bar { height:3px; border-radius:2px; margin-top:4px; background:rgba(255,255,255,.1); position:relative; }
+.risk-score-fill { position:absolute; top:0; left:0; height:100%; border-radius:2px; background:var(--red); }
+.source-table { width:100%; border-collapse:collapse; font-size:13px; margin-bottom:20px; }
+.source-table th { text-align:left; padding:8px 12px; color:var(--text-dim); font-weight:500; border-bottom:1px solid var(--border); font-size:12px; }
+.source-table td { padding:6px 12px; border-bottom:1px solid rgba(255,255,255,.03); }
+.status-ok { color:var(--green); } .status-fail { color:var(--red); } .status-disabled { color:var(--text-muted); }
+.run-log { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:16px; margin-bottom:20px; font-size:12px; font-family:var(--mono); color:var(--text-dim); line-height:1.8; }
+.run-log .label { color:var(--text-muted); } .run-log .value { color:var(--text); }
+.footer { text-align:center; padding:24px 0; color:var(--text-muted); font-size:12px; border-top:1px solid var(--border); }
+.flex { display:flex; align-items:center; } .gap-4 { gap:4px; } .gap-8 { gap:8px; }
+.mt-8 { margin-top:8px; }
+.no-data { color:var(--text-muted); font-size:12px; font-style:italic; padding:12px 0; }
+</style>
+</head>
+<body>
+
+
+
+<header class="header">
+  <div class="container header-inner">
+    <div class="header-left">
+      <div class="logo">S</div>
+      <div>
+        <div class="header-title">SEA 玩家趋势日报</div>
+        <div class="header-date">2026-11-12</div>
+      </div>
+    </div>
+    <div class="header-stats">
+      <span><span class="stat-value">236</span> 条数据</span>
+      
+      <span><span class="stat-value">5</span>/12 源正常</span>
+      
+      <span><span class="stat-value">0</span> 跨国热点</span>
+      <span><span class="stat-value">5</span> 设计洞察</span>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+<div class="health-bar">
+  <span class="health-label">数据源：</span>
+  
+  <span><span class="health-dot ok"></span>Google Trends</span>
+  
+  <span><span class="health-dot ok"></span>Google News</span>
+  
+  <span><span class="health-dot fail"></span>Gdelt</span>
+  
+  <span><span class="health-dot ok"></span>Trends24</span>
+  
+  <span><span class="health-dot ok"></span>Getdaytrends</span>
+  
+  <span><span class="health-dot ok"></span>Kworb Youtube</span>
+  
+  <span><span class="health-dot skip"></span>Appbrain</span>
+  
+  <span><span class="health-dot skip"></span>Google Play</span>
+  
+  <span><span class="health-dot skip"></span>Rappler</span>
+  
+  <span><span class="health-dot skip"></span>Detik</span>
+  
+  <span><span class="health-dot skip"></span>Line Today</span>
+  
+  <span><span class="health-dot skip"></span>Tiktok</span>
+  
+  <span style="margin-left:auto;color:var(--text-dim)">去重：36 合并 | 分类：📰132 🎮5 🔥1 🔍98</span>
+</div>
+<div class="section-title"><span class="section-icon">📋</span> 三国速览</div>
+<div class="exec-summary">
+  
+  <div class="country-card">
+    <div class="country-card-header">
+      <div class="flex gap-8">
+        <div class="country-flag ph">PH</div>
+        <span class="country-name">Philippines 菲律宾</span>
+      </div>
+      <span class="country-count">83 条</span>
+    </div>
+    <ul class="country-highlights">
+      
+      <li><span class="cat-badge cat-gaming">🎮</span> How to download Minecraft 26.70.24 beta and preview（我的世界）</li>
+      
+      <li><span class="cat-badge cat-gaming">🎮</span> Nintendo Switch Online Membership Plans in PH Start at PHP 149（菲律宾Switch Online会员149比索起）</li>
+      
+      <li><span class="cat-badge cat-trending">🔍</span> metro manila holiday mall schedule（马尼拉大都会假日商场营业时间）</li>
+      
+      <li><span class="cat-badge cat-viral">🔥</span> ASEAN Summit: Angelina Jolie talks humanitarian work, Lea Salonga tackles creati（东盟峰会：安吉丽娜·朱莉谈人道工作，莉亚·萨隆加谈创意）</li>
+      
+      
+    </ul>
+  </div>
+  
+  <div class="country-card">
+    <div class="country-card-header">
+      <div class="flex gap-8">
+        <div class="country-flag id">ID</div>
+        <span class="country-name">Indonesia 印尼</span>
+      </div>
+      <span class="country-count">94 条</span>
+    </div>
+    <ul class="country-highlights">
+      
+      <li><span class="cat-badge cat-gaming">🎮</span> Logitech Liburkan 7.000 Karyawan untuk Main GTA VI（罗技放假7000员工玩GTA6）</li>
+      
+      <li><span class="cat-badge cat-gaming">🎮</span> Mode Performa Maksimal pada Smartphone Gaming, Perbandingan Konsumsi Baterai dan（游戏手机性能模式续航对比）</li>
+      
+      <li><span class="cat-badge cat-trending">🔍</span> PromoPuncakNonaxShopee（PromoPuncakNonaxShopee）</li>
+      
+      <li><span class="cat-badge cat-trending">🔍</span> LIVETraktiranTokopediaJKT48（直播Tokopedia抽奖JKT48）</li>
+      
+      
+    </ul>
+  </div>
+  
+  <div class="country-card">
+    <div class="country-card-header">
+      <div class="flex gap-8">
+        <div class="country-flag th">TH</div>
+        <span class="country-name">Thailand 泰国</span>
+      </div>
+      <span class="country-count">59 条</span>
+    </div>
+    <ul class="country-highlights">
+      
+      <li><span class="cat-badge cat-gaming">🎮</span> GTA 6 ทำยอดขายทะลุ 1 พันล้านดอลลาร์ ตั้งแต่ช่วงพรีออเดอร์</li>
+      
+      <li><span class="cat-badge cat-trending">🔍</span> RexonaxPPKrit（RexonaxPPKrit）</li>
+      
+      <li><span class="cat-badge cat-trending">🔍</span> เรโซนามูฟได้อีกคลับ（Resona Move再添一俱乐部）</li>
+      
+      <li><span class="cat-badge cat-trending">🔍</span> DaoCoffeeXPerthSanta（DaoCoffeeXPerthSanta）</li>
+      
+      
+    </ul>
+  </div>
+  
+</div><div class="section-title"><span class="section-icon">📊</span> 国家详情对比</div>
+<div class="score-legend">
+  <span style="color:var(--text);font-weight:600">评分说明</span>
+  <span class="sl-item"><span class="score-pill rel">相关</span> 趋势在当地的搜索热度和数据源质量</span>
+  <span class="sl-item"><span class="score-pill vir">传播</span> 跨平台病毒式传播的潜力</span>
+  <span class="sl-item"><span class="score-pill gdv">设计</span> 对游戏策划的参考价值（竞品动态/文化活动/玩法启发）</span>
+  <span class="sl-item"><span class="score-pill risk">风险</span> 在游戏中引用该话题的敏感性</span>
+</div>
+<div class="country-compare">
+  
+  <div class="cc-card">
+    <div class="cc-hdr-bar ph"></div>
+    <div class="cc-hdr">
+      <div class="country-flag ph">PH</div>
+      <span class="country-name">Philippines 菲律宾</span>
+      <span class="country-count">83 条</span>
+    </div>
+    
+    <div class="cc-cat-block">
+      <div class="cc-cat-label"><span class="cat-badge cat-news">📰</span> 重要新闻/民生</div>
+      <div class="cc-cell">
+        
+        
+        <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxPQnVPYWlPc2pfSVFUNTJFNlVXVHFZc3l4QUpHMWdsanNpMmpHVnRwWVZIVnpuR1RlOGxUYmtfUDl2bmxValdfdDhEZFlpeFlwUXdtam5zMS0yRHhVb2d5MzBXSUVJUFY3ZTRqb1FwdmRMVkFrMXV5ZEtFRGcxazVlRVhnM1k5QTU5U2tOZlZYOXVmRll0cnlYOFM4VQ?oc=5" target="_blank">Senator-judges question missing proof of VP Sara's P2.14-M payouts</a></div>
+    <div class="zh">参议员法官质疑莎拉副总统214万比索支出无证据</div>
+    <div class="summary">Senator-judges question missing proof of VP Sara's P2.14-M payouts    Philippine News Agency Highlights: Day 42 of Sara Duterte impeachment trial | Nov. 11, 2026    Inquirer.net</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.18</span>
+
+
+    </div>
+  </div>
+</div>
+        
+        <div class="cc-item">
+  <span class="cc-rank">2</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss/articles/CBMiswFBVV95cUxQb1dhc183a2lSV2FmcDA4YzdCWGlGRS1aSXNweHNUWGNwVUVEdzAxdWNZcXJhcEU4bzdHMTB4d05MZ1FVYnZFZGZ0SGVoNExGSGlPSHJRajF3LTlneHBjYUllQjdRYkRCdUVKdS1VWFUzaWtfMXViNXVCVGtfbEh6SHBDTWFRVXg0RjBTbENlRlhld2I5Wm9Ra0trTVIweTVvY1dFSWo2WGo0MktHRUJkTHpRa9IBugFBVV95cUxQN21uUTBWTW9NeGhLU3RjcktvOWFNSFRWVTA0QURvVngxUDNzMGQ5Z2JFbU8xLUhJcndqSWJtZHZNcmlDQ3Z2VDVPZnZ6UDZaenQwcGlmWmRwVnBLQzlQb2FRY0Y0Z3JpV2lTWi16SnJTai0yeG1faEFOWFZ6RlVzcDhqTC14cHpUR2cxX1haNEphOHV6aVVTS2ZaSVJVWXRwRFM3bUZReU5iQ2JMQUdIeElyUzRmRElGb0E?oc=5" target="_blank">Donald Trump to join Marcos, ASEAN leaders for Manila summit on Nov. 17</a></div>
+    <div class="zh">特朗普将参加11月17日马尼拉东盟峰会</div>
+    <div class="summary">Donald Trump to join Marcos, ASEAN leaders for Manila summit on Nov. 17    Philstar.com Trump to join Asean leaders at Manila summit on Nov. 17    Inquirer.net Transport stri</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.18</span>
+
+
+    </div>
+  </div>
+</div>
+        
+        <div class="cc-item">
+  <span class="cc-rank">3</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxOZUYwVVhoaV82bFU1cFZfbmgtSm9RcGdOYVJ0SUJjcFRPazh3czJtMkhXMXoydXBPN2tDbVVDNGNxcmlNTnQtc054ZWw0ZUY0QlNOVTViS19sak1TVWRhbDdwazE3SWhTOVEtaHdJek5GbUt2S1FyR0h6eXRtN1BHZlpYR250TkJ5YUoxeGNKdGRVTDJmNTNsaE1FLXNqV1F60gGmAUFVX3lxTE1waHJudk9BMW1xZEYwXzJLS0toc3Q4TlJOQk5JR2ZEcHdkUlNfZDJmUnVaZmNON1AzbjdPaHlkY1QzUU1Xelp2eVpZanBkWW5rQTFZaEV0N0lBaDcyN1BROVBqeU84SXVVaEJDZkpWU1ozV3VscmU1MmdzXzNTSzN1dHBWNG9yd1RfcUtqU053N2Z3blJLd3llMi1HVlNNeG1hblFJRnc?oc=5" target="_blank">PNP boosts security ahead of Asean Summit, holiday travel rush</a></div>
+    <div class="zh">菲国警加强东盟峰会及假期出行安保</div>
+    <div class="summary">PNP boosts security ahead of Asean Summit, holiday travel rush    Inquirer.net Secretary-General of ASEAN to Participate in the 49th ASEAN Summit and Related Summits in the Philippines &n</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.18</span>
+<span class="score-pill gdv">设计 0.15</span>
+
+    </div>
+  </div>
+</div>
+        
+        
+      </div>
+    </div>
+    
+    <div class="cc-cat-block">
+      <div class="cc-cat-label"><span class="cat-badge cat-gaming">🎮</span> 游戏相关</div>
+      <div class="cc-cell">
+        
+        
+        <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss/articles/CBMi1AFBVV95cUxNWVhOWHIyWmd2QWh4RDJmaXRQa3JkaHo3c2RweV9rNHhOT0dESW5lMjJIMFNIbGlab01IUUVBZ2NnRDdLV2o0eHdsRFNHVDlLblFtdFJES0NxS2JfZWZHYW5aRWRDTzJLQW40RUJhak9jSVpaMXF2SVdJSHBFMGVIaW43eWFmTU84NzBfRXI5UC1QQ2xuaVZkYVhnU0N0MWk5NWpKOGtDNlYtMEZ6MEZZRHFkY2dLMV9BLTYzZm9weDRBYzQ0cHJzbUw5Nm5zelBSSzJ4c9IB2gFBVV95cUxOQlFpOUFrcUZGZEZwQVF0V0pvQVZIdnRfQVIwc3dUTGRoc1FHdnk4VEZ4ZnhOZ0JVdW50bzMwTWg3TmlWREF6MzJiVHlER3Y1SEttNllobm1mSnlPc0drb2pPVWdjVTlfcnBEa1p2ZE1ZT2tGbVRac1Q5SFZ1NDlvYmQyOEdYVXpUSWcxTkpJRlljSDFXZko5clRUcWZBSzBqakNnenU2V1R1cFhpTk1Obk4zQm9IdGdUS01LWEdDRXJYajVzeVlEcUY3bXVLMFJ1QWNFbEJSenpJdw?oc=5" target="_blank">How to download Minecraft 26.70.24 beta and preview</a></div>
+    <div class="zh">我的世界</div>
+    <div class="summary">How to download Minecraft 26.70.24 beta and preview    The Times of India Minecraft 26.4 Snapshot 8    Minecraft</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.18</span>
+<span class="score-pill gdv">设计 0.80</span>
+
+    </div>
+  </div>
+</div>
+        
+        <div class="cc-item">
+  <span class="cc-rank">2</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxQUDNGTVEzdlctaWpjckpqbjBFNmJkQk0yM1BWX0ZOVHVfYjdYazk1eWFOeDA2Mkd0dW9NZGZWRmR2dUY5eTdGNExsTm5yZGliN1UtdEFfWTR3T3VsNHpXUVFtZlZmdXRfTlZ2M3Rjb3Y0blU1bHlGOGszWk5YeUdJc19WVWFQOEFpSkg1WGRfYi1GMEs4emcwTw?oc=5" target="_blank">Nintendo Switch Online Membership Plans in PH Start at PHP 149</a></div>
+    <div class="zh">菲律宾Switch Online会员149比索起</div>
+    <div class="summary">Nintendo Switch Online Membership Plans in PH Start at PHP 149    YugaTech Nintendo Switch Online now available―making Nintendo Switch 2 and Nintendo Switch more fun and more convenient &</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.18</span>
+<span class="score-pill gdv">设计 0.60</span>
+
+    </div>
+  </div>
+</div>
+        
+        <div class="cc-item empty">
+  <span class="cc-rank">—</span>
+  <div class="cc-body">暂无更多数据</div>
+</div>
+        
+        
+      </div>
+    </div>
+    
+    <div class="cc-cat-block">
+      <div class="cc-cat-label"><span class="cat-badge cat-viral">🔥</span> 大传播热点/梗</div>
+      <div class="cc-cell">
+        
+        
+        <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss/articles/CBMirAFBVV95cUxPWUVPWnNDME5sTTJSUUFxcWYxVHo4clo0UjJrcll6SEs5UE1RR3VjZE1SbVJUYTYwSHBPaFpHSFAwRE1fTWRoTEs1YmtjMzZtbDgzSVJxRXh0dUhIYnJSeG5RUWdxWnRmUnZ0aGNNb1F1UTJSYnNNaW9zUS1XUkVLeUNvblkzR0lLTnpoMUk2cTNMRkRHS1kwUGJzZ284eVNycmhCNkxtZ3Y2Q2hB?oc=5" target="_blank">ASEAN Summit: Angelina Jolie talks humanitarian work, Lea Salonga tackles creati</a></div>
+    <div class="zh">东盟峰会：安吉丽娜·朱莉谈人道工作，莉亚·萨隆加谈创意</div>
+    <div class="summary">ASEAN Summit: Angelina Jolie talks humanitarian work, Lea Salonga tackles creative sector challenges    ABS-CBN Where Cambodia’s war left minefields, Angelina Jolie made a home  &nbs</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.48</span>
+<span class="score-pill gdv">设计 0.10</span>
+
+    </div>
+  </div>
+</div>
+        
+        <div class="cc-item empty">
+  <span class="cc-rank">—</span>
+  <div class="cc-body">暂无更多数据</div>
+</div>
+        
+        <div class="cc-item empty">
+  <span class="cc-rank">—</span>
+  <div class="cc-body">暂无更多数据</div>
+</div>
+        
+        
+      </div>
+    </div>
+    
+    <div class="cc-cat-block">
+      <div class="cc-cat-label"><span class="cat-badge cat-trending">🔍</span> 民众热搜</div>
+      <div class="cc-cell">
+        
+        
+        <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending/rss?geo=PH" target="_blank">luka doncic injury</a></div>
+    <div class="zh">卢卡·东契奇受伤</div>
+    <div class="summary">Search volume: 500+</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.40</span>
+<span class="score-pill vir">传播 0.18</span>
+<span class="score-pill gdv">设计 0.10</span>
+
+    </div>
+  </div>
+</div>
+        
+        <div class="cc-item">
+  <span class="cc-rank">2</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending/rss?geo=PH" target="_blank">draymond green</a></div>
+    <div class="zh">德雷蒙德·格林</div>
+    <div class="summary">Search volume: 100+</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.40</span>
+<span class="score-pill vir">传播 0.18</span>
+<span class="score-pill gdv">设计 0.10</span>
+
+    </div>
+  </div>
+</div>
+        
+        <div class="cc-item">
+  <span class="cc-rank">3</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending/rss?geo=PH" target="_blank">gui santos</a></div>
+    <div class="zh">吉·桑托斯</div>
+    <div class="summary">Search volume: 100+</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.40</span>
+<span class="score-pill vir">传播 0.18</span>
+<span class="score-pill gdv">设计 0.10</span>
+
+    </div>
+  </div>
+</div>
+        
+        
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="cc-card">
+    <div class="cc-hdr-bar id"></div>
+    <div class="cc-hdr">
+      <div class="country-flag id">ID</div>
+      <span class="country-name">Indonesia 印尼</span>
+      <span class="country-count">94 条</span>
+    </div>
+    
+    <div class="cc-cat-block">
+      <div class="cc-cat-label"><span class="cat-badge cat-news">📰</span> 重要新闻/民生</div>
+      <div class="cc-cell">
+        
+        
+        <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxQOThiaGdkMEdTRnFHVmFGVUtkYlZMTmVZc0VKMy1XOWhSdHFvWHNZdGFOdmgwd0hsdG9mVW0yUzZOZnVoTjBIRm5fTzBBaXBEbGl3WmhpcjlhQlR6ZDVDenBteGNRblNKbm5hcXQxbzBSNDlVSVZVVDdNT1lsaDZpdTlTa3FyRzBiaFBVcjM0VGtydXJnTGxvNWQwVDNya05VYUhkRURYVXpIcHYtbUtDWXd5WTR0QdIBuwFBVV95cUxPYkxCcVNCSENCcGtndExWNUo5cEJlM2d3UC1ZTmZFSHdtNWRkLUY3SF9LM2pHa0t3UzRVV3RhS2ZBR0tTQ1dqWDRVSXhrZm5KUFdHOWs0LWNlMW9lNUtYY0F0ZGJKQVJCU3NUN2hWNFpsNTRTWkFfNnM5RFdtUF9rbExNbHdBNDVHRjYyc1ZBcllJZFVBSVBWc2h2SE1EaVRSTXJkdTZLTjljYzJWV3E0NkdoZGplVVZYa00w?oc=5" target="_blank">Fraksi PAN Dengar Kabar Gibran Serahkan Surat Pengunduran Diri ke MPR Besok</a></div>
+    <div class="zh">PAN党派听闻吉布兰明日向MPR递交辞呈</div>
+    <div class="summary">Fraksi PAN Dengar Kabar Gibran Serahkan Surat Pengunduran Diri ke MPR Besok    detikNews Setelah Mengundurkan Diri, Gibran Kembali ke Istana Wapres Disambut Relawan    detikNews</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.18</span>
+
+
+    </div>
+  </div>
+</div>
+        
+        <div class="cc-item">
+  <span class="cc-rank">2</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxPZDcwdlJhSTVMeS1pSXE2TDMtTHZYMVVDNEllLVBFaUhYTUhRczRwVUNtaDMxR2djMjJ0d0hkZ0I3N1pLOGIzV1Q0SnMzRzJxWWJaMV9SVHJmeEV6a0U2ck1heDFNTURXSExyU2VMdkY5a1RPSVp2eHAxV1VQd3hNV2haVVRYSDQyWXc4b255bXR3Q3VmWUJXaHE1blFyN05nRHI4aVJsUnXSAa4BQVVfeXFMT3V5UXltVnQxVU1kbE9VUjFUWFZZV0ExMWpnaVdXMzhrdG9BejhkZnJWMUt3UlMxalBvbVh0WFdwMkRUeENvSFY5WWNKM0MtTHZlaHptd0hXMFFYM1hReHFBMnM2VGhzcXJVSFBiUnFvWVJ4ZW8yVXVSYXpwVldjQi1aU0Y5LXVwYnR0WXRFdTNMQXdYUFlCMzdpWTQ4M3NPYnBnWl9mZXZDX2N3SEN3?oc=5" target="_blank">Yusril: Suket Ijazah Gibran Sudah Dicabut, Tak Ada Lagi Upaya Hukum</a></div>
+    <div class="zh">尤斯里尔：吉布兰学历证明已撤销，不再有法律行动</div>
+    <div class="summary">Yusril: Suket Ijazah Gibran Sudah Dicabut, Tak Ada Lagi Upaya Hukum    detikNews Subhan Penggugat Suket Bersyukur Gibran Mundur: Untuk Sementara Lega    detikNews Mengurai Ja</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.18</span>
+
+
+    </div>
+  </div>
+</div>
+        
+        <div class="cc-item">
+  <span class="cc-rank">3</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss/articles/CBMiywFBVV95cUxPZjNTYUNUc2tzS1VMdzJWQk1jamxvcEdDMXZNU2lIY2hQOE03ZHM2Q2xlLTZQM0ZkRHcxY0s4dWZUZTg4Vko1N3Fpb2oxWVdLbWFKU3lrTHY2RkpFZUxab2ZIUXA2OU1KUUVtNGlYRVJ0WG05MTE3WDhYR2t0b2cxR0M3clpXWVdvQ19vWTlrQ2lKOEQyQXFBcDV5TmI0NFZZWDhzSlc1X0xsRmd5aHU4TVF0cE5QUDRQcmx1OEpyd2JQTUllZ21YdXZLTdIB0AFBVV95cUxOeXJkcEowTWhPVERKQVlIWDh0RGYwUGtsaUd0TU0tMWhCckJtOTA5WWp0Vk05NlVlX2NFUlBiTlZheG1KUlV5NjF0Tk04WGIwQmpBTld3T1RuY2xmM2xQWHlPZWxtUV9ocElIbUpoYWhjaS12cEVfS2U0VHhldWRKaG5aeEdlVS1BVDc5VHlIOWd6RGNfYlFNd0g3VXJuRjYtZ3VDb3k3NHhrOUhNVF9RT0Ric005REZNVzlhT25DWXh3SUVTX2ZBZGJLcldxX1ZC?oc=5" target="_blank">Kapolri Sebut Perintah Penyadapan Prabowo Berasal dari Listyo Sigit</a></div>
+    <div class="zh">警长称普拉博沃窃听令来自利斯蒂约·西吉特</div>
+    <div class="summary">Kapolri Sebut Perintah Penyadapan Prabowo Berasal dari Listyo Sigit    CNN Indonesia Sahroni ke Kapolri: Jangan Sampai Listyo Sigit dkk Menjalar, Duitnya Masih Banyak    detikNe</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.18</span>
+
+
+    </div>
+  </div>
+</div>
+        
+        
+      </div>
+    </div>
+    
+    <div class="cc-cat-block">
+      <div class="cc-cat-label"><span class="cat-badge cat-gaming">🎮</span> 游戏相关</div>
+      <div class="cc-cell">
+        
+        
+        <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxNU0ZubzlSRHNERDZFU1R4VXdRVkNOckNOTEZaVmgtbGVid3ZlVjVFdFdBcmFRcGVFaWxYT2FoSl9oTGhwa0M0bWlyNDFwSUMwV2RsdDdoUXZsNGpOMTZXVjRGcmVubXg3RFFZVFZmYmcweXprZjlQOFpCUElZNVBaNFJBQmp2NFpfQkNJUnc1cFQyekptVzVweWM0d1FFaURxb0E?oc=5" target="_blank">Logitech Liburkan 7.000 Karyawan untuk Main GTA VI</a></div>
+    <div class="zh">罗技放假7000员工玩GTA6</div>
+    <div class="summary">Logitech Liburkan 7.000 Karyawan untuk Main GTA VI    Kompas.com GTA 6 Bawa Perubahan untuk Pembeli Game Fisik? Ini yang Perlu Diketahui Sebelum Pre-order    VIVA.co.id GTA V</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.18</span>
+<span class="score-pill gdv">设计 0.60</span>
+
+    </div>
+  </div>
+</div>
+        
+        <div class="cc-item">
+  <span class="cc-rank">2</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss/articles/CBMi-gFBVV95cUxPMk9NMWlzVnFodzZPLTNkd1FUOGNCTjlSTFVzb2p0a0hFbEQ4SHlIc1AyV2M3bWhrQVBJOUw0T25xOTZsVzAwMk9TSUZhenctMThYTE0wY2w3UDZPZmtfcVJCMFE1clVheTN3MEhKUWxuSG9UVEdVYjUxVFFzbERlRzhwaXdDUS04Yng3SGRJM2FTZmlyZy02X3NhYjBtd1hJNUp4Tk52cEhxdUFQc2NQc0VIM3YzdmVzZV9NQzZicmZtdHp1R3h2V29yYjZWRkF4SFJPdDYwVDBKZU9Ja19hLW9odmF1T2FkaE9BaGJsVlN2ZXRWb3BlNC1R?oc=5" target="_blank">Mode Performa Maksimal pada Smartphone Gaming, Perbandingan Konsumsi Baterai dan</a></div>
+    <div class="zh">游戏手机性能模式续航对比</div>
+    <div class="summary">Mode Performa Maksimal pada Smartphone Gaming, Perbandingan Konsumsi Baterai dan Stabilitas Mahjong Ways selama Sesi Panjang    Habangkalan Penyang Karuhei Tatau Teknologi Penyimpanan UFS</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.18</span>
+<span class="score-pill gdv">设计 0.60</span>
+
+    </div>
+  </div>
+</div>
+        
+        <div class="cc-item empty">
+  <span class="cc-rank">—</span>
+  <div class="cc-body">暂无更多数据</div>
+</div>
+        
+        
+      </div>
+    </div>
+    
+    <div class="cc-cat-block">
+      <div class="cc-cat-label"><span class="cat-badge cat-viral">🔥</span> 大传播热点/梗</div>
+      <div class="cc-cell">
+        
+        
+        
+        <div class="cc-item empty">
+  <span class="cc-rank">—</span>
+  <div class="cc-body">暂无更多数据</div>
+</div><div class="cc-item empty">
+  <span class="cc-rank">—</span>
+  <div class="cc-body">暂无更多数据</div>
+</div><div class="cc-item empty">
+  <span class="cc-rank">—</span>
+  <div class="cc-body">暂无更多数据</div>
+</div>
+        
+      </div>
+    </div>
+    
+    <div class="cc-cat-block">
+      <div class="cc-cat-label"><span class="cat-badge cat-trending">🔍</span> 民众热搜</div>
+      <div class="cc-cell">
+        
+        
+        <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending/rss?geo=ID" target="_blank">andre rosiade</a></div>
+    <div class="zh">安德烈·罗西亚德</div>
+    <div class="summary">Search volume: 200+</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.40</span>
+<span class="score-pill vir">传播 0.18</span>
+<span class="score-pill gdv">设计 0.10</span>
+
+    </div>
+  </div>
+</div>
+        
+        <div class="cc-item">
+  <span class="cc-rank">2</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending/rss?geo=ID" target="_blank">toyota</a></div>
+    <div class="zh">丰田</div>
+    <div class="summary">Search volume: 100+</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.40</span>
+<span class="score-pill vir">传播 0.18</span>
+<span class="score-pill gdv">设计 0.10</span>
+
+    </div>
+  </div>
+</div>
+        
+        <div class="cc-item">
+  <span class="cc-rank">3</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending/rss?geo=ID" target="_blank">denny indrayana</a></div>
+    <div class="zh">登尼·因德拉亚纳</div>
+    <div class="summary">Search volume: 200+</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.40</span>
+<span class="score-pill vir">传播 0.18</span>
+<span class="score-pill gdv">设计 0.10</span>
+
+    </div>
+  </div>
+</div>
+        
+        
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="cc-card">
+    <div class="cc-hdr-bar th"></div>
+    <div class="cc-hdr">
+      <div class="country-flag th">TH</div>
+      <span class="country-name">Thailand 泰国</span>
+      <span class="country-count">59 条</span>
+    </div>
+    
+    <div class="cc-cat-block">
+      <div class="cc-cat-label"><span class="cat-badge cat-news">📰</span> 重要新闻/民生</div>
+      <div class="cc-cell">
+        
+        
+        <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE9pN0FQOWxzY2hFQlVnMVkyMFhDWi1IUFNTbkVJcXdHb3pxLV9JRVc0aU44ajA5YmRacWR3ZlBnR25aTHgzUlJjbjBwWV9IZElIWDdwNlRrVjRsbm8?oc=5" target="_blank">'กำนันมะโน' ยันไม่มีพรรคการเมืองอยู่เบื้องหลังม็อบ เชื่อมวลชนจะเพิ่มขึ้นอีก</a></div>
+    <div class="zh">玛诺村长坚称无政党幕后操纵 信民众将增多</div>
+    <div class="summary">'กำนันมะโน' ยันไม่มีพรรคการเมืองอยู่เบื้องหลังม็อบ เชื่อมวลชนจะเพิ่มขึ้นอีก    Thaipost.net ม็อบกำนันมะโน คือใคร ลดราคาน้ำมัน 10 บาท เกิดได้จริงไหม    BBC “สนธิ” ร่วมเวทีปราศ</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.18</span>
+
+
+    </div>
+  </div>
+</div>
+        
+        <div class="cc-item">
+  <span class="cc-rank">2</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE9fc3Zzc201S1NyZWZxblJUWnhEaWlfOXBWaVZ2c3hYYU1QZHFyUjVNRzdpOXVtcUl3YnJaQ1JZUEpiTlpvb2hZZnp0dVJwbUxmd3Vud0NjdlctbVpzYmNmYnZjOHpLNnRqV0lYSGJqeDg4bzJrVGo4T2F6ajA?oc=5" target="_blank">เบื้องลึกศึกตรวจสอบมูลนิธิ จากเงินบริจาค 1,000 บาท สู่การเอกซเรย์ 1.7 หมื่นองค์ก</a></div>
+    <div class="zh">基金会审查内幕：从1000铢捐款到透视1.7万机构</div>
+    <div class="summary">เบื้องลึกศึกตรวจสอบมูลนิธิ จากเงินบริจาค 1,000 บาท สู่การเอกซเรย์ 1.7 หมื่นองค์กรทั่วประเทศ    thestandard.co "ปานเทพ" เอาผิด "ทนายตั้ม" แจ้งความเท็จ ซัดปมใส่หูเอลฟ์แค่ "ตัวตลก" ล้างคดีฉ้</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.18</span>
+
+
+    </div>
+  </div>
+</div>
+        
+        <div class="cc-item">
+  <span class="cc-rank">3</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss/articles/CBMiWEFVX3lxTE5HSXVUZG9PWnBUYjhhOWZicnhxNXpURXpibTNPdFpmcWFBdVYtRjgtU0kwM1AyZWk0R3FBVFFNLXluZEVTYms5TU5saDVpT0U3aWVvVUtxVkU?oc=5" target="_blank">คลังสมบัติ “บุ๋ม ปนัดดา” กระเป๋าแบรนด์เนมล็อตใหม่ มีแนวโน้มเป็นของแท้ทั้งหมด</a></div>
+    
+    <div class="summary">คลังสมบัติ “บุ๋ม ปนัดดา” กระเป๋าแบรนด์เนมล็อตใหม่ มีแนวโน้มเป็นของแท้ทั้งหมด    www.thairath.co.th ตำรวจ ปอศ. เผยผลตรวจเบื้องต้น แบรนด์เนมล็อตใหม่ "บุ๋ม ปนัดดา" แนวโน้มแท้ทั้งหมด  &n</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.18</span>
+
+
+    </div>
+  </div>
+</div>
+        
+        
+      </div>
+    </div>
+    
+    <div class="cc-cat-block">
+      <div class="cc-cat-label"><span class="cat-badge cat-gaming">🎮</span> 游戏相关</div>
+      <div class="cc-cell">
+        
+        
+        <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxNcmowT1p4aGZsYmRVSmU0WHlVcUJGcE9ZZVlEdVBzeS1iYUs4QXBMajVkNm80YkZ2NXlpWGxWdTl0eWxib0lWaGlzRGR0S3hPUlY5MGYteVhIb2JyUlBKa0tHZHZscGtybkZGcnVHNlc3aGhYOXR3emF3M3NBMXJ4Ng?oc=5" target="_blank">GTA 6 ทำยอดขายทะลุ 1 พันล้านดอลลาร์ ตั้งแต่ช่วงพรีออเดอร์</a></div>
+    
+    <div class="summary">GTA 6 ทำยอดขายทะลุ 1 พันล้านดอลลาร์ ตั้งแต่ช่วงพรีออเดอร์    iMoD Rockstar เคาะสเปก GTA 6 บนคอนโซลรัน 30fps ชู PS5 คือเครื่องที่เล่นได้ดีที่สุด    www.thairath.co.th รีวิวสัม</div>
+    <div class="meta">
+      <span class="tag tag-source">google_news</span>
+      <span class="score-pill rel">相关 0.36</span>
+<span class="score-pill vir">传播 0.18</span>
+<span class="score-pill gdv">设计 0.60</span>
+
+    </div>
+  </div>
+</div>
+        
+        <div class="cc-item empty">
+  <span class="cc-rank">—</span>
+  <div class="cc-body">暂无更多数据</div>
+</div>
+        
+        <div class="cc-item empty">
+  <span class="cc-rank">—</span>
+  <div class="cc-body">暂无更多数据</div>
+</div>
+        
+        
+      </div>
+    </div>
+    
+    <div class="cc-cat-block">
+      <div class="cc-cat-label"><span class="cat-badge cat-viral">🔥</span> 大传播热点/梗</div>
+      <div class="cc-cell">
+        
+        
+        
+        <div class="cc-item empty">
+  <span class="cc-rank">—</span>
+  <div class="cc-body">暂无更多数据</div>
+</div><div class="cc-item empty">
+  <span class="cc-rank">—</span>
+  <div class="cc-body">暂无更多数据</div>
+</div><div class="cc-item empty">
+  <span class="cc-rank">—</span>
+  <div class="cc-body">暂无更多数据</div>
+</div>
+        
+      </div>
+    </div>
+    
+    <div class="cc-cat-block">
+      <div class="cc-cat-label"><span class="cat-badge cat-trending">🔍</span> 民众热搜</div>
+      <div class="cc-cell">
+        
+        
+        <div class="cc-item">
+  <span class="cc-rank">1</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending/rss?geo=TH" target="_blank">วอชด็อกไทยแลนด์</a></div>
+    <div class="zh">泰国洗狗</div>
+    <div class="summary">Search volume: 200+</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.40</span>
+<span class="score-pill vir">传播 0.18</span>
+<span class="score-pill gdv">设计 0.10</span>
+
+    </div>
+  </div>
+</div>
+        
+        <div class="cc-item">
+  <span class="cc-rank">2</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending/rss?geo=TH" target="_blank">ศาล</a></div>
+    <div class="zh">法院</div>
+    <div class="summary">Search volume: 200+</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.40</span>
+<span class="score-pill vir">传播 0.18</span>
+<span class="score-pill gdv">设计 0.10</span>
+
+    </div>
+  </div>
+</div>
+        
+        <div class="cc-item">
+  <span class="cc-rank">3</span>
+  <div class="cc-body">
+    <div class="kw"><a href="https://trends.google.com/trending/rss?geo=TH" target="_blank">ฮั่งเส็ง</a></div>
+    <div class="zh">恒生指数</div>
+    <div class="summary">Search volume: 200+</div>
+    <div class="meta">
+      <span class="tag tag-source">google_trends</span>
+      <span class="score-pill rel">相关 0.40</span>
+<span class="score-pill vir">传播 0.18</span>
+<span class="score-pill gdv">设计 0.10</span>
+
+    </div>
+  </div>
+</div>
+        
+        
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+<div class="section-title"><span class="section-icon">💡</span> 游戏设计洞察</div>
+<div class="insights-grid">
+  
+  
+  <div class="insight-card" style="border-left-color:var(--c-gaming)">
+    <div class="insight-keyword">🎮 How to download Minecraft 26.70.24 beta and preview（我的世界） <span class="tag tag-ph" style="margin-left:6px">PH</span></div>
+    <dl class="insight-item">
+      <dt>🔍 为什么值得关注</dt><dd>游戏相关话题 How to download Minecraft 26.70.24 beta and preview 在Philippines 菲律宾成为热搜，反映当地游戏市场活跃</dd>
+      <dt>🧠 玩家心理</dt><dd>玩家对游戏内容持续关注，有社群讨论和分享的需求</dd>
+      <dt>🎯 设计方向</dt><dd>可关注该话题涉及的玩法类型和受众偏好，用于后续策划参考</dd>
+      <dt>⚠️ 风险</dt><dd>关注话题情绪倾向，若涉及负面评价需谨慎借势</dd>
+    </dl>
+  </div>
+  
+  
+  <div class="insight-card" style="border-left-color:var(--c-gaming)">
+    <div class="insight-keyword">🎮 Nintendo Switch Online Membership Plans in PH Start at PHP 149（菲律宾Switch Online会员149比索起） <span class="tag tag-ph" style="margin-left:6px">PH</span></div>
+    <dl class="insight-item">
+      <dt>🔍 为什么值得关注</dt><dd>游戏相关话题 Nintendo Switch Online Membership Plans in PH Start at PHP 149 在Philippines 菲律宾成为热搜，反映当地游戏市场活跃</dd>
+      <dt>🧠 玩家心理</dt><dd>玩家对游戏内容持续关注，有社群讨论和分享的需求</dd>
+      <dt>🎯 设计方向</dt><dd>可关注该话题涉及的玩法类型和受众偏好，用于后续策划参考</dd>
+      <dt>⚠️ 风险</dt><dd>关注话题情绪倾向，若涉及负面评价需谨慎借势</dd>
+    </dl>
+  </div>
+  
+  
+  <div class="insight-card" style="border-left-color:var(--c-gaming)">
+    <div class="insight-keyword">🎮 Logitech Liburkan 7.000 Karyawan untuk Main GTA VI（罗技放假7000员工玩GTA6） <span class="tag tag-id" style="margin-left:6px">ID</span></div>
+    <dl class="insight-item">
+      <dt>🔍 为什么值得关注</dt><dd>游戏相关话题 Logitech Liburkan 7.000 Karyawan untuk Main GTA VI 在Indonesia 印尼成为热搜，反映当地游戏市场活跃</dd>
+      <dt>🧠 玩家心理</dt><dd>玩家对游戏内容持续关注，有社群讨论和分享的需求</dd>
+      <dt>🎯 设计方向</dt><dd>可关注该话题涉及的玩法类型和受众偏好，用于后续策划参考</dd>
+      <dt>⚠️ 风险</dt><dd>关注话题情绪倾向，若涉及负面评价需谨慎借势</dd>
+    </dl>
+  </div>
+  
+  
+  <div class="insight-card" style="border-left-color:var(--c-gaming)">
+    <div class="insight-keyword">🎮 Mode Performa Maksimal pada Smartphone Gaming, Perbandingan Konsumsi Baterai dan（游戏手机性能模式续航对比） <span class="tag tag-id" style="margin-left:6px">ID</span></div>
+    <dl class="insight-item">
+      <dt>🔍 为什么值得关注</dt><dd>游戏相关话题 Mode Performa Maksimal pada Smartphone Gaming, Perbandingan Konsumsi Baterai dan 在Indonesia 印尼成为热搜，反映当地游戏市场活跃</dd>
+      <dt>🧠 玩家心理</dt><dd>玩家对游戏内容持续关注，有社群讨论和分享的需求</dd>
+      <dt>🎯 设计方向</dt><dd>可关注该话题涉及的玩法类型和受众偏好，用于后续策划参考</dd>
+      <dt>⚠️ 风险</dt><dd>关注话题情绪倾向，若涉及负面评价需谨慎借势</dd>
+    </dl>
+  </div>
+  
+  
+  <div class="insight-card" style="border-left-color:var(--c-gaming)">
+    <div class="insight-keyword">🎮 GTA 6 ทำยอดขายทะลุ 1 พันล้านดอลลาร์ ตั้งแต่ช่วงพรีออเดอร์ <span class="tag tag-th" style="margin-left:6px">TH</span></div>
+    <dl class="insight-item">
+      <dt>🔍 为什么值得关注</dt><dd>游戏相关话题 GTA 6 ทำยอดขายทะลุ 1 พันล้านดอลลาร์ ตั้งแต่ช่วงพรีออเดอร์ 在Thailand 泰国成为热搜，反映当地游戏市场活跃</dd>
+      <dt>🧠 玩家心理</dt><dd>玩家对游戏内容持续关注，有社群讨论和分享的需求</dd>
+      <dt>🎯 设计方向</dt><dd>可关注该话题涉及的玩法类型和受众偏好，用于后续策划参考</dd>
+      <dt>⚠️ 风险</dt><dd>关注话题情绪倾向，若涉及负面评价需谨慎借势</dd>
+    </dl>
+  </div>
+  
+</div>
+
+<div class="section-title"><span class="section-icon">⚠️</span> 风险提醒</div>
+<div class="risk-section">
+  <div class="risk-grid">
+    
+    <div class="risk-item">
+      <span class="risk-icon">⚠️</span>
+      <div style="flex:1">
+        <div class="risk-label">社会敏感 — PNP hunts drug network behind P455.6M shabu haul in Zamboanga（菲警追查三宝颜4.5亿毒品案） (PH)</div>
+        <div class="risk-detail">PNP hunts drug network behind P455.6M shabu haul in Zamboanga    Inquirer.net 4 HVTs arrested, P455-M shabu seized in Zamboanga City    Philippine News Agency Cops seize P455</div>
+        <div class="risk-score-bar"><div class="risk-score-fill" style="width:70%"></div></div>
+      </div>
+    </div>
+    
+    <div class="risk-item">
+      <span class="risk-icon">⚠️</span>
+      <div style="flex:1">
+        <div class="risk-label">风险话题 — Basilan judge killed in Zamboanga City | The Manila Times（巴西兰法官在三宝颜市遇害） (PH)</div>
+        <div class="risk-detail">Basilan judge killed in Zamboanga City | The Manila Times</div>
+        <div class="risk-score-bar"><div class="risk-score-fill" style="width:70%"></div></div>
+      </div>
+    </div>
+    
+    <div class="risk-item">
+      <span class="risk-icon">⚠️</span>
+      <div style="flex:1">
+        <div class="risk-label">风险话题 — 2 Pinoys among 5 indicted in Guam child sex sting（关岛儿童性诱捕案5人被诉含2名菲人） (PH)</div>
+        <div class="risk-detail">2 Pinoys among 5 indicted in Guam child sex sting</div>
+        <div class="risk-score-bar"><div class="risk-score-fill" style="width:70%"></div></div>
+      </div>
+    </div>
+    
+    <div class="risk-item">
+      <span class="risk-icon">⚠️</span>
+      <div style="flex:1">
+        <div class="risk-label">风险话题 — Army soldier faces sanctions over dog-killing video: What we know so far（士兵因杀狗视频面临处分：目前已知） (PH)</div>
+        <div class="risk-detail">Following a viral dog-killing video in Zamboanga del Sur, advocates push for animal cruelty charges and a lifetime pet-ownership ban against a Philippine Army soldier</div>
+        <div class="risk-score-bar"><div class="risk-score-fill" style="width:70%"></div></div>
+      </div>
+    </div>
+    
+    <div class="risk-item">
+      <span class="risk-icon">⚠️</span>
+      <div style="flex:1">
+        <div class="risk-label">社会敏感 — FACT CHECK: Video of Nepal protest misrepresented as anti-Marcos rally（事实核查：尼泊尔抗议视频被误传） (PH)</div>
+        <div class="risk-detail">The original video posted on TikTok also shows that the crowd was not chanting Duterte’s name during the protest</div>
+        <div class="risk-score-bar"><div class="risk-score-fill" style="width:70%"></div></div>
+      </div>
+    </div>
+    
+    <div class="risk-item">
+      <span class="risk-icon">⚠️</span>
+      <div style="flex:1">
+        <div class="risk-label">风险话题 — Hoax bomb alerts sent to schools in Italy, UK, and Ireland in latest disruption（意大利英国爱尔兰学校遭虚假炸弹警报） (PH)</div>
+        <div class="risk-detail">Some European officials suspect Russia may be behind a campaign of disruption to everyday life in European nations supporting Ukraine after Moscow's invasion, while Iran is another suspect</div>
+        <div class="risk-score-bar"><div class="risk-score-fill" style="width:70%"></div></div>
+      </div>
+    </div>
+    
+    <div class="risk-item">
+      <span class="risk-icon">⚠️</span>
+      <div style="flex:1">
+        <div class="risk-label">风险话题 — Gerebek Sarang Narkoba di Sergai , Polisi Tangkap Dua Pengedar dan Sita 40 Paket（塞尔盖警方突袭毒窝逮两毒贩） (ID)</div>
+        <div class="risk-detail">Gerebek Sarang Narkoba di Sergai , Polisi Tangkap Dua Pengedar dan Sita 40 Paket Sabu</div>
+        <div class="risk-score-bar"><div class="risk-score-fill" style="width:70%"></div></div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<div class="section-title"><span class="section-icon">🔌</span> 数据源状态</div>
+<div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;margin-bottom:20px">
+  <table class="source-table">
+    <thead><tr><th>数据源</th><th>状态</th><th>备注</th></tr></thead>
+    <tbody>
+      
+      <tr>
+        <td>Google Trends</td>
+        <td class="status-ok">✓ 正常</td>
+        <td style="color:var(--text-muted)"></td>
+      </tr>
+      
+      <tr>
+        <td>Google News</td>
+        <td class="status-ok">✓ 正常</td>
+        <td style="color:var(--text-muted)"></td>
+      </tr>
+      
+      <tr>
+        <td>Gdelt</td>
+        <td class="status-fail">✗ 失败</td>
+        <td style="color:var(--text-muted)"></td>
+      </tr>
+      
+      <tr>
+        <td>Trends24</td>
+        <td class="status-ok">✓ 正常</td>
+        <td style="color:var(--text-muted)"></td>
+      </tr>
+      
+      <tr>
+        <td>Getdaytrends</td>
+        <td class="status-ok">✓ 正常</td>
+        <td style="color:var(--text-muted)"></td>
+      </tr>
+      
+      <tr>
+        <td>Kworb Youtube</td>
+        <td class="status-ok">✓ 正常</td>
+        <td style="color:var(--text-muted)"></td>
+      </tr>
+      
+      <tr>
+        <td>Appbrain</td>
+        <td class="status-disabled">⚠ 无数据</td>
+        <td style="color:var(--text-muted)"></td>
+      </tr>
+      
+      <tr>
+        <td>Google Play</td>
+        <td class="status-disabled">⚠ 无数据</td>
+        <td style="color:var(--text-muted)"></td>
+      </tr>
+      
+      <tr>
+        <td>Rappler</td>
+        <td class="status-disabled">⚠ 无数据</td>
+        <td style="color:var(--text-muted)"></td>
+      </tr>
+      
+      <tr>
+        <td>Detik</td>
+        <td class="status-disabled">⚠ 无数据</td>
+        <td style="color:var(--text-muted)"></td>
+      </tr>
+      
+      <tr>
+        <td>Line Today</td>
+        <td class="status-disabled">⚠ 无数据</td>
+        <td style="color:var(--text-muted)"></td>
+      </tr>
+      
+      <tr>
+        <td>Tiktok</td>
+        <td class="status-disabled">⚠ 无数据</td>
+        <td style="color:var(--text-muted)"></td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+<div class="section-title"><span class="section-icon">📝</span> 运行日志</div>
+<div class="run-log">
+  <span class="label">日期:</span> <span class="value">2026-11-12</span> |
+  <span class="label">数据源:</span> <span class="value">5/12 正常</span> |
+  <span class="label">原始数据:</span> <span class="value">236 条</span> |
+  <span class="label">去重:</span> <span class="value">36 合并</span>
+  <br><span class="label">错误:</span> <span class="value" style="color:var(--amber)">gdelt/TH: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=sourcecountry%3AThailand&mode=artlist&format=json&maxrecords=30&sort=DateDesc (Caused by ResponseError('too many 429 error responses'))</span>
+</div>
+
+
+</main>
+
+<footer class="footer">
+  <div class="container">Generated by sea-trend-insight</div>
+</footer>
+
+</body>
+</html>
