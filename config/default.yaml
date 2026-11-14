@@ -34,6 +34,10 @@ providers:
   gdelt:
     enabled: true
     platform: gdelt
+    request_interval: 5.0               # 跨国家及重试请求的最小间隔（秒）；非服务端限额保证
+    max_retries: 2                      # 首次请求之外的 429 重试次数；不叠加 HTTP 层重试
+    backoff_factor: 5.0                 # 无有效 Retry-After 时的指数退避初值（秒）
+    max_backoff: 60.0                   # 退避/单次等待上限；更长 Retry-After 保留冷却并失败退出
   trends24:
     enabled: true
     platform: twitter
