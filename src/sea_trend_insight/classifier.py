@@ -15,7 +15,7 @@ GAMING_KEYWORDS = [
     r"\blol\b", r"pubg", r"call\s*of\s*duty", r"\bcod\b", r"minecraft",
     r"roblox", r"fortnite", r"apex\s*legends", r"honkai", r"wuthering",
     r"zenless", r"\bnikke\b", r"tower\s*of\s*fantasy", r"esport",
-    r"game\s*launch", r"gaming", r"playstation", r"\bps5\b", r"nintendo",
+    r"gaming", r"playstation", r"\bps5\b", r"nintendo",
     r"switch\s*2", r"xbox", r"steam", r"epic\s*games", r"gacha",
     r"battle\s*royale", r"mmorpg", r"rpg\s*game", r"arena\s*of\s*valor",
     r"เกม", r"เกมมือถือ", r"\bmabar\b", r"\bgim\b",
@@ -30,7 +30,27 @@ GAMING_STRONG_KEYWORDS = [
     r"mmorpg", r"arena\s*of\s*valor", r"เกมมือถือ",
 ]
 
-GAME_WEAK_KEYWORD = re.compile(r"\bgame\b", re.IGNORECASE)
+# Game, match and play also describe sports, theatre and everyday activities.
+# They are diagnostic matches only, never sufficient evidence of video games.
+_AMBIGUOUS_GAME_RE = re.compile(r"\b(?:games?|match(?:es)?|play)\b", re.IGNORECASE)
+_VIDEO_GAME_RE = re.compile(
+    r"\b(?:video\s*games?|(?:pc|console|mobile)\s+games?|gameplay)\b",
+    re.IGNORECASE,
+)
+_GAME_RELEASE_RE = re.compile(
+    r"\b(?:new\s+)?game\s+(?:(?:is|was)\s+)?"
+    r"(?:launch(?:es|ed)?|releas(?:e[ds]?|ing))\b"
+    r"|\b(?:launch(?:es|ed)?|releas(?:e[ds]?|ing))\s+(?:a\s+)?(?:new\s+)?game\b",
+    re.IGNORECASE,
+)
+# Only suppress generic release wording, not explicit video-game or title evidence:
+# e.g. an NBA mobile game or a Roblox basketball match is still gaming.
+_SPORTS_RE = re.compile(
+    r"\b(?:nba|wnba|nfl|nhl|mlb|fifa|uefa|pba|uaap|ncaa|ipl|"
+    r"lakers|celtics|warriors|basketball|football|soccer|baseball|"
+    r"volleyball|cricket|tennis|badminton|premier\s+league|world\s+cup)\b",
+    re.IGNORECASE,
+)
 
 NEWS_KEYWORDS = [
     r"typhoon", r"earthquake", r"flood", r"election", r"president",
@@ -65,39 +85,13 @@ SOURCE_NEWS_PRIORITY = {"gdelt", "google_news"}
 
 
 def classify(item: NormalizedItem) -> str:
-    text = f"{item.keyword} {item.title} {item.summary or ''} {' '.join(item.tags)}"
-
-    if item.source in SOURCE_GAMING:
-        return "gaming"
-
-    has_strong_gaming = bool(_GAMING_STRONG_RE.search(text))
-    has_weak_gaming = bool(_GAMING_RE.search(text)) or bool(GAME_WEAK_KEYWORD.search(text))
-    has_news = bool(_NEWS_RE.search(text))
-    has_viral = bool(_VIRAL_RE.search(text))
-
-    if has_strong_gaming:
-        return "gaming"
-
-    if item.source in SOURCE_NEWS_PRIORITY:
-        if has_news:
-            return "news"
-        if has_weak_gaming:
-            return "gaming"
-        if has_viral:
-            return "viral"
-        return "news"
-
-    if has_weak_gaming and not has_news:
-        return "gaming"
-    if has_news:
-        return "news"
-    if has_viral:
-        return "viral"
-    return "trending"
+    return classify_with_debug(item)[0]
 
 
 def classify_with_debug(item: NormalizedItem) -> tuple[str, dict[str, Any]]:
-    text = f"{item.keyword} {item.title} {item.summary or ''} {' '.join(item.tags)}"
+    # Preserve field boundaries so a keyword ending in 'game' and a title
+    # starting with 'released' cannot accidentally form a release phrase.
+    text = " | ".join([item.keyword, item.title, item.summary or "", *item.tags])
     debug: dict[str, Any] = {"source": item.source}
 
     if item.source in SOURCE_GAMING:
@@ -106,16 +100,31 @@ def classify_with_debug(item: NormalizedItem) -> tuple[str, dict[str, Any]]:
 
     strong_matches = _GAMING_STRONG_RE.findall(text)
     weak_matches = _GAMING_RE.findall(text)
-    game_word = GAME_WEAK_KEYWORD.findall(text)
+    ambiguous_matches = _AMBIGUOUS_GAME_RE.findall(text)
+    sports_matches = _SPORTS_RE.findall(text)
+    video_game_matches = _VIDEO_GAME_RE.findall(text)
+    release_matches = _GAME_RELEASE_RE.findall(text)
+    context_matches = video_game_matches + (release_matches if not sports_matches else [])
     news_matches = _NEWS_RE.findall(text)
     viral_matches = _VIRAL_RE.findall(text)
 
     debug["matches"] = {
         "gaming_strong": strong_matches,
-        "gaming_weak": weak_matches + game_word,
+        "gaming_weak": weak_matches + context_matches,
+        "ambiguous_game": ambiguous_matches,
+        "sports": sports_matches,
+        "game_release": release_matches,
         "news": news_matches,
         "viral": viral_matches,
     }
+    if ambiguous_matches:
+        debug["game_context"] = (
+            "explicit video-game context" if video_game_matches else
+            "sports context blocks generic game release" if sports_matches and release_matches else
+            "sports context without video-game evidence" if sports_matches else
+            "game release context" if release_matches else
+            "ambiguous words without video-game context"
+        )
 
     if strong_matches:
         debug["reason"] = f"strong gaming keyword: {strong_matches[0]}"
@@ -125,8 +134,8 @@ def classify_with_debug(item: NormalizedItem) -> tuple[str, dict[str, Any]]:
         if news_matches:
             debug["reason"] = f"news source '{item.source}' + news keyword: {news_matches[0]}"
             return "news", debug
-        if weak_matches or game_word:
-            debug["reason"] = f"gaming keyword in news source: {(weak_matches + game_word)[0]}"
+        if weak_matches or context_matches:
+            debug["reason"] = f"gaming keyword in news source: {(weak_matches + context_matches)[0]}"
             return "gaming", debug
         if viral_matches:
             debug["reason"] = f"viral keyword in news source: {viral_matches[0]}"
@@ -134,7 +143,7 @@ def classify_with_debug(item: NormalizedItem) -> tuple[str, dict[str, Any]]:
         debug["reason"] = f"default news for source '{item.source}'"
         return "news", debug
 
-    all_gaming = weak_matches + game_word
+    all_gaming = weak_matches + context_matches
     if all_gaming and not news_matches:
         debug["reason"] = f"gaming keyword without news context: {all_gaming[0]}"
         return "gaming", debug
