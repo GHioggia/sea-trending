@@ -36,6 +36,8 @@ def build_session(
         backoff_factor=0.6,
         status_forcelist=[429, 500, 502, 503, 504],
         allowed_methods=["GET"],
+        # With retries disabled, let callers inspect the original HTTP status.
+        raise_on_status=max_retries > 0,
     )
     adapter = HTTPAdapter(max_retries=retry)
     session.mount("https://", adapter)
